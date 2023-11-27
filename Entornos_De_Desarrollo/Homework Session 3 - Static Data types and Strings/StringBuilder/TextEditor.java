@@ -40,7 +40,11 @@ public class TextEditor{
 					break;
 
 				case 4: 
-					System.out.println("");
+					System.out.println("Choose beginning: ");
+					int begin = sc.nextInt();
+					System.out.println("Choose ending: ");
+					int end = sc.nextInt();
+					text.delete((begin-1), (end-1));
 					break;
 
 				default: System.out.println("Not founded option."); break;
