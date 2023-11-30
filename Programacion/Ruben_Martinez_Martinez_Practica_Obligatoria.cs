@@ -5,17 +5,22 @@ using System;
 class StudentsStorage{
 	struct MarksData{
 		/*public byte evaluation1;
-		public byte evaluation2;
-		public byte evaluation3;
-		public byte finalMark;*/
+		public int evaluation2;
+		public int evaluation3;
+		public int finalMark;*/
+	}
+	struct BirthDateData{
+		public int day;
+		public int month;
+		public int year;
 	}
 	struct StudentsData{
 		public string dni;
 		public string name;
 		public string surname;
-		/*public string city;
-		public string birthDate;
-		public MarksData marks;*/1
+		public string city;
+		public BirthDateData birthDate;
+		/*public MarksData marks;*/
 	}
 	
 	static void Main(){
@@ -52,23 +57,22 @@ class StudentsStorage{
 		bool done=false;
 		
 		Console.WriteLine("{---[ADDING STUDENT]---}");
-		/*while(!done){
+	/*	while(!done){
 			Console.WriteLine("//DNI example: 12345678A//");
 			Console.Write("Insert DNI: ");
 			string dni = Console.ReadLine();
 			
 			try{
-				string number = dni.Substring(0, dni.Length);
-				int numberInt = Convert.ToInt32(number);
-				if(numberInt < 10000000 || numberInt > 99999999 || 
-					!(dni[8]>='A' && dni[8]<='Z')){
-					Console.WriteLine(" *DNI NOT VALID* \n");
-				} else{
+				string number = dni.Substring(0, (dni.Length-1));
+				int numberInt = ConvertCheckNumber(number, 10000000, 99999999);
+				if(dni[8]>='A' && dni[8]<='Z'){
 					students[studentsCounter].dni = dni;
 					done = true;
+				} else{
+					Console.WriteLine(" *DNI NOT VALID* \n");
 				}
 			} catch(Exception) { Console.WriteLine(" *DNI NOT VALID* \n"); }
-		}*/
+		}
 		
 		done=false;
 		while(!done){
@@ -85,22 +89,39 @@ class StudentsStorage{
 				students[studentsCounter].surname = fullName[1]+" "+fullName[2];
 				done = true;
 			}
+		}
 			
-			done=false;
-			while(!done){
-				Console.WriteLine("//City example: Alicante//");
-				Console.Write("Insert city: ");
-				
-			}
+		Console.WriteLine("//City example: Alicante//");
+		Console.Write("Insert city: ");
+		students[studentsCounter].city = Console.ReadLine();
+			*/
+		done=false;
+		while(!done){
+			Console.WriteLine("//Birth date example: 10-8-2003//");
+			Console.Write(" Insert date: ");
+			string birthDate = Console.ReadLine();
+			
+			try {
+				string[] dateSplitted = birthDate.Split('-');
+				if(dateSplitted.Length == 3 && ){
+					students[studentsCounter].birthDate.day = ConvertCheckNumber(dateSplitted[0], 1, 31);
+					students[studentsCounter].birthDate.month = ConvertCheckNumber(dateSplitted[1], 1, 12);
+					students[studentsCounter].birthDate.year = ConvertCheckNumber(dateSplitted[2], 1800, 2023);
+					Console.WriteLine("{0}-{1}-{2}", students[studentsCounter].birthDate.day, students[studentsCounter].birthDate.month, students[studentsCounter].birthDate.year);
+				} else{ Console.WriteLine(" *DATE NOT VALID* \n"); }
+			} catch(Exception){ Console.WriteLine(" *DATE NOT VALID* \n"); }
+			
 		}
 	}
 	
-	static int CheckIfNumber(string number, int maxNumber, int minNumber){
+	static int CheckNumber(string number, int minNumber, int maxNumber){
+		
 		int numberInt = Convert.ToInt32(number);
 		
-		if(numberint > maxNumber || numberint < minNumber)
-			return false;
-		else
-			return true;
+		if(numberInt < maxNumber && numberInt > minNumber){
+			return numberInt;
+		} else{
+			return 0;
+		}
 	}
 }
