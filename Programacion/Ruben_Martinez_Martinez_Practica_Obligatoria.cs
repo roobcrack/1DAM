@@ -4,10 +4,10 @@ using System;
 
 class StudentsStorage{
 	struct MarksData{
-		/*public byte evaluation1;
-		public int evaluation2;
-		public int evaluation3;
-		public int finalMark;*/
+		public int ev1;
+		public int ev2;
+		public int ev3;
+		public int final;
 	}
 	struct BirthDateData{
 		public int day;
@@ -20,7 +20,7 @@ class StudentsStorage{
 		public string surname;
 		public string city;
 		public BirthDateData birthDate;
-		/*public MarksData marks;*/
+		public MarksData marks;
 	}
 	
 	static void Main(){
@@ -34,7 +34,10 @@ class StudentsStorage{
 			while(!done){
 				try{
 					Console.WriteLine("----------[MENU]----------");
-					Console.WriteLine("[1].Add a student");
+					Console.WriteLine("[1].Add student");
+					Console.WriteLine("[2].Delete student");
+					Console.WriteLine("[3].Sort students");
+					Console.WriteLine("[4].Show students");
 					Console.WriteLine("[0].Leave the program");
 					Console.Write("Insert: ");
 					menuOption = Convert.ToByte(Console.ReadLine());
@@ -49,6 +52,7 @@ class StudentsStorage{
 			switch(menuOption){
 				case 0: Console.WriteLine("Leaving the program . . . "); break;
 				case 1: AddStudent(students, studentsCounter); break;
+				case 4: ShowStudents(students, studentsCounter); break;
 			}
 		}while(menuOption!=0);
 	}
@@ -57,7 +61,7 @@ class StudentsStorage{
 		bool done=false;
 		
 		Console.WriteLine("{---[ADDING STUDENT]---}");
-	/*	while(!done){
+		while(!done){
 			Console.WriteLine("//DNI example: 12345678A//");
 			Console.Write("Insert DNI: ");
 			string dni = Console.ReadLine();
@@ -94,7 +98,7 @@ class StudentsStorage{
 		Console.WriteLine("//City example: Alicante//");
 		Console.Write("Insert city: ");
 		students[studentsCounter].city = Console.ReadLine();
-			*/
+		/*
 		done=false;
 		while(!done){
 			Console.WriteLine("//Birth date example: 10-8-2003//");
@@ -103,7 +107,7 @@ class StudentsStorage{
 			
 			try {
 				string[] dateSplitted = birthDate.Split('-');
-				if(dateSplitted.Length == 3 && ){
+				if(dateSplitted.Length == 3){
 					students[studentsCounter].birthDate.day = ConvertCheckNumber(dateSplitted[0], 1, 31);
 					students[studentsCounter].birthDate.month = ConvertCheckNumber(dateSplitted[1], 1, 12);
 					students[studentsCounter].birthDate.year = ConvertCheckNumber(dateSplitted[2], 1800, 2023);
@@ -111,10 +115,10 @@ class StudentsStorage{
 				} else{ Console.WriteLine(" *DATE NOT VALID* \n"); }
 			} catch(Exception){ Console.WriteLine(" *DATE NOT VALID* \n"); }
 			
-		}
+		}*/
 	}
 	
-	static int CheckNumber(string number, int minNumber, int maxNumber){
+	static int ConvertCheckNumber(string number, int minNumber, int maxNumber){
 		
 		int numberInt = Convert.ToInt32(number);
 		
@@ -122,6 +126,18 @@ class StudentsStorage{
 			return numberInt;
 		} else{
 			return 0;
+		}
+	}
+	
+	static void ShowStudents(StudentsData[] s, int count){
+		for(int i=0; i<count; i++){
+			Console.Write("{0}. Name:{1} {2}, City:{3}, Birthdate:{4}-{5}-{6}, " +
+				"Marks: 1st:{7}, 2nd:{8}, 3rd{9}, Final:{10}", s[i].name, 
+				s[i].surname, s[count].city, s[i].birthDate.day, 
+				s[i].birthDate.month, s[i].birthDate.month, 
+				s[i].birthDate.year, s[i].marks.ev1, s[i].marks.ev2, 
+				s[i].marks.ev3, s[i].marks.final);
+			Console.WriteLine();
 		}
 	}
 }
