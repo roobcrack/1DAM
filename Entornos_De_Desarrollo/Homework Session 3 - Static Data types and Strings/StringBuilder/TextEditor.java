@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class TextEditor{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
-
+		String textAdd;
 		System.out.print("Insert your string: ");
 		StringBuilder text = new StringBuilder(sc.nextLine());
 
@@ -24,9 +24,10 @@ public class TextEditor{
 					System.out.printf("Insert number where you want to modify (1-%d): ", text.length());
 					int position = sc.nextInt();
 					System.out.println("Now insert the string: ");
-					String textAdd = sc.nextLine();
+					textAdd = sc.nextLine();
 					text.insert(position-1, textAdd);
 					break;
+					
 				case 2: 
 					System.out.print("Insert the string: ");
 					textAdd = sc.nextLine();
