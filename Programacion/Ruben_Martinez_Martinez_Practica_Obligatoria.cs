@@ -37,30 +37,36 @@ class StudentsStorage{
 					Console.WriteLine("[1].Add student");
 					Console.WriteLine("[2].Delete student");
 					Console.WriteLine("[3].Sort students");
-					Console.WriteLine("[4].Show students");
+					Console.WriteLine("[4].Search student");
+					Console.WriteLine("[5].Show students");
 					Console.WriteLine("[0].Leave the program");
 					Console.Write("Insert: ");
 					menuOption = Convert.ToByte(Console.ReadLine());
 					
-					if(menuOption>=0 && menuOption<=1){ done = true; }
+					if(menuOption>=0 && menuOption<=5){ done = true; }
 					else{ throw new Exception("Number not valid"); }
 				} catch(Exception){ Console.WriteLine("  *NOT VALID INPUT*\n" + 
-					"*NUMBER MUST BE 0->1*\n"); }
+					"*NUMBER MUST BE 0->5*\n"); }
 			}
 			
 			Console.WriteLine();
 			switch(menuOption){
 				case 0: Console.WriteLine("Leaving the program . . . "); break;
 				case 1: AddStudent(students, studentsCounter); break;
+				case 5: 
+					Console.WriteLine("-Select what field you want to search");
+					Console.Write("[1]-DNI \n[2]-Surname \nInsert: ");
+					int typeSearch = Convert.ToInt32(Console.ReadLine());
+					break;
 				case 4: ShowStudents(students, studentsCounter); break;
 			}
 		}while(menuOption!=0);
 	}
-	
-	static void AddStudent(StudentsData[] students, int studentsCounter){
+	//-------------------------------------------------------------------------
+	static void AddStudent(StudentsData[] s, int count){
 		bool done=false;
-		
-		Console.WriteLine("{---[ADDING STUDENT]---}");
+		//DNI------
+		/*Console.WriteLine("{---[ADDING STUDENT]---}");
 		while(!done){
 			Console.WriteLine("//DNI example: 12345678A//");
 			Console.Write("Insert DNI: ");
@@ -70,14 +76,14 @@ class StudentsStorage{
 				string number = dni.Substring(0, (dni.Length-1));
 				int numberInt = ConvertCheckNumber(number, 10000000, 99999999);
 				if(dni[8]>='A' && dni[8]<='Z'){
-					students[studentsCounter].dni = dni;
+					s[count].dni = dni;
 					done = true;
 				} else{
 					Console.WriteLine(" *DNI NOT VALID* \n");
 				}
 			} catch(Exception) { Console.WriteLine(" *DNI NOT VALID* \n"); }
 		}
-		
+		//Name-------
 		done=false;
 		while(!done){
 			Console.WriteLine("//Name example: Guillermo Ruiz Puentes " +
@@ -89,35 +95,43 @@ class StudentsStorage{
 			if(fullName.Length != 3){
 				Console.WriteLine(" *NAME NOT VALID* \n");
 			} else{
-				students[studentsCounter].name = fullName[0];
-				students[studentsCounter].surname = fullName[1]+" "+fullName[2];
+				s[count].name = fullName[0];
+				s[count].surname = fullName[1]+" "+fullName[2];
 				done = true;
 			}
 		}
-			
+		//City------
 		Console.WriteLine("//City example: Alicante//");
 		Console.Write("Insert city: ");
-		students[studentsCounter].city = Console.ReadLine();
-		/*
+		s[count].city = Console.ReadLine();*/
+		//BirthDate------
 		done=false;
 		while(!done){
 			Console.WriteLine("//Birth date example: 10-8-2003//");
 			Console.Write(" Insert date: ");
 			string birthDate = Console.ReadLine();
 			
-			try {
-				string[] dateSplitted = birthDate.Split('-');
-				if(dateSplitted.Length == 3){
-					students[studentsCounter].birthDate.day = ConvertCheckNumber(dateSplitted[0], 1, 31);
-					students[studentsCounter].birthDate.month = ConvertCheckNumber(dateSplitted[1], 1, 12);
-					students[studentsCounter].birthDate.year = ConvertCheckNumber(dateSplitted[2], 1800, 2023);
-					Console.WriteLine("{0}-{1}-{2}", students[studentsCounter].birthDate.day, students[studentsCounter].birthDate.month, students[studentsCounter].birthDate.year);
-				} else{ Console.WriteLine(" *DATE NOT VALID* \n"); }
-			} catch(Exception){ Console.WriteLine(" *DATE NOT VALID* \n"); }
-			
+			string[] dateSplitted = birthDate.Split('-');
+			do{
+				try {
+					if(dateSplitted.Length == 3){
+						s[count].birthDate.day = ConvertCheckNumber(dateSplitted[0], 1, 31);
+						s[count].birthDate.month = ConvertCheckNumber(dateSplitted[1], 1, 12);
+						s[count].birthDate.year = ConvertCheckNumber(dateSplitted[2], 1900, 2023);
+					} else{ Console.WriteLine(" *DATE NOT VALID* \n"); }
+				} catch(Exception){ Console.WriteLine(" *DATE NOT VALID* \n"); }
+				Console.WriteLine("{0}-{1}-{2}", s[count].birthDate.day, s[count].birthDate.month, s[count].birthDate.year);
+			}while(s[count].birthDate.day == 0 || s[count].birthDate.month == 0 || s[count].birthDate.year == 0);
+			done = true;
+		}
+		Console.WriteLine("Pito");
+		//Marks------
+		/*done=false;
+		while(!done){
+			Console.WriteLine("done");
 		}*/
 	}
-	
+	//-------------------------------------------------------------------------
 	static int ConvertCheckNumber(string number, int minNumber, int maxNumber){
 		
 		int numberInt = Convert.ToInt32(number);
@@ -128,16 +142,19 @@ class StudentsStorage{
 			return 0;
 		}
 	}
-	
+	//-------------------------------------------------------------------------
 	static void ShowStudents(StudentsData[] s, int count){
 		for(int i=0; i<count; i++){
 			Console.Write("{0}. Name:{1} {2}, City:{3}, Birthdate:{4}-{5}-{6}, " +
 				"Marks: 1st:{7}, 2nd:{8}, 3rd{9}, Final:{10}", s[i].name, 
 				s[i].surname, s[count].city, s[i].birthDate.day, 
-				s[i].birthDate.month, s[i].birthDate.month, 
-				s[i].birthDate.year, s[i].marks.ev1, s[i].marks.ev2, 
-				s[i].marks.ev3, s[i].marks.final);
+				s[i].birthDate.month, s[i].birthDate.year, s[i].marks.ev1, 
+				s[i].marks.ev2,	s[i].marks.ev3, s[i].marks.final);
 			Console.WriteLine();
 		}
+	}
+	
+	static void SearchStudent(StudentsData[] s, int count, int type){
+		
 	}
 }
