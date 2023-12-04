@@ -1,0 +1,44 @@
+body{
+    background-color: #808080;
+}
+
+main{
+    background-color: #fdfdfd;
+}
+
+header{
+    background-color: #e1dacc;
+}
+
+#container{
+    display: flex;
+}
+
+#section3{
+    background-color: #faf8f1;
+}
+
+footer{
+    float: left;
+}
+
+button{
+    background-color: #e9e9ed;
+}
+
+.ingrediente{
+    height: 100px;
+    width: 100px;
+}
+
+.icono{
+    width: 20px;
+    height: 20px;
+}
+
+p{
+    margin-top: 0px;
+}
+h4{
+    margin-bottom: 0px;
+}
