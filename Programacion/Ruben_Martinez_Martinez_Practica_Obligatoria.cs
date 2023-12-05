@@ -66,7 +66,7 @@ class StudentsStorage{
 	static void AddStudent(StudentsData[] s, int count){
 		bool done=false;
 		//DNI------
-		/*Console.WriteLine("{---[ADDING STUDENT]---}");
+		Console.WriteLine("{---[ADDING STUDENT]---}");
 		while(!done){
 			Console.WriteLine("//DNI example: 12345678A//");
 			Console.Write("Insert DNI: ");
@@ -103,33 +103,29 @@ class StudentsStorage{
 		//City------
 		Console.WriteLine("//City example: Alicante//");
 		Console.Write("Insert city: ");
-		s[count].city = Console.ReadLine();*/
+		s[count].city = Console.ReadLine();
 		//BirthDate------
+		do{
+			try {
+				Console.WriteLine("//Birth date example: 10-8-2003//");
+				Console.Write(" Insert date: ");
+				string birthDate = Console.ReadLine();
+				
+				string[] dateSplitted = birthDate.Split('-');
+			
+				if(dateSplitted.Length == 3){
+					s[count].birthDate.day = ConvertCheckNumber(dateSplitted[0], 1, 31);
+					s[count].birthDate.month = ConvertCheckNumber(dateSplitted[1], 1, 12);
+					s[count].birthDate.year = ConvertCheckNumber(dateSplitted[2], 1900, 2023);
+				} else{ Console.WriteLine(" *DATE NOT VALID* \n"); }
+			} catch(Exception){ Console.WriteLine(" *DATE NOT VALID* \n"); }
+			Console.WriteLine("{0}-{1}-{2}", s[count].birthDate.day, s[count].birthDate.month, s[count].birthDate.year);
+		}while(s[count].birthDate.day == 0 || s[count].birthDate.month == 0 || s[count].birthDate.year == 0);
+		//Marks------
 		done=false;
 		while(!done){
-			Console.WriteLine("//Birth date example: 10-8-2003//");
-			Console.Write(" Insert date: ");
-			string birthDate = Console.ReadLine();
 			
-			string[] dateSplitted = birthDate.Split('-');
-			do{
-				try {
-					if(dateSplitted.Length == 3){
-						s[count].birthDate.day = ConvertCheckNumber(dateSplitted[0], 1, 31);
-						s[count].birthDate.month = ConvertCheckNumber(dateSplitted[1], 1, 12);
-						s[count].birthDate.year = ConvertCheckNumber(dateSplitted[2], 1900, 2023);
-					} else{ Console.WriteLine(" *DATE NOT VALID* \n"); }
-				} catch(Exception){ Console.WriteLine(" *DATE NOT VALID* \n"); }
-				Console.WriteLine("{0}-{1}-{2}", s[count].birthDate.day, s[count].birthDate.month, s[count].birthDate.year);
-			}while(s[count].birthDate.day == 0 || s[count].birthDate.month == 0 || s[count].birthDate.year == 0);
-			done = true;
 		}
-		Console.WriteLine("Pito");
-		//Marks------
-		/*done=false;
-		while(!done){
-			Console.WriteLine("done");
-		}*/
 	}
 	//-------------------------------------------------------------------------
 	static int ConvertCheckNumber(string number, int minNumber, int maxNumber){
@@ -143,6 +139,10 @@ class StudentsStorage{
 		}
 	}
 	//-------------------------------------------------------------------------
+	static void AskForMark(StudentsData[] s, int count){
+		
+	}
+	//-------------------------------------------------------------------------
 	static void ShowStudents(StudentsData[] s, int count){
 		for(int i=0; i<count; i++){
 			Console.Write("{0}. Name:{1} {2}, City:{3}, Birthdate:{4}-{5}-{6}, " +
@@ -153,7 +153,7 @@ class StudentsStorage{
 			Console.WriteLine();
 		}
 	}
-	
+	//-------------------------------------------------------------------------
 	static void SearchStudent(StudentsData[] s, int count, int type){
 		
 	}
