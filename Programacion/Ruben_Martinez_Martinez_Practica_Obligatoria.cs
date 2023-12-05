@@ -124,7 +124,8 @@ class StudentsStorage{
 		//Marks------
 		done=false;
 		while(!done){
-			
+			Console.WriteLine("//Marks example: 8/9/7 (1st eval, 2nd eval, 3rd eval");
+			Console.Write(" Insert marks: ");
 		}
 	}
 	//-------------------------------------------------------------------------
@@ -132,15 +133,11 @@ class StudentsStorage{
 		
 		int numberInt = Convert.ToInt32(number);
 		
-		if(numberInt < maxNumber && numberInt > minNumber){
+		if(numberInt <= maxNumber && numberInt >= minNumber){
 			return numberInt;
 		} else{
 			return 0;
 		}
-	}
-	//-------------------------------------------------------------------------
-	static void AskForMark(StudentsData[] s, int count){
-		
 	}
 	//-------------------------------------------------------------------------
 	static void ShowStudents(StudentsData[] s, int count){
