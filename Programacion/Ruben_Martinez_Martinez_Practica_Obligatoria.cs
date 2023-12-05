@@ -7,7 +7,7 @@ class StudentsStorage{
 		public int ev1;
 		public int ev2;
 		public int ev3;
-		public int final;
+		public float final;
 	}
 	struct BirthDateData{
 		public int day;
