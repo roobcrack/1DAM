@@ -19,7 +19,7 @@ class StudentsStorage{
 		public string name;
 		public string surname;
 		public string city;
-		public BirthDateData birthDate;
+		public BirthDateData birth;
 		public MarksData marks;
 	}
 	
@@ -58,16 +58,22 @@ class StudentsStorage{
 					bool done2 = false;
 					while(!done2){
 						try{
-							Console.WriteLine("-Select what field you want to search");
-							Console.Write("[1]-DNI \n[2]-Surname\n[0]-Exit \nInsert: ");
-							int typeSearch = Convert.ToInt32(Console.ReadLine());
+							Console.WriteLine("-Select what field you want to" +
+							" search");
+							Console.Write("[1]-DNI \n[2]-Surname\n[0]-Exit \n" +
+							"Insert: ");
+							int typeSearch = 
+								Convert.ToInt32(Console.ReadLine());
 							if(typeSearch >= 0 && typeSearch <=2){
 								if(typeSearch != 0){
-									SortStudents(students, studentsCounter, typeSearch);
+									SortStudents(students, studentsCounter, 
+										typeSearch);
 								}
 								done2 = true;
-							} else { throw new Exception(" *NOT VALID INSERT* "); }
-						} catch(Exception) { Console.WriteLine(" *NOT VALID INSERT* "); }
+							} else { throw new Exception(" *NOT VALID INSERT*" +
+								" "); }
+						} catch(Exception) { Console.WriteLine(" *NOT VALID " +
+							"INSERT* "); }
 					}
 					break;
 				case 5: ShowStudents(students, studentsCounter); break;
@@ -99,7 +105,7 @@ class StudentsStorage{
 		done=false;
 		while(!done){
 			Console.WriteLine("//Name example: Guillermo Ruiz Puentes " +
-			"(without second names//");
+			"(without second names)//");
 			Console.Write("Insert name: ");
 			string name = Console.ReadLine();
 			
@@ -127,10 +133,14 @@ class StudentsStorage{
 				string[] dateSplitted = birthDate.Split('-');
 			
 				if(dateSplitted.Length == 3){
-					s[count].birthDate.day = ConvertCheckNumber(dateSplitted[0], 1, 31);
-					s[count].birthDate.month = ConvertCheckNumber(dateSplitted[1], 1, 12);
-					s[count].birthDate.year = ConvertCheckNumber(dateSplitted[2], 1900, 2023);
-					if(s[count].birthDate.day < 0 || s[count].birthDate.month < 0 || s[count].birthDate.year < 0){
+					s[count].birth.day = 
+						ConvertCheckNumber(dateSplitted[0], 1, 31);
+					s[count].birth.month = 
+						ConvertCheckNumber(dateSplitted[1], 1, 12);
+					s[count].birth.year = 
+						ConvertCheckNumber(dateSplitted[2], 1900, 2023);
+					if(s[count].birth.day < 0 || s[count].birth.month < 0 ||
+						s[count].birth.year < 0){
 						throw new Exception(" *DATE NOT VALID* \n");
 					} else{
 						done = true;
@@ -149,13 +159,18 @@ class StudentsStorage{
 				string[] marksSplitted = marks.Split();
 			
 				if(marksSplitted.Length == 3){
-					s[count].marks.ev1 = ConvertCheckNumber(marksSplitted[0], 0, 10);
-					s[count].marks.ev2 = ConvertCheckNumber(marksSplitted[1], 0, 10);
-					s[count].marks.ev3 = ConvertCheckNumber(marksSplitted[2], 0, 10);
-					if(s[count].marks.ev1 < 0 || s[count].marks.ev2 < 0 || s[count].marks.ev3 < 0){
+					s[count].marks.ev1 = 
+						ConvertCheckNumber(marksSplitted[0], 0, 10);
+					s[count].marks.ev2 = 
+						ConvertCheckNumber(marksSplitted[1], 0, 10);
+					s[count].marks.ev3 = 
+						ConvertCheckNumber(marksSplitted[2], 0, 10);
+					if(s[count].marks.ev1 < 0 || s[count].marks.ev2 < 0 || 
+						s[count].marks.ev3 < 0){
 						throw new Exception(" *MARKS NOT VALID* \n");
 					} else{
-						s[count].marks.final = (s[count].marks.ev1 + s[count].marks.ev2 + s[count].marks.ev3) / 3;
+						s[count].marks.final = (s[count].marks.ev1 + 
+							s[count].marks.ev2 + s[count].marks.ev3) / 3;
 						done = true;
 					}
 				} else{ Console.WriteLine(" *MARKS NOT VALID* \n"); }
@@ -211,10 +226,11 @@ class StudentsStorage{
 	//-------------------------------------------------------------------------
 	static void ShowStudents(StudentsData[] s, int count){
 		for(int i=0; i<count; i++){
-			Console.Write("{0}. Name: {1} {2} | DNI: {3} | City:{4} | Birthdate: {5}-{6}-{7} | " +
-				"Marks-> 1st: {8} - 2nd:{9} - 3rd{10} - Final:{11}", i+1, s[i].name, 
-				s[i].surname, s[i].dni, s[i].city, s[i].birthDate.day, 
-				s[i].birthDate.month, s[i].birthDate.year, s[i].marks.ev1, 
+			Console.Write("{0}. Name: {1} {2} | DNI: {3} | City:{4} | "+
+				"Birthdate: {5}-{6}-{7} | Marks-> 1st: {8} - 2nd:{9} - " +
+				"3rd{10} - Final:{11}", i+1, s[i].name, 
+				s[i].surname, s[i].dni, s[i].city, s[i].birth.day, 
+				s[i].birth.month, s[i].birth.year, s[i].marks.ev1, 
 				s[i].marks.ev2,	s[i].marks.ev3, s[i].marks.final);
 			Console.WriteLine();
 		}
@@ -255,9 +271,9 @@ class StudentsStorage{
 		s[0].name = "Ruben";
 		s[0].surname = "Martinez Martinez";
 		s[0].city = "Mutxamel";
-		s[0].birthDate.day = 10;
-		s[0].birthDate.month = 8;
-		s[0].birthDate.year = 2003;
+		s[0].birth.day = 10;
+		s[0].birth.month = 8;
+		s[0].birth.year = 2003;
 		s[0].marks.ev1 = 8;
 		s[0].marks.ev2 = 9;
 		s[0].marks.ev3 = 10;
@@ -267,9 +283,9 @@ class StudentsStorage{
 		s[1].name = "Jonathan";
 		s[1].surname = "Vera Abascal";
 		s[1].city = "Alicante";
-		s[1].birthDate.day = 19;
-		s[1].birthDate.month = 3;
-		s[1].birthDate.year = 2013;
+		s[1].birth.day = 19;
+		s[1].birth.month = 3;
+		s[1].birth.year = 2013;
 		s[1].marks.ev1 = 7;
 		s[1].marks.ev2 = 8;
 		s[1].marks.ev3 = 9;
@@ -279,9 +295,9 @@ class StudentsStorage{
 		s[2].name = "Juan";
 		s[2].surname = "Ageitos Bonaldi";
 		s[2].city = "Benidorm";
-		s[2].birthDate.day = 24;
-		s[2].birthDate.month = 11;
-		s[2].birthDate.year = 2000;
+		s[2].birth.day = 24;
+		s[2].birth.month = 11;
+		s[2].birth.year = 2000;
 		s[2].marks.ev1 = 10;
 		s[2].marks.ev2 = 10;
 		s[2].marks.ev3 = 10;
@@ -291,9 +307,9 @@ class StudentsStorage{
 		s[3].name = "Pepe";
 		s[3].surname = "Viyuela Carvajal";
 		s[3].city = "Ecuador";
-		s[3].birthDate.day = 15;
-		s[3].birthDate.month = 12;
-		s[3].birthDate.year = 1967;
+		s[3].birth.day = 15;
+		s[3].birth.month = 12;
+		s[3].birth.year = 1967;
 		s[3].marks.ev1 = 8;
 		s[3].marks.ev2 = 9;
 		s[3].marks.ev3 = 10;
@@ -303,9 +319,9 @@ class StudentsStorage{
 		s[4].name = "José";
 		s[4].surname = "Benjamín Zarrapastroso";
 		s[4].city = "Chile";
-		s[4].birthDate.day = 1;
-		s[4].birthDate.month = 2;
-		s[4].birthDate.year = 2003;
+		s[4].birth.day = 1;
+		s[4].birth.month = 2;
+		s[4].birth.year = 2003;
 		s[4].marks.ev1 = 4;
 		s[4].marks.ev2 = 5;
 		s[4].marks.ev3 = 6;
