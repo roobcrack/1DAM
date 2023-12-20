@@ -9,10 +9,10 @@ public class CountOcurrences{
 		String b = sc.nextLine();
 		System.out.print("Insert: ");
 		int c = sc.nextInt();
-		System.out.print(countString(a, b, c););
+		System.out.print(countString(a, b, c));
 	}
 
 	public static bool countString(String a, String b, int c){
-
+		
 	}
 }
