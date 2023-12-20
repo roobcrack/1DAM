@@ -6,14 +6,13 @@ public class Palindrome{
 		String textFinal;
 		System.out.print("Insert your string: ");
 		String text = sc.nextLine();
-		isPalindrome(text, textFinal);
-
-		
+		isPalindrome(text, textFinal);		
 	}
 
 	public static void isPalindrome(String text, String textFinal){
 		for(char l : text){
 			if(l==' '){
+				l.parse
 				continue;
 			} else{
 				textFinal = textFinal + l;
