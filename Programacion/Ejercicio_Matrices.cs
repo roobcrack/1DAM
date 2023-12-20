@@ -125,7 +125,7 @@ class EjercicioMatrices{
 	//------------
 	static void TrasponerMatrices(ref Matrices m, int dimension){
 		for(int i=0; i<dimension; i++){
-			for(int j=0; j<dimension; j++){
+			for(int j=dimension-1; j>0; j--){
 				TrasponerMatrizAux(ref m.matriz1, dimension, i, j);
 				TrasponerMatrizAux(ref m.matriz2, dimension, i, j);
 			}
@@ -133,9 +133,9 @@ class EjercicioMatrices{
 		MostrarMatriz(m, dimension);
 	}
 	
-	static void TrasponerMatrizAux(ref int[,] matriz, int dimension, int i, int j){
-		int vTemp = matriz[i,j];
-		matriz[i,j] = matriz[j,i];
-		matriz[j,i] = vTemp;
+	static void TrasponerMatrizAux(ref int[,] m, int dimension, int i, int j){
+		int vTemp = m[i,j];
+		m[i,j] = m[j,i];
+		m[j,i] = vTemp;
 	}
 }
