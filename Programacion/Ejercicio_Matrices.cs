@@ -31,11 +31,11 @@ class EjercicioMatrices{
 					case 3: MostrarMatriz(matrices, dimension); break;
 					case 4: OperarMatrices(matrices, dimension); break;
 					case 5: TrasponerMatrices(ref matrices, dimension); break;
-					default: Console.WriteLine("ERROR. Opcion debe ser entre " +
+					default: Console.WriteLine("ERROR.Opcion debe ser entre " +
 							"0 y 5");
 						break;
 				}
-			}catch(Exception){ Console.WriteLine("ERROR. Opcion no valida."); }
+			}catch(Exception){ Console.WriteLine("ERROR.Opcion no valida."); }
 			Console.WriteLine();
 			
 		} while(opcion!=0);
@@ -53,7 +53,7 @@ class EjercicioMatrices{
 					matrices.matriz2 = new int[dimension,dimension];
 					matrices.matriz3 = new int[dimension,dimension];
 				} else{ throw new Exception(); }
-			}catch(Exception){ Console.WriteLine("ERROR. Opcion no valida\n"); }
+			}catch(Exception){ Console.WriteLine("ERROR.Opcion no valida\n"); }
 		}
 	}
 	//----------------
@@ -101,7 +101,7 @@ class EjercicioMatrices{
 					if(opcion==1 || opcion==2){ done = true; }
 					else{ throw new Exception(); }
 				}catch(Exception){
-					Console.WriteLine("ERROR. Opcion no valida\n"); 
+					Console.WriteLine("ERROR.Opcion no valida\n"); 
 				}
 			}
 			for(int i=0; i<dimension; i++){
