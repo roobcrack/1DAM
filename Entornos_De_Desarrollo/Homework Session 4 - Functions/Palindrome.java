@@ -5,10 +5,24 @@ public class Palindrome{
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Insert your string: ");
 		String text = sc.nextLine();
+<<<<<<< HEAD
 		if(isPalindrome(text)){
 			System.out.println("Is palindrome");
 		} else{
 			System.out.println("Is not palindrome");
+=======
+		isPalindrome(text, textFinal);		
+	}
+
+	public static void isPalindrome(String text, String textFinal){
+		for(char l : text){
+			if(l==' '){
+				l.parse
+				continue;
+			} else{
+				textFinal = textFinal + l;
+			}
+>>>>>>> 39efcd62ada9bc6ba0ff025a7d46134f57c2664a
 		}
 	}
 
