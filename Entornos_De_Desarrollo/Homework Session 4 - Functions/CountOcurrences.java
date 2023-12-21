@@ -8,11 +8,13 @@ public class CountOcurrences{
 		System.out.print("Phrase b: ");
 		String b = sc.nextLine();
 		System.out.print("Insert: ");
-		int c = sc.nextInt();
-		System.out.print(countString(a, b, c););
+		int n = sc.nextInt();
+		if(countString(a, b, n>0){
+
+		}
 	}
 
-	public static bool countString(String a, String b, int c){
+	public static boolean countString(String a, String b, int n){
 		
 	}
 }
