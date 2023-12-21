@@ -5,11 +5,11 @@ using System;
 struct Matrices{
 	public int[,] matriz1;
 	public int[,] matriz2;
-	public int[,] matriz3;
+	public int[,] matrizR;
 }
 class EjercicioMatrices{
 	static void Main(){
-		Matrices matrices = new Matrices();
+		Matrices matrix = new Matrices();
 		int opcion=1, dimension=0;
 		do{
 			try{
@@ -17,22 +17,59 @@ class EjercicioMatrices{
 				Console.WriteLine("1.Dimensionar matriz");
 				Console.WriteLine("2.Rellenar matriz");
 				Console.WriteLine("3.Mostrar matriz");
-				Console.WriteLine("4.Operar matrices");
-				Console.WriteLine("5.Trasponer matrices");
+				Console.WriteLine("4.Sumar matrices");
+				Console.WriteLine("5.Restar matrices");
+				Console.WriteLine("6.Multiplicar matrices");
+				Console.WriteLine("7.Trasponer matrices");
 				Console.Write("0.Salir del programa\nInserte: ");
 				opcion = Convert.ToInt32(Console.ReadLine());
 				
 				switch(opcion){
 					case 0: Console.WriteLine("\nSaliendo del programa . . . "); 	
 						break;
-					case 1: DimensionarMatriz(ref matrices, ref dimension); 
+					case 1: 
+						bool done = false;
+						while(!done){
+							Console.Write("Dimension: ");
+							try{
+								dimension = Convert.ToInt32(Console.ReadLine());
+								if(dimension>0){
+									done = true;
+									DimensionarMatriz(ref matrix, ref dimension);
+								} else throw new Exception(); 
+							}catch(Exception){ Console.WriteLine("ERROR.Opcion"+
+								" no valida\n"); }
+						}
 						break;
-					case 2: RellenarMatriz(ref matrices, dimension); break;
-					case 3: MostrarMatriz(matrices, dimension); break;
-					case 4: OperarMatrices(matrices, dimension); break;
-					case 5: TrasponerMatrices(ref matrices, dimension); break;
+					case 2: if(dimension>0)
+								RellenarMatriz(ref matrix, dimension); 
+							else 
+								Console.WriteLine("ERROR.Las matrices no estan"+
+								" dimensionadas"); 
+						break;
+					case 3: if(dimension>0)
+								MostrarMatriz(matrix, dimension); 
+							else 
+								Console.WriteLine("ERROR.Las matrices no estan"+
+								" dimensionadas"); 
+						break;
+					case 4: SumarMatrices(ref matrix, dimension);
+							MostrarMatriz(matrix, dimension, '+');
+						break;
+					case 5: RestarMatrices(ref matrix, dimension);
+							MostrarMatriz(matrix, dimension, '-');
+						break;
+					case 6: MultiplicarMatrices(ref matrix, dimension);
+							MostrarMatriz(matrix, dimension, '*');
+						break;
+					case 7: Console.WriteLine("Originales: ");
+							MostrarMatriz(matrix, dimension);
+							TrasponerMatrices(ref matrix, dimension);
+							Console.WriteLine("Traspuestas: ");
+							MostrarMatriz(matrix, dimension);
+						break;
 					default: Console.WriteLine("ERROR.Opcion debe ser entre " +
-							"0 y 5");
+							"0 y 7");
 						break;
 				}
 			}catch(Exception){ Console.WriteLine("ERROR.Opcion no valida."); }
@@ -41,42 +78,30 @@ class EjercicioMatrices{
 		} while(opcion!=0);
 	}
 	//------------
-	static void DimensionarMatriz(ref Matrices matrices, ref int dimension){
-		bool done = false;
-		while(!done){
-			try{
-				Console.Write("Dimension: ");
-				dimension = Convert.ToInt32(Console.ReadLine());
-				if(dimension>0){
-					done = true;
-					matrices.matriz1 = new int[dimension,dimension];
-					matrices.matriz2 = new int[dimension,dimension];
-					matrices.matriz3 = new int[dimension,dimension];
-				} else{ throw new Exception(); }
-			}catch(Exception){ Console.WriteLine("ERROR.Opcion no valida\n"); }
-		}
+	static void DimensionarMatriz(ref Matrices m, ref int dimension){
+		m.matriz1 = new int[dimension,dimension];
+		m.matriz2 = new int[dimension,dimension];
+		m.matrizR = new int[dimension,dimension];
 	}
 	//----------------
-	static void RellenarMatriz(ref Matrices matrices, int dimension){
-		if(dimension>0){
-			Random rd = new Random();
-			for(int i=0; i<dimension; i++){
-				for(int j=0; j<dimension; j++){
-					matrices.matriz1[i,j] = rd.Next(0,10);
-					matrices.matriz2[i,j] = rd.Next(0,10);
-				}
+	static void RellenarMatriz(ref Matrices m, int dimension){
+		Random rd = new Random();
+		for(int i=0; i<dimension; i++){
+			for(int j=0; j<dimension; j++){
+				m.matriz1[i,j] = rd.Next(0,10);
+				m.matriz2[i,j] = rd.Next(0,10);
 			}
-		} else{
-			Console.WriteLine("ERROR.Las matrices no estan dimensionadas"); }
+		}
 	}
 	//-----------------
-	static void MostrarMatriz(Matrices matrices, int dimension){
-		if(dimension>0){
-			DibujarMatriz(matrices.matriz1, dimension);
-			Console.WriteLine();
-			DibujarMatriz(matrices.matriz2, dimension);
-		} else{
-			Console.WriteLine("ERROR.Las matrices no estan dimensionadas"); }
+	static void MostrarMatriz(Matrices m, int dimension, char tipo=' '){
+		DibujarMatriz(m.matriz1, dimension);
+		Console.WriteLine("   "+tipo);
+		DibujarMatriz(m.matriz2, dimension);
+		if(tipo!=' '){
+			Console.WriteLine("   =");
+			DibujarMatriz(m.matrizR, dimension);
+		}
 	}
 	
 	static void DibujarMatriz(int[,] matriz, int dimension){
@@ -89,40 +114,34 @@ class EjercicioMatrices{
 		}
 	}
 	//----------------
-	static void OperarMatrices(Matrices m, int dimension){
-		if(dimension>0){
-			int opcion=0;
-			string operador="";
-			bool done = false;
-			while(!done){
-				Console.Write("¿Quieres (1)sumar o (2)restar?\nInserte: ");
-				try{
-					opcion = Convert.ToInt32(Console.ReadLine());
-					if(opcion==1 || opcion==2){ done = true; }
-					else{ throw new Exception(); }
-				}catch(Exception){
-					Console.WriteLine("ERROR.Opcion no valida\n"); 
-				}
+	static void SumarMatrices(ref Matrices m, int dimension){
+		for(int i=0; i<dimension; i++){
+			for(int j=0; j<dimension; j++){
+				m.matrizR[i,j] = m.matriz1[i,j] + m.matriz2[i,j];
 			}
-			for(int i=0; i<dimension; i++){
-				for(int j=0; j<dimension; j++){
-					switch(opcion){
-						case 1:m.matriz3[i,j] = m.matriz1[i,j] + m.matriz2[i,j];
-						operador = "+"; break;
-						case 2:m.matriz3[i,j] = m.matriz1[i,j] - m.matriz2[i,j]; 
-						operador = "-"; break; 
-					}
-				}
-			}
-			DibujarMatriz(m.matriz1, dimension);
-			Console.WriteLine(" "+operador);
-			DibujarMatriz(m.matriz2, dimension);
-			Console.WriteLine(" =");
-			DibujarMatriz(m.matriz3, dimension);
-		} else{ Console.WriteLine("ERROR.Las matrices no estan " +
-				"dimensionadas"); }
+		}
 	}
-	//------------
+	
+	static void RestarMatrices(ref Matrices m, int dimension){
+		for(int i=0; i<dimension; i++){
+			for(int j=0; j<dimension; j++){
+				m.matrizR[i,j] = m.matriz1[i,j] - m.matriz2[i,j];
+			}
+		}
+	}
+	
+	static void MultiplicarMatrices(ref Matrices m, int dimension){
+		for(int i=0; i>dimension; i++){
+			for(int j=0; j>dimension; j++){
+				int suma=0;
+				for(int k=0; k>dimension; k++){
+					suma +=m.matriz1[i,k] * m.matriz2[k,j];
+				}
+				m.matrizR[i,j] = suma;
+			}
+		}
+	}
+	//--------------
 	static void TrasponerMatrices(ref Matrices m, int dimension){
 		for(int i=0; i<dimension; i++){
 			for(int j=dimension-1; j>0; j--){
@@ -130,12 +149,11 @@ class EjercicioMatrices{
 				TrasponerMatrizAux(ref m.matriz2, dimension, i, j);
 			}
 		}
-		MostrarMatriz(m, dimension);
 	}
 	
-	static void TrasponerMatrizAux(ref int[,] m, int dimension, int i, int j){
-		int vTemp = m[i,j];
-		m[i,j] = m[j,i];
-		m[j,i] = vTemp;
+	static void TrasponerMatrizAux(ref int[,] matriz, int dimension, int i, int j){
+		int vTemp = matriz[i,j];
+		matriz[i,j] = matriz[j,i];
+		matriz[j,i] = vTemp;
 	}
 }

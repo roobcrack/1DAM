@@ -1,53 +1,40 @@
 import java.util.Scanner;
 public class Main{
 	public static void main(String[] args){
-		int evenNumbersTotal, oddNumbersTotal;
-		int numbers[] = new double [marks];
 		Scanner sc = new Scanner(System.in);
+		int evenNumbersTotal=2, oddNumbersTotal=2;
+		int numbers[] = new int[10];
 		
 		System.out.println("Enter 10 numbers");
 		for(int i=0;i<10;i++){
-			System.out.print("Insert: ");
+			System.out.printf("%d.Insert: ",i+1);
 			numbers[i] = sc.nextInt();
 		}
-	}
-		
-	public int calculateNumber(){
-			
+	
 		for(int i=0;i<10;i++){
-			
+			if(numbers[i]%2==0)
+				evenNumbersTotal++;
+			else
+				oddNumbersTotal++;
 		}
-	}
-		
-		
-	public void separateNumbers(){
+
 		int oddNumbers[] = new int [oddNumbersTotal];
 		int evenNumbers[] = new int[evenNumbersTotal];
-			
+		
 		for(int i=0;i<10;i++){
+			int counterOdd=0, counterEven=0;
 			if(numbers[i]%2==0){
-				numbers[i] = evenNumbers[i];
-			}else{
-				numbers[i] = oddNumbers[i];
+				evenNumbers[counterEven] = numbers[i];
+				counterEven++;
+			} else{
+				oddNumbers[counterOdd] = numbers[i];
+				counterOdd++;
 			}
 		}
-		
-		System.out.print("There are %d odd numbers: ", oddNumbersTotal);
-		for(int i=0;i<oddNumbers.Length[];i++){
-			if(i<oddNumbers.Length[]){
-				System.out.print("%d, ");
-			}else{
-				System.out.print("%d");
-			}
-		}
-		
-		System.out.print("There are %d even numbers", evenNumbersTotal);
-		for(int i=0;i<evenNumbers.Length[];i++){
-			if(i<evenNumbers.Length[]){
-				System.out.print("%d, ");
-			}else{
-				System.out.print("%d");
-			}
+
+		System.out.print("Here all even numbers: ");
+		for(int i=0; i<evenNumbers.Length(); i++){
+			System.out.printf(" %d", numbers[i]);
 		}
 	}
 }
