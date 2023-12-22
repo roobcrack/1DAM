@@ -41,28 +41,26 @@ class EjercicioMatrices{
 								" no valida\n"); }
 						}
 						break;
-					case 2: if(dimension>0)
-								RellenarMatriz(ref matrix, dimension); 
-							else 
-								Console.WriteLine("ERROR.Las matrices no estan"+
-								" dimensionadas"); 
+					case 2: ComprobarDimensionado(dimension);
+							RellenarMatriz(ref matrix, dimension); 
 						break;
-					case 3: if(dimension>0)
-								MostrarMatriz(matrix, dimension); 
-							else 
-								Console.WriteLine("ERROR.Las matrices no estan"+
-								" dimensionadas"); 
+					case 3: ComprobarDimensionado(dimension);
+							MostrarMatriz(matrix, dimension); 
 						break;
-					case 4: SumarMatrices(ref matrix, dimension);
+					case 4: ComprobarDimensionado(dimension);
+							SumarMatrices(ref matrix, dimension);
 							MostrarMatriz(matrix, dimension, '+');
 						break;
-					case 5: RestarMatrices(ref matrix, dimension);
+					case 5: ComprobarDimensionado(dimension);
+							RestarMatrices(ref matrix, dimension);
 							MostrarMatriz(matrix, dimension, '-');
 						break;
-					case 6: MultiplicarMatrices(ref matrix, dimension);
+					case 6: ComprobarDimensionado(dimension);
+							MultiplicarMatrices(ref matrix, dimension);
 							MostrarMatriz(matrix, dimension, '*');
 						break;
-					case 7: Console.WriteLine("Originales: ");
+					case 7: ComprobarDimensionado(dimension);
+							Console.WriteLine("Originales: ");
 							MostrarMatriz(matrix, dimension);
 							TrasponerMatrices(ref matrix, dimension);
 							Console.WriteLine("Traspuestas: ");
@@ -72,7 +70,7 @@ class EjercicioMatrices{
 							"0 y 7");
 						break;
 				}
-			}catch(Exception){ Console.WriteLine("ERROR.Opcion no valida."); }
+			}catch(Exception e){ Console.WriteLine("ERROR."+e.Message); }
 			Console.WriteLine();
 			
 		} while(opcion!=0);
@@ -155,5 +153,10 @@ class EjercicioMatrices{
 		int vTemp = matriz[i,j];
 		matriz[i,j] = matriz[j,i];
 		matriz[j,i] = vTemp;
+	}
+	//--------------
+	static void ComprobarDimensionado(int dimension){
+		if(dimension<1)
+			throw new Exception("Las matrices no esta dimensionadas");
 	}
 }

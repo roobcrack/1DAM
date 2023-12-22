@@ -2,10 +2,10 @@ import java.util.Scanner;
 public class Ex2{
 	public static void main(String[] args){
 		System.out.println("Insert numbers until you insert 0");
-		askCountNumbers();
+		askNumbers();
 	}
 		
-	public static void askCountNumbers(){
+	public static void askNumbers(){
 		Scanner sc = new Scanner(System.in);
 		int number=1, counter=0;
 
