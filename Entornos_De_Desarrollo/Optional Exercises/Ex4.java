@@ -1,22 +1,33 @@
 import java.util.Scanner;
-public class Main{
+
+public class Ex4{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
-		int maxNumber, minNumber, addNumber=0, avgNumber=0;
-		String input;
+		int maxNumber, minNumber, addNumber, avgNumber;
 		
+		int counter=0;
 		do{
 			System.out.print("Insert: ");
-			input = sc.nextLine();
-			if(addNumber==0){ maxNumber = number(input); minNumber= number(input); }
-		}while(input!="end");
-	}
+			String input = sc.nextLine();
 
-	static int number(String input){
-		return Integer.parseInt(input);
-	}
+			if(input.compareTo("end")<0){
+				try{
+					int numberInt = Integer.parseInt(input);
+					if(counter==0){
+						maxNumber=minNumber=addNumber=avgNumber=numberInt;
+					} else{
+						avgNumber=(avgNumber+numberInt) / 2;
+						addNumber+=numberInt;
+						if(minNumber>numberInt){minNumber=numberInt;}
+						if(maxNumber<numberInt){maxNumber=numberInt;}
+					}
+					counter++;
+					System.out.printf("%d.Min: %d, Max: %d, Add: %d, Avg: %d",counter, minNumber, maxNumber, addNumber, avgNumber);
 
-	static void checkNumber(){
-		
+				} catch(Exception e){
+					System.out.println("Error");
+				}
+			}
+		}while(input.compareTo("end")<0);
 	}
 }
