@@ -1,5 +1,6 @@
 import java.util.Scanner;
-public class Main{
+
+public class Ex4{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		int maxNumber, minNumber, addNumber=0, avgNumber=0;

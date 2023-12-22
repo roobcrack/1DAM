@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Ex5{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
@@ -10,7 +11,11 @@ public class Ex5{
 		int[] numbers = new int[marks];
 		marksEnter(sc, numbers, marks);
 
-		System.out.printf("The average is: %d. The mark greater than average is %d.", averageNumber(numbers, marks), greaterNumberCalc(numbers, marks));
+		System.out.printf("The average is: %d. The marks greater than average are: ", averageNumber(numbers, marks));
+		for(int i=0; i<marks; i++){
+			if(numbers[i]>averageNumber(numbers, marks))
+				System.out.printf(" %d", numbers[i]);
+		}
 	}
 	
 	public static void marksEnter(Scanner sc, int[] numbers, int marks){
@@ -28,16 +33,5 @@ public class Ex5{
 			total = total + numbers[i]; 
 		}
 		return total/marks;
-	}
-	
-	public static int greaterNumberCalc(int[] numbers, int marks){
-		int greaterNumber = numbers[0];
-		
-		for(int i=0;i<marks;i++){
-			if(greaterNumber<numbers[i]){
-				greaterNumber = numbers[i];
-			}
-		}
-		return greaterNumber;
 	}
 }

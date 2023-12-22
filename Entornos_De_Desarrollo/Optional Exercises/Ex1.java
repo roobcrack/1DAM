@@ -10,19 +10,11 @@ public class Ex1{
 		number = sc.nextInt();
 		
 		System.out.printf("The first %d squared numbers are: ",number);
-		
 		//Print the values
 		for(int i=1;i<=number;i++){
-			System.out.print(squareCalc(number, i));
-			
+			System.out.print(i*i);
 			if(i<number)
 				System.out.print(", ");
 		}
-	}
-
-
-	public static int squareCalc(int number, int i){
-		//Calculate the values
-		return i * i;
 	}
 }

@@ -1,8 +1,9 @@
 import java.util.Scanner;
-public class Main{
+
+public class Ex8{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
-		int evenNumbersTotal=2, oddNumbersTotal=2;
+		int evenNumbersTotal=0, oddNumbersTotal=0;
 		int numbers[] = new int[10];
 		
 		System.out.println("Enter 10 numbers");
@@ -21,8 +22,8 @@ public class Main{
 		int oddNumbers[] = new int [oddNumbersTotal];
 		int evenNumbers[] = new int[evenNumbersTotal];
 		
+		int counterOdd=0, counterEven=0;
 		for(int i=0;i<10;i++){
-			int counterOdd=0, counterEven=0;
 			if(numbers[i]%2==0){
 				evenNumbers[counterEven] = numbers[i];
 				counterEven++;
@@ -31,10 +32,15 @@ public class Main{
 				counterOdd++;
 			}
 		}
+		printArray(evenNumbers, "even");
+		System.out.println();
+		printArray(oddNumbers, "odd");
+	}
 
-		System.out.print("Here all even numbers: ");
-		for(int i=0; i<evenNumbers.Length(); i++){
-			System.out.printf(" %d", numbers[i]);
+	static void printArray(int[] array, String type){
+		System.out.printf("Here all %s numbers: ", type);
+		for(int i=0; i<array.length; i++){
+			System.out.printf(" %d", array[i]);
 		}
 	}
 }
