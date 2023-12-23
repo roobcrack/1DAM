@@ -19,9 +19,8 @@ public class Ex5{
 	}
 	
 	public static void marksEnter(Scanner sc, int[] numbers, int marks){
-		System.out.println("Now insert the numbers");
+		System.out.print("Insert: ");
 		for(int i=0;i<marks;i++){
-			System.out.print("Insert: ");
 			numbers[i] = sc.nextInt();
 		}
 	}

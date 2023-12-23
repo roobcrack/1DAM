@@ -38,7 +38,7 @@ public class Ex8{
 	}
 
 	static void printArray(int[] array, String type){
-		System.out.printf("Here all %s numbers: ", type);
+		System.out.printf("Here are all %s numbers: ", type);
 		for(int i=0; i<array.length; i++){
 			System.out.printf(" %d", array[i]);
 		}
