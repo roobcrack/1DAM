@@ -26,11 +26,12 @@ public class Ex6{
         for (int i=0;i<number;i++) {
             if (studentsMarks[i] > avg) {
                 System.out.printf("- %s\n", studentsName[i]);
-                if(studentsMarks[greatest]<studentsMarks[i])
-                	greatest=i;
             }
+
+            if(studentsMarks[greatest]<studentsMarks[i])
+                greatest=i;
         }
 
-        System.out.printf("The student with the greatest mark is: ", studentsName[greatest]);
+        System.out.printf("The student with the greatest mark is: %s", studentsName[greatest]);
 	}
 }
