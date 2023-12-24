@@ -1,21 +1,80 @@
 CREATE TABLE vendedor (
-    numvend NUMBER() NOT NULL,
-    nomvend VARCHAR2(),
-    nombrecomer VARCHAR2(),
-    telefono NUMBER(),
-    calle VARCHAR2(),
-    ciudad VARCHAR2(),
-    provincia VARCHAR2(),
+    numvend NUMBER NOT NULL,
+    nomvend VARCHAR2,
+    nombrecomer VARCHAR2,
+    telefono VARCHAR2,
+    calle VARCHAR2,
+    ciudad VARCHAR2,
+    provincia VARCHAR2,
     CONSTRAINT pk_vendedor PRIMARY KEY (numvend)
 );
 
 CREATE TABLE pieza (
-    numpieza NUMBER() NOT NULL,
-    nompieza VARCHAR2(),
-    preciovent NUMBER(),
+    numpieza VARCHAR2 NOT NULL,
+    nompieza VARCHAR2,
+    preciovent VARCHAR2,
     CONSTRAINT pk_pieza PRIMARY KEY(numpieza)
 );
 
 CREATE TABLE pedido (
-    numpedido  NUMBER()
+    numpedido VARCHAR2 NOT NULL,
+    numvend VARCHAR2,
+    fecha DATE,
+    CONSTRAINT pk_pedido PRIMARY KEY (numpedido)
 );
+
+CREATE TABLE linped (
+    numlinea NUMBER NOT NULL,
+    numpedido NUMBER NOT NULL,
+    numpieza VARCHAR2,
+    preciocompra NUMBER,
+    cantpedida NUMBER,
+    fecharecep DATE,
+    cantrecibida NUMBER,
+    CONSTRAINT pk_linped PRIMARY KEY (numpedido, numlinea)
+);
+
+CREATE TABLE inventario (
+    numbin VARCHAR2 NOT NULL,
+    numpieza NUMBER,
+    cantdisponible NUMBER,
+    fecharecuento DATE,
+    periodorecuen NUMBER,
+    cantminima NUMBER,
+    CONSTRAINT pk_inventario PRIMARY KEY (numbin)
+);
+
+CREATE TABLE preciosum (
+    numpieza VARCHAR2 NOT NULL,
+    numvend NUMBER NOT NULL,
+    preciounit NUMBER,
+    diassum NUMBER,
+    descuento NUMBER,
+    CONSTRAINT pk_preciosum PRIMARY KEY (numpieza, numvend)
+);
+
+
+ALTER TABLE preciosum
+ADD CONSTRAINT fk_numpieza
+    FOREIGN KEY (numvend)
+    REFERENCES pieza (numvend)
+ADD CONSTRAINT fk_numvend
+    FOREIGN KEY (numvend)
+    REFERENCES vendedor (numvend);
+
+ALTER TABLE pedido
+ADD CONSTRAINT fk_numvend
+    FOREIGN KEY (numvend)
+    REFERENCES vendedor (numvend);
+
+ALTER TABLE linped
+ADD CONSTRAINT fk_numpieza
+    FOREIGN KEY (numpieza)
+    REFERENCES pieza (numpieza)
+ADD CONSTRAINT fk_numpedido
+    FOREIGN KEY (numpedido)
+    REFERENCES pedido (numpedido);
+
+ALTER TABLE linped
+ADD CONSTRAING uk_numpieza
+    UNIQUE (numpieza);
