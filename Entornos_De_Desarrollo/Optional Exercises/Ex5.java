@@ -9,19 +9,15 @@ public class Ex5{
 		int marks = sc.nextInt();
 
 		int[] numbers = new int[marks];
-		marksEnter(sc, numbers, marks);
+		System.out.print("Insert: ");
+		for(int i=0;i<marks;i++){
+			numbers[i] = sc.nextInt();
+		}
 
 		System.out.printf("The average is: %d. The marks greater than average are: ", averageNumber(numbers, marks));
 		for(int i=0; i<marks; i++){
 			if(numbers[i]>averageNumber(numbers, marks))
 				System.out.printf(" %d", numbers[i]);
-		}
-	}
-	
-	public static void marksEnter(Scanner sc, int[] numbers, int marks){
-		System.out.print("Insert: ");
-		for(int i=0;i<marks;i++){
-			numbers[i] = sc.nextInt();
 		}
 	}
 	

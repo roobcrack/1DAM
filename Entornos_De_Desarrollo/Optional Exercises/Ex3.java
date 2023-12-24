@@ -10,12 +10,10 @@ public class Ex3{
 		System.out.printf("Prime numbers until %d are:", input);
 	      for (int i=2;i<=input;i++) {
             int number = 2;
-            while ((number < i) && (i % number != 0)){
+            while ((number < i) && (i % number != 0))
                 number++;
-            }
-            if (number == i) {
+            if (number == i)
                 System.out.printf(" %d", number);
-            }
         }
 	}
 }

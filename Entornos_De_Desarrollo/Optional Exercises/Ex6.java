@@ -23,15 +23,11 @@ public class Ex6{
 
 		int greatest=0;
 		System.out.println("The students with marks greater than the average are:");
-        for (int i=0;i<number;i++) {
-            if (studentsMarks[i] > avg) {
+        for (int i=0;i<number;i++){
+            if(studentsMarks[i] > avg) 
                 System.out.printf("- %s\n", studentsName[i]);
-            }
-
             if(studentsMarks[greatest]<studentsMarks[i])
                 greatest=i;
-        }
-
         System.out.printf("The student with the greatest mark is: %s", studentsName[greatest]);
 	}
 }
