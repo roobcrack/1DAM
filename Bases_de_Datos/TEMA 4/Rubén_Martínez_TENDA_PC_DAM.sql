@@ -1,11 +1,11 @@
 CREATE TABLE vendedor (
     numvend NUMBER NOT NULL,
-    nomvend VARCHAR2,
-    nombrecomer VARCHAR2,
-    telefono VARCHAR2,
-    calle VARCHAR2,
-    ciudad VARCHAR2,
-    provincia VARCHAR2,
+    nomvend VARCHAR2(255),
+    nombrecomer VARCHAR2(255),
+    telefono VARCHAR2(20),
+    calle VARCHAR2(255),
+    ciudad VARCHAR2(255),
+    provincia VARCHAR2(255),
     CONSTRAINT pk_vendedor PRIMARY KEY (numvend)
 );
 
