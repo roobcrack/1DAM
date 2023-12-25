@@ -11,14 +11,14 @@ CREATE TABLE vendedor (
 
 CREATE TABLE pieza (
     numpieza VARCHAR2 NOT NULL,
-    nompieza VARCHAR2,
-    preciovent VARCHAR2,
+    nompieza VARCHAR2(20),
+    preciovent VARCHAR2(255),
     CONSTRAINT pk_pieza PRIMARY KEY(numpieza)
 );
 
 CREATE TABLE pedido (
     numpedido VARCHAR2 NOT NULL,
-    numvend VARCHAR2,
+    numvend VARCHAR2(255),
     fecha DATE,
     CONSTRAINT pk_pedido PRIMARY KEY (numpedido)
 );
@@ -26,10 +26,10 @@ CREATE TABLE pedido (
 CREATE TABLE linped (
     numlinea NUMBER NOT NULL,
     numpedido NUMBER NOT NULL,
-    numpieza VARCHAR2,
+    numpieza VARCHAR2(255),
     preciocompra NUMBER,
     cantpedida NUMBER,
-    fecharecep DATE,
+    fecharecep DATE DEFAULT SYSDATE,
     cantrecibida NUMBER,
     CONSTRAINT pk_linped PRIMARY KEY (numpedido, numlinea)
 );
@@ -38,7 +38,7 @@ CREATE TABLE inventario (
     numbin VARCHAR2 NOT NULL,
     numpieza NUMBER,
     cantdisponible NUMBER,
-    fecharecuento DATE,
+    fecharecuento DATE DEFAULT SYSDATE,
     periodorecuen NUMBER,
     cantminima NUMBER,
     CONSTRAINT pk_inventario PRIMARY KEY (numbin)
