@@ -10,16 +10,22 @@ public class CountOcurrences{
 		String b = sc.nextLine();
 		System.out.print("Insert: ");
 		int n = sc.nextInt();
-		if(countString(a, b, n)){
-			System.out.println();
-		}
+		//if(){
+			System.out.println(countString(a, b, n));
+		//}
 	}
 
-	public static boolean countString(String a, String b, int n){
+	public static String countString(String a, String b, int n){
 		int index = 0;
+		int returnS;
 		while(index!=a.length()){
-			System.out.println();
+			//System.out.println(a(index, (b.length()+index)));
+			if(a.equalsIgnoreCase(b)){
+				returnS="Si";
+			} else{
+				returnS="No";
+			}
 		}
-		return true;
+		return returnS;
 	}
 }
