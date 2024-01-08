@@ -2,7 +2,7 @@ CREATE TABLE vendedor (
     numvend NUMBER NOT NULL,
     nomvend VARCHAR2(255),
     nombrecomer VARCHAR2(255),
-    telefono VARCHAR2(20),
+    telefono VARCHAR2(255),
     calle VARCHAR2(255),
     ciudad VARCHAR2(255),
     provincia VARCHAR2(255),
@@ -10,16 +10,16 @@ CREATE TABLE vendedor (
 );
 
 CREATE TABLE pieza (
-    numpieza VARCHAR2 NOT NULL,
-    nompieza VARCHAR2(20),
-    preciovent VARCHAR2(255),
+    numpieza VARCHAR2(255) NOT NULL,
+    nompieza VARCHAR2(255),
+    preciovent NUMBER,
     CONSTRAINT pk_pieza PRIMARY KEY(numpieza)
 );
 
 CREATE TABLE pedido (
-    numpedido VARCHAR2 NOT NULL,
-    numvend VARCHAR2(255),
-    fecha DATE,
+    numpedido NUMBER NOT NULL,
+    numvend NUMBER,
+    fecha DATE DEFAULT SYSDATE,
     CONSTRAINT pk_pedido PRIMARY KEY (numpedido)
 );
 
@@ -35,8 +35,8 @@ CREATE TABLE linped (
 );
 
 CREATE TABLE inventario (
-    numbin VARCHAR2 NOT NULL,
-    numpieza NUMBER,
+    numbin NUMBER NOT NULL,
+    numpieza VARCHAR2(255),
     cantdisponible NUMBER,
     fecharecuento DATE DEFAULT SYSDATE,
     periodorecuen NUMBER,
@@ -45,7 +45,7 @@ CREATE TABLE inventario (
 );
 
 CREATE TABLE preciosum (
-    numpieza VARCHAR2 NOT NULL,
+    numpieza VARCHAR2(255) NOT NULL,
     numvend NUMBER NOT NULL,
     preciounit NUMBER,
     diassum NUMBER,
@@ -56,8 +56,8 @@ CREATE TABLE preciosum (
 
 ALTER TABLE preciosum
 ADD CONSTRAINT fk_numpieza
-    FOREIGN KEY (numvend)
-    REFERENCES pieza (numvend)
+    FOREIGN KEY (numpieza)
+    REFERENCES pieza (numpieza);
 ADD CONSTRAINT fk_numvend
     FOREIGN KEY (numvend)
     REFERENCES vendedor (numvend);
