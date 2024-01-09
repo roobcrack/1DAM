@@ -4,15 +4,39 @@ public class CalculateDensity{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 
-		try{
-			System.out.print("Enter weight in grams: ");
-			int grams = sc.nextInt();
+		int grams = typeInput(sc, "Enter weight in grams: ");
+		int liters = typeInput(sc, "Enter volume in liters: ");
 
-			System.out.print("Enter volume in liters: ");
-			int liters = sc.nextInt();
-		//NumberFormatException doesn't work for the exercice.
-		}catch(Exception e){
-			System.out.println("ERROR. IMPUT NOT VALID");
+		try{
+			double result = (double)grams / liters;
+			System.out.println("The density is: " + result);
+		} catch(ArithmeticException e){
+			System.err.println("Error: " + e.getMessage());
+		}
+	}
+
+	public static int typeInput(Scanner sc, String message){
+		while(true){
+			try{
+				System.out.print(message);
+				int number = Integer.parseInt(sc.nextLine());
+
+				if(checkIfhigherThanZero(number)){
+					return number;
+				}
+			} catch(NumberFormatException e1){
+				System.err.println("Error parsing text: " + e1.getMessage());
+			} catch(Exception e2){
+				System.err.println("Error: " + e2.getMessage());
+			}
+		}
+	}
+
+	public static boolean checkIfhigherThanZero(int number) throws Exception{
+		if(number>0){
+			return true;
+		} else{
+			throw new Exception("number must be higher than 0");
 		}
 	}
 }
