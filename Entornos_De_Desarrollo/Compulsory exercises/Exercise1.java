@@ -5,8 +5,9 @@ import java.util.Random;
 public class Exercise1{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
-		int[][] usersArr = new int[5][5];
-		start(usersArr);
+		int[][] usersArr = new int[10][10];
+		int[] group = new int[5];
+		start(usersArr, group);
 
 		int input;
 		do{
@@ -35,6 +36,8 @@ public class Exercise1{
 				case 3: 
 					System.out.println("Most lonely user is user " + lonely(usersArr));
 					break;
+				case 4: 
+					System.out.println("The group is : ");
 			}
 			System.out.println();	
 		} while(input!=0);
@@ -52,7 +55,7 @@ public class Exercise1{
 					else
 						return number;
 				} else{
-					if(number<=0 || number>5)
+					if(number<=0 || number>10)
 						throw new Exception("number must be higher than 0 and lower than 10");
 					else
 						return number;
@@ -78,39 +81,47 @@ public class Exercise1{
 	}
 
 	public static int lonely(int[][] usersArr){
-		return auxiliarCheck(usersArr, 5)+1;
+		return auxiliarCheck(usersArr, 10)+1;
 	}
 
 	public static int auxiliarCheck(int[][] usersArr, int initiate){
 		int most = initiate;
 		int higher = 0;
-		for(int i=0; i<5; i++){
+		for(int i=0; i<10; i++){
 			int op = initiate;
-			for(int j=0; j<5; j++){
+			for(int j=0; j<10; j++){
 				if(initiate==0){
 					op += usersArr[j][i];
 					if(most<op){
 						most = op;
 						higher = i;
 					}
-				} else if(initiate==5){
+				} else if(initiate==10){
 					op -= usersArr[j][i];
-					if(op<most){
+					if(most<op){
 						most = op;
 						higher = i;
 					}
 				}
 			}
-			System.out.println(op);
-			System.out.println(" "+higher+"\n");
 		}
 		return higher;
 	}
 
-	public static void start(int[][] usersArr){
-		Random rd = new Random();
+	public static boolean isGroup(int[][] usersArr, int[] group){
 		for(int i=0; i<5; i++){
 			for(int j=0; j<5; j++){
+				if(isFollower(usersArr, usersArr[i], usersArr[j])){
+
+				}
+			}
+		}
+	}
+
+	public static void start(int[][] usersArr, int[] group){
+		Random rd = new Random();
+		for(int i=0; i<10; i++){
+			for(int j=0; j<10; j++){
 				if(i==j){
 					usersArr[i][j] = 0;
 				} else{
@@ -120,7 +131,11 @@ public class Exercise1{
 		}
 
 		for(int i=0; i<5; i++){
-			for(int j=0; j<5; j++){
+			group[i] = rd.nextInt(10);
+		}
+
+		for(int i=0; i<10; i++){
+			for(int j=0; j<10; j++){
 				System.out.print(usersArr[i][j] + " ");
 			}
 			System.out.println();
