@@ -20,10 +20,10 @@ public class CalculateDensity{
 			try{
 				System.out.print(message);
 				int number = Integer.parseInt(sc.nextLine());
-
-				if(checkIfhigherThanZero(number)){
+				if(number>0)
 					return number;
-				}
+				else
+					throw new Exception("number must be higher than 0");
 			} catch(NumberFormatException e1){
 				System.err.println("Error parsing text: " + e1.getMessage());
 			} catch(Exception e2){
@@ -32,11 +32,4 @@ public class CalculateDensity{
 		}
 	}
 
-	public static boolean checkIfhigherThanZero(int number) throws Exception{
-		if(number>0){
-			return true;
-		} else{
-			throw new Exception("number must be higher than 0");
-		}
-	}
 }
