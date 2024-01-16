@@ -1,0 +1,5 @@
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.AssemblyInfoInputs.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.AssemblyInfo.cs
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.csproj.CoreCompileInputs.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.sourcelink.json

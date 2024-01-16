@@ -1,0 +1,15 @@
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\obj\Debug\net8.0\Persona.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\obj\Debug\net8.0\Persona.AssemblyInfoInputs.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\obj\Debug\net8.0\Persona.AssemblyInfo.cs
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\obj\Debug\net8.0\Persona.csproj.CoreCompileInputs.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\obj\Debug\net8.0\Persona.sourcelink.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\bin\Debug\net8.0\Persona.exe
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\bin\Debug\net8.0\Persona.deps.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\bin\Debug\net8.0\Persona.runtimeconfig.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\bin\Debug\net8.0\Persona.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\bin\Debug\net8.0\Persona.pdb
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\obj\Debug\net8.0\Persona.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\obj\Debug\net8.0\refint\Persona.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\obj\Debug\net8.0\Persona.pdb
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\obj\Debug\net8.0\Persona.genruntimeconfig.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Persona\Persona\obj\Debug\net8.0\ref\Persona.dll

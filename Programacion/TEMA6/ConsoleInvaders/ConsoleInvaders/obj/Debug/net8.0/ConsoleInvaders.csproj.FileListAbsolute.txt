@@ -1,0 +1,15 @@
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\bin\Debug\net8.0\ConsoleInvaders.exe
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\bin\Debug\net8.0\ConsoleInvaders.deps.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\bin\Debug\net8.0\ConsoleInvaders.runtimeconfig.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\bin\Debug\net8.0\ConsoleInvaders.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\bin\Debug\net8.0\ConsoleInvaders.pdb
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\obj\Debug\net8.0\ConsoleInvaders.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\obj\Debug\net8.0\ConsoleInvaders.AssemblyInfoInputs.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\obj\Debug\net8.0\ConsoleInvaders.AssemblyInfo.cs
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\obj\Debug\net8.0\ConsoleInvaders.csproj.CoreCompileInputs.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\obj\Debug\net8.0\ConsoleInvaders.sourcelink.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\obj\Debug\net8.0\ConsoleInvaders.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\obj\Debug\net8.0\refint\ConsoleInvaders.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\obj\Debug\net8.0\ConsoleInvaders.pdb
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\obj\Debug\net8.0\ConsoleInvaders.genruntimeconfig.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\ConsoleInvaders\ConsoleInvaders\obj\Debug\net8.0\ref\ConsoleInvaders.dll

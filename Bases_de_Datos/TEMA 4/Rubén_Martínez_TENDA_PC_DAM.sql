@@ -10,28 +10,23 @@ CREATE TABLE vendedor (
 );
 
 CREATE TABLE pieza (
-<<<<<<< HEAD
+
     numpieza VARCHAR2(255) NOT NULL,
     nompieza VARCHAR2(255),
     preciovent NUMBER,
-=======
     numpieza VARCHAR2(20) NOT NULL,
     nompieza VARCHAR2(20),
     preciovent VARCHAR2(20),
->>>>>>> 40b24d7a195091f105c65ca3c5d10da529ef55ae
     CONSTRAINT pk_pieza PRIMARY KEY(numpieza)
 );
 
 CREATE TABLE pedido (
-<<<<<<< HEAD
     numpedido NUMBER NOT NULL,
     numvend NUMBER,
     fecha DATE DEFAULT SYSDATE,
-=======
     numpedido VARCHAR2 NOT NULL,
     numvend VARCHAR2(20),
     fecha DATE,
->>>>>>> 40b24d7a195091f105c65ca3c5d10da529ef55ae
     CONSTRAINT pk_pedido PRIMARY KEY (numpedido)
 );
 
@@ -47,13 +42,10 @@ CREATE TABLE linped (
 );
 
 CREATE TABLE inventario (
-<<<<<<< HEAD
     numbin NUMBER NOT NULL,
     numpieza VARCHAR2(255),
-=======
     numbin VARCHAR2(20) NOT NULL,
     numpieza NUMBER,
->>>>>>> 40b24d7a195091f105c65ca3c5d10da529ef55ae
     cantdisponible NUMBER,
     fecharecuento DATE DEFAULT SYSDATE,
     periodorecuen NUMBER,
@@ -62,11 +54,8 @@ CREATE TABLE inventario (
 );
 
 CREATE TABLE preciosum (
-<<<<<<< HEAD
     numpieza VARCHAR2(255) NOT NULL,
-=======
     numpieza VARCHAR2(20) NOT NULL,
->>>>>>> 40b24d7a195091f105c65ca3c5d10da529ef55ae
     numvend NUMBER NOT NULL,
     preciounit NUMBER,
     diassum NUMBER,
