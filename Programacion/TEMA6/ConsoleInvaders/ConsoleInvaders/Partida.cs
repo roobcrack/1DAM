@@ -7,14 +7,13 @@ namespace ConsoleInvaders
         public void Lanzar()
         {
             //Console.WriteLine("Ésta sería la pantalla de juego. Pulse Intro para salir");
-            Nave nave = new Nave();
-            Enemigo enemigo = new Enemigo();
+            Nave nave = new Nave(10, 10, "/\\");
+            Enemigo enemigo = new Enemigo(8, 3, "][");
+            Enemigo enemigo2 = new Enemigo(4, 7, ")(");
 
-
-            nave.SetX(10);
-            nave.SetY(10);
-            nave.Dibujar(nave.GetX(), nave.GetY());
-
+            enemigo.Dibujar();
+            enemigo2.Dibujar();
+            nave.Dibujar();
             ConsoleKeyInfo tecla;
 
             do 
@@ -22,15 +21,11 @@ namespace ConsoleInvaders
                 tecla = Console.ReadKey();
                 if (tecla.Key == ConsoleKey.LeftArrow)
                 {
-                    nave.SetX(nave.GetX() - 1);
-                    nave.Mover(nave.GetX(), nave.GetY(), "/\\");
-                    nave.Dibujar(nave.GetX(), nave.GetY());
+                    nave.MoverIzquierda();
                 }
                 else if (tecla.Key == ConsoleKey.RightArrow)
                 {
-                    nave.SetX(nave.GetX() + 1);
-                    nave.Mover(nave.GetX(), nave.GetY(), "/\\");
-                    nave.Dibujar(nave.GetX(), nave.GetY());
+                    nave.MoverDerecha();
                 }
             } while (tecla.Key != ConsoleKey.Escape);
             Console.Clear();

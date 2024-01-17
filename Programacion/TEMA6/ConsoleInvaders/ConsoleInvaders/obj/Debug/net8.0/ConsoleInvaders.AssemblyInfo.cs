@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConsoleInvaders")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f2815c3d5f50197f9703ce95219cc3664e3b156")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3379a0d7dfca42d469f4a48198ad9ac1867b07f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConsoleInvaders")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConsoleInvaders")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
