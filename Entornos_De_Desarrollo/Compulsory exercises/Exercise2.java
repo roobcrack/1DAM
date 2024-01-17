@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public class l{
+public class Exercise2{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		String[] ingredientsNames = {"water", "coffee", "cup", "decaffeinated coffee", "powdered milk", "powdered cream" };
@@ -72,8 +72,7 @@ public class l{
 
 	public static void printMachine(){
 		for(int i=0; i<5; i++){
-			if(i==0)
-				
-		}
+		
+        }
 	}
 }
