@@ -1,15 +1,20 @@
 ﻿using System;
-using System.Xml.Serialization;
 
 namespace ConsoleInvaders
 {
     internal class Enemigo : Sprite
     {
-        public Enemigo(int setX, int setY, string setImg)
+        public Enemigo(int x, int y, string imagen)
         {
-            x = setX;
-            y = setY;
-            imagen = setImg;
+            this.x = x;
+            this.y = y;
+            this.imagen = imagen;
+        }
+        public Enemigo()
+        {
+            this.x = 4;
+            this.y = 8;
+            this.imagen = ")(";
         }
     }
 }

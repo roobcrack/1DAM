@@ -1,15 +1,23 @@
 ﻿using System;
-using System.Xml.Serialization;
 
 namespace ConsoleInvaders
 {
     internal class Nave : Sprite
     {
-        public Nave(int setX, int setY, string setImg)
+        public Nave(int x, int y)
         {
-            x = setX;
-            y = setY;
-            imagen = setImg;
+            this.x = x;
+            this.y = y;
+            this.imagen = "/\\";
+        }
+        public void MoverIzquierda()
+        {
+            MoverA(this.x - 1, this.y);
+        }
+        public void MoverDerecha()
+        {
+
+            MoverA(x + 1, y);
         }
     }
 }
