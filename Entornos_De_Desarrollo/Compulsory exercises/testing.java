@@ -4,7 +4,7 @@ public class testing{
 		System.out.println("   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  ");
 		System.out.println(" /                                           \\");
 		System.out.println("|                                             |");
-		System.out.printf("|%s%s%s%s|\n", spaces, text, spaces, odd);
+		System.out.println("|          Insert yout coffee                 |");
 		System.out.println("|                                             |");
 		System.out.println("|                                             |");
 		System.out.println("|         1.Coffee                            |");
@@ -27,7 +27,21 @@ public class testing{
 		//---
 		System.out.printf("  %s\n", " _".repeat(21));
 		System.out.printf(" /%s \\\n", "  ".repeat(21));
-		System.out.printf("|%s%s%s%s|\n",spaces,text,spaces,odd);
+		System.out.printf("|%s%s%s|\n",spaces,spaces,odd);
+		System.out.printf("|%s%s%s%s|\n",spaces,text1,spaces,odd);
+		System.out.printf("|%s%s%s|\n",spaces,spaces,odd);
+		System.out.printf("|%s%s%s%s|\n",spaces,text2,spaces,odd);
+		System.out.printf("|%s%s%s%s|\n",spaces,text3,spaces,odd);
+		System.out.printf("|%s%s%s%s|\n",spaces,text4,spaces,odd);
+		System.out.printf("|%s%s%s%s|\n",spaces,text5,spaces,odd);
+
+		int x = 5;
+    int y = 10;
+
+    // Mueve el cursor a la posición (x, y)
+    System.out.print("\033[" + y + ";" + x + "H");
+
+    System.out.println("Hola, mundo!");
 	}
 }
 
