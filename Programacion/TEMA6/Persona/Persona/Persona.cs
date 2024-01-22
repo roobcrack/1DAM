@@ -4,21 +4,19 @@ namespace Persona
 {
     internal class Persona
     {
-        string nombre;
-
-        public string GetNombre()
+        protected string nombre { get; set; }
+        public Persona(string nuevoNombre)
         {
-            return nombre;
+            this.nombre = nuevoNombre;
+        }
+        protected Persona()
+        {
+            this.nombre = "";
         }
 
-        public void SetNombre(string nuevoNombre)
+        public void Saludar(string texto)
         {
-            nombre = nuevoNombre;
-        }
-
-        public void Saludar()
-        {
-            Console.WriteLine("Hola, soy {0}", nombre);
+            Console.WriteLine("{0} {1}", texto, nombre);
         }
     }
 }

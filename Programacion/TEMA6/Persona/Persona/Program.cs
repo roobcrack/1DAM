@@ -6,10 +6,14 @@ namespace Persona
     {
         static void Main()
         {
-            Persona persona = new Persona();
+            Persona persona = new Persona("Juan");
+            PersonaInglesa personaIn = new PersonaInglesa();
+            PersonaItaliana personaIt = new PersonaItaliana("Paco");
 
-            persona.SetNombre("Juan");
-            persona.Saludar();
+            persona.Saludar("Hola, soy");
+            personaIn.TomarTe();
+            personaIn.Saludar("Hi, i am");
+            personaIt.Saludar("Ciao");
         }
     }
 }
