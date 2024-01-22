@@ -1,0 +1,8 @@
+sistema operativo (por encima, solo lo que se ve en negrita)(que es, que funcion realiza)(clasificacion(1ª) nada)
+(sistema operativo cliente escritorio NO) (windos, linux mac (los inicios de cada sistema operativo(11,12,13,15,16))
+(que empresa se encarga de fabricar cada sistema operativo)(conceptos: maquina virtual e hipervisor)(definicion de sistemas operativos 
+en cloud, y algunos ejemplos)(sistemams de archivos y como se organizan(ATRIBUTOS NO ENTRA)(que es un directorio(como se separan
+en linux/mac y windows(cuando se habla de una absoluta y una relativa))(25,26 NO)(sistemas de archivos: cual es el predeterminado en cada
+sistema operativo)(31,30 NO)(unidades de medida)(zeta,peta,roton NO)(licencias algo entra verlas)(38 NO)(licencias software propietario)
+(licencia cluf NO)(licencias de codigo abierto)(licencias de dominio publico)(43 no)(licencias de suscripcion)(45,46,47 si)(copy right
+y copy left)
