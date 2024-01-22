@@ -1,0 +1,15 @@
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\bin\Debug\net8.0\Libro.exe
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\bin\Debug\net8.0\Libro.deps.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\bin\Debug\net8.0\Libro.runtimeconfig.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\bin\Debug\net8.0\Libro.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\bin\Debug\net8.0\Libro.pdb
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\obj\Debug\net8.0\Libro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\obj\Debug\net8.0\Libro.AssemblyInfoInputs.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\obj\Debug\net8.0\Libro.AssemblyInfo.cs
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\obj\Debug\net8.0\Libro.csproj.CoreCompileInputs.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\obj\Debug\net8.0\Libro.sourcelink.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\obj\Debug\net8.0\Libro.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\obj\Debug\net8.0\refint\Libro.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\obj\Debug\net8.0\Libro.pdb
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\obj\Debug\net8.0\Libro.genruntimeconfig.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Libro\Libro\obj\Debug\net8.0\ref\Libro.dll
