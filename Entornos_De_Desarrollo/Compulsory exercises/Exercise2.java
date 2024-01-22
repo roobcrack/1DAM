@@ -39,6 +39,11 @@ public class Exercise2{
 			else if(checkIfIngredients(ingredientsNames, ingredientsAmmount, ingredientsUsed)!=null)
 				System.out.println("EMPTY: "+checkIfIngredients(ingredientsNames, ingredientsAmmount, ingredientsUsed));
 			else{
+				try{
+
+				} catch(){
+					
+				}
 				System.out.println("Insert the amount of sugar from 0-5");
 				System.out.print("	Insert: ");
 				sugar = Integer.parseInt(sc.nextLine());

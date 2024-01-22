@@ -3,3 +3,13 @@ C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche
 C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.AssemblyInfo.cs
 C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.csproj.CoreCompileInputs.cache
 C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.sourcelink.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\bin\Debug\net8.0\Coche.exe
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\bin\Debug\net8.0\Coche.deps.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\bin\Debug\net8.0\Coche.runtimeconfig.json
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\bin\Debug\net8.0\Coche.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\bin\Debug\net8.0\Coche.pdb
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\refint\Coche.dll
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.pdb
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\Coche.genruntimeconfig.cache
+C:\Users\Roob\Desktop\1DAM\Programacion\TEMA6\Coche\Coche\obj\Debug\net8.0\ref\Coche.dll
