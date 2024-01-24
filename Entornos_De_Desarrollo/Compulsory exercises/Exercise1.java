@@ -12,7 +12,7 @@ public class Exercise1{
 		System.out.println("----------isFollowing----------");
 		System.out.println("True- Is follower is: "+isFollower(usersArr, 1, 2));
 		System.out.println("False- Is follower is: "+isFollower(usersArr, 1, 6));
-		System.out.println(" Out of range exception: "+isFollower(usersArr, 11, 2));
+		isFollower(usersArr, 11, 2);
 		System.out.println("-------------------------------");
 		System.out.println("----------mostPopular----------");
 		System.out.println("Most popular user is: "+(mostPopular(usersArr)));
@@ -26,6 +26,9 @@ public class Exercise1{
 		System.out.println("True- Are they a grop: "+(isGroup(usersArr, group)));
 		int[] group2 = { 1, 2, 5 };
 		System.out.println("False- Are they a grop: "+(isGroup(usersArr, group2)));
+		int[] group3 = { 13, 2, 5 };
+		isGroup(usersArr, group3);
+
 
 	}
 
