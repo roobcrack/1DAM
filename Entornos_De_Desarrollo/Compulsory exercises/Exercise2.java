@@ -4,10 +4,10 @@ import java.util.Scanner;
 public class Exercise2{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
-		String[] ingredientsNames = {"water", "coffee", "cup", "decaffeinated coffee", "powdered milk", "powdered cream" };
-		int[] ingredientsAmmount = { 5, 4, 4, 3, 2, 1 };
+		String[] ingredientsNames = {"water", "coffee", "cup", "decaffeinated coffee", "powdered milk", "powdered cream", "sugar" };
+		int[] ingredientsAmmount = { 5, 4, 4, 3, 2, 1, 10 };
 		int[] ingredientsUsed = new int[3];
-		int insert=-1, sugar, money;
+		int insert=-1, sugarAmount, money;
 
 		do{
 			boolean done = false;
@@ -41,12 +41,12 @@ public class Exercise2{
 			else{
 				try{
 
-				} catch(){
+				} catch(Exception e){
 					
 				}
 				System.out.println("Insert the amount of sugar from 0-5");
 				System.out.print("	Insert: ");
-				sugar = Integer.parseInt(sc.nextLine());
+				sugarAmount = Integer.parseInt(sc.nextLine());
 
 				System.out.println("Insert money");
 				System.out.print("Insert: ");
@@ -68,7 +68,7 @@ public class Exercise2{
 		return null;
 	}
 
-	c v public static String returnChange(int money){
+	public static String returnChange(int money){
 		String finalString="";
 		int[] billsAndCoins = {20, 10, 5, 2, 1};
 
@@ -81,14 +81,8 @@ public class Exercise2{
 		return finalString;
 	}
 
-	public static void preparateCoffee(int[] ingredientsAmmount, int[] ingredientsUsed){
+	public static void preparateCoffee(int[] ingredientsAmmount, int[] ingredientsUsed, int sugarAmount){
 		for(int i=0; i<ingredientsUsed.length; i++)
 			ingredientsAmmount[ingredientsUsed[i]]--;
-	}
-
-	public static void printMachine(){
-		for(int i=0; i<5; i++){
-		
-        }
 	}
 }
