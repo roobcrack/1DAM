@@ -6,13 +6,18 @@ namespace ConsoleInvaders
     {
         public void Lanzar()
         {
-            //Console.WriteLine("Ésta sería la pantalla de juego. Pulse Intro para salir");
             Nave nave = new Nave(10, 10);
-            Enemigo enemigo = new Enemigo(8, 3, "][");
-            Enemigo enemigo2 = new Enemigo();
+            Enemigo[] enemigo = new Enemigo[10];
 
-            enemigo.Dibujar();
-            enemigo2.Dibujar();
+            for (int i=0; i<10; i++)
+            {
+                enemigo[i] = new Enemigo(2+3*i,3,"][");
+            }
+            
+            for(int i=0; i<10; i++) 
+            {
+                enemigo[i].Dibujar();
+            }
             nave.Dibujar();
             ConsoleKeyInfo tecla;
 

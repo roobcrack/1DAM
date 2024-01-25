@@ -2,20 +2,18 @@
 
 namespace Libro
 {
-    internal class Libro
+    internal class Libro : Documento
     {
-        protected string autor { get; set; }
-        protected string titulo { get; set; }
-        protected string ubicacion { get; set; }
-        public Libro(string autor, string titulo, string ubicacion)
+        protected int paginas { get; set; }
+        public Libro(string autor, string titulo, string ubicacion, int paginas) 
+            :base(autor, titulo, ubicacion)
         {
-            this.autor = autor;
-            this.titulo = titulo;
-            this.ubicacion = ubicacion;
+            this.paginas = paginas;
         }
-        public void MostrarLibro()
+        public override void Mostrar()
         {
-            Console.WriteLine("Autor: {0}, Titulo: {1}, Ubicacion: {2}", autor, titulo, ubicacion);
+            base.Mostrar();
+            Console.Write("| Páginas: {0}", this.paginas);
         }
     }
 }
