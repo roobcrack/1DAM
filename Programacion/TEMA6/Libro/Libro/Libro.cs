@@ -5,15 +5,15 @@ namespace Libro
     internal class Libro : Documento
     {
         protected int paginas { get; set; }
-        public Libro(string autor, string titulo, string ubicacion, int paginas) 
-            :base(autor, titulo, ubicacion)
+        public override void CrearDocumento()
         {
-            this.paginas = paginas;
+            base.CrearDocumento();
+            Console.Write("Introduce paginas: ");
+            this.paginas = Convert.ToInt32(Console.ReadLine());
         }
-        public override void Mostrar()
+        public override string ToString()
         {
-            base.Mostrar();
-            Console.Write("| Páginas: {0}", this.paginas);
+            return base.ToString() + " | Paginas: " + this.paginas;
         }
     }
 }

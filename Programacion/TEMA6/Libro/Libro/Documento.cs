@@ -4,18 +4,21 @@ namespace Libro
 {
     internal class Documento
     {
-        protected string autor { get; set; }
-        protected string titulo { get; set; }
-        protected string ubicacion { get; set; }
-        public Documento(string autor, string titulo, string ubicacion)
+        protected string? autor { get; set; }
+        protected string? titulo { get; set; }
+        protected string? ubicacion { get; set; }
+        public virtual void CrearDocumento()
         {
-            this.autor = autor;
-            this.titulo = titulo;
-            this.ubicacion = ubicacion;
+            Console.Write("Introduce el nombre del autor: ");
+            this.autor = Console.ReadLine();
+            Console.Write("Introduce el titulo: ");
+            this.titulo = Console.ReadLine();
+            Console.Write("Introduce la ubicacion: ");
+            this.ubicacion = Console.ReadLine();
         }
-        public virtual void Mostrar()
+        public virtual string ToString()
         {
-            Console.Write("\nAutor: {0} | Titulo: {1} | Ubicacion: {2}", this.autor, this.titulo, this.ubicacion);
+            return "Autor: " + this.autor + " | Titulo: " + this.titulo + " | Ubicacion: " + this.ubicacion;
         }
     }
 }
