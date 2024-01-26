@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    <form method="post">
+        <h2>Información sobre el producto</h2>
+        <fieldset size="20">
+            <legend>Datos básicos</legend>
+            <label for="name">Nombre</label><br>
+            <input type="text" name="nombre" id="nombre" size="40"><br><br>
+            <label for="descripcion">Descripción</label><br>
+            <textarea name="descripcion" rows="5" cols="40"></textarea><br><br>
+            Foto
+            <input type="text" name="foto" id="foto">
+            <input type="file" name="foto"><br><br>
+            <input type="checkbox" name="contador" id="contador">
+            Añadir contador de visitas<br>
+        </fieldset>
+        <fieldset>
+            <legend>Datos económicos</legend>
+            Precio
+            <input type="text" name="precio" id="precio" size="5">
+            €&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Impuestos
+            <select name="impuestos">
+                <option value="4">4%</option>
+                <option value="7">7%</option>
+                <option value="16">16%</option>
+                <option value="25">25%</option>
+            </select><br><br>
+            Promoción<br>
+            <input type="radio" name="promocion" value="ninguno" checked>Ninguno<br>
+            <input type="radio" name="promocion" value="gratuito">Transporte gratuito<br>
+            <input type="radio" name="promocion" value="descuento">Descuento 5%
+        </fieldset><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

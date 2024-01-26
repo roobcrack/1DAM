@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    <form method="post">
+        <h1>Rellena tus datos</h1>
+        <label for="nombre">Nombre</label><br>
+        <input type="text" name="nombre" id="nombre" size="20"><br>
+        <label for="apellidos">Apellidos</label><br>
+        <input type="text" name="nombre" id="nombre" size="40"><br>
+        <label for="email">E-mail</label><br>
+        <input type="email" name="email" id="email" size="40"><br>
+        <label for="dni">DNI</label><br>
+        <input type="text" name="dni" id="dni" size="15"><br><br>
+        Idioma materno<br>
+        <input type="radio" name="idioma" value="ingles">Castellano<br>
+        <input type="radio" name="idioma" value="valenciano">Valenciano<br>
+        <input type="radio" name="idioma" value="otros">Otros<br><br>
+        Subir mi foto <input type="file" name="foto" id="foto"><br><br>
+        <input type="checkbox" name="datos" id="datos">
+        <label for="datos">Permitir que otros puedan ver mis datos</label><br><br>
+        <input type="button" value="Guardar cambios">
+        <input type="button" value="Borrar los datos introducidos">
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    <form method="post">
+        <h1>Formulario de matrícula</h1>
+        <label for="nombre">Nombre completo: </label>
+        <input type="text" name="nombre" id="nombre" required><br><br>
+        <label for="email">Correo electrónico: </label>
+        <input type="email" name="email" id="email" required><br><br>
+        <label for="fecha">Fecha de nacimiento</label>
+        <input type="date" name="fecha" id="fecha"><br><br>
+        <label for="hermanos">Hermanos en el centro: </label>
+        <input type="number" name="hermanos" id="hermanos" min="0" max="10"><br><br>
+        <label for="telefono">Teléfono de contacto: </label>
+        <input type="tel" name="telefono" id="telefono" pattern="[6-8]{1}[0-9]{8}"><br><br>
+        <label for="ciclo">Ciclo seleccionado: </label>
+        <select name="ciclo">
+            <option value="ASIR">ASIR</option>
+            <option value="DAM">DAM</option>
+            <option value="DAW">DAW</option>
+        </select><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
