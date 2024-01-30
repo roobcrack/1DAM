@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA6\\Libro\\Libro\\Libro.csproj": {}
+    "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\TEMA6\\Libro\\Libro\\Libro.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA6\\Libro\\Libro\\Libro.csproj": {
+    "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\TEMA6\\Libro\\Libro\\Libro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA6\\Libro\\Libro\\Libro.csproj",
+        "projectUniqueName": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\TEMA6\\Libro\\Libro\\Libro.csproj",
         "projectName": "Libro",
-        "projectPath": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA6\\Libro\\Libro\\Libro.csproj",
-        "packagesPath": "C:\\Users\\ruben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA6\\Libro\\Libro\\obj\\",
+        "projectPath": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\TEMA6\\Libro\\Libro\\Libro.csproj",
+        "packagesPath": "C:\\Users\\Roob\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\TEMA6\\Libro\\Libro\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Roob\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,7 +50,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
