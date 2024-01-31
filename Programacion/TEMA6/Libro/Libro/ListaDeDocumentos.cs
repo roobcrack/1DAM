@@ -21,29 +21,29 @@ namespace Libro
         }
         public void Borrar(int posicionBorrar)
         {
-            for (int i = posicionBorrar; i < this.Cantidad; i++)
+            for (int i = posicionBorrar-1; i < this.Cantidad; i++)
                 this.Documentos[i] = this.Documentos[i + 1];
             this.Cantidad--;
         }
         public string Buscar(string textoBuscar)
         {
-            string cadena = string.Empty;
+            string cadena = "";
             for(int i=0; i<this.Cantidad; i++)
             {
                 if (this.Documentos[i].Contiene(textoBuscar))
-                    cadena += this.Documentos[i].ToString()+"\n";
+                    cadena += i+1+")."+this.Documentos[i].ToString()+"\n";
             }
-            if (cadena == string.Empty) return "No se encontraron coincidencias";
+            if (cadena == "") return "No se encontraron coincidencias";
             return cadena;
         }
         public string Mostrar()
         {
-            string cadena = string.Empty;
+            string cadena = "";
             for(int i=0; i< this.Cantidad; i++)
             {
-                cadena += this.Documentos[i].ToString()+"\n";
+                cadena += i+1+")."+this.Documentos[i].ToString()+"\n";
             }
-            if (cadena == string.Empty) return "No hay ningun documento";
+            if (cadena == "") return "No hay ningun documento";
             return cadena;
         }
     }

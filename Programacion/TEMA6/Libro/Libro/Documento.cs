@@ -7,6 +7,9 @@ namespace Libro
         protected string autor { get; set; }
         protected string titulo { get; set; }
         protected string ubicacion { get; set; }
+        public string GetAutor() { return this.autor; }
+        public string GetTitulo() { return this.titulo; }
+        public string GetUbicacion() { return this.ubicacion; }
 
         public Documento(string autor, string titulo, string ubicacion)
         {

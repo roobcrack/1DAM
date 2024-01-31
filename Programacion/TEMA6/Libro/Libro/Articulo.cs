@@ -4,7 +4,9 @@ namespace Libro
 {
     internal class Articulo : Documento
     {
+
         protected string procedencia {  get; set; }
+        public string GetProcedencia() { return procedencia; }
 
         public Articulo(string autor, string titulo, string ubicacion, string procedencia)
             :base(autor, titulo, ubicacion)

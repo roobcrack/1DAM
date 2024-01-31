@@ -21,24 +21,24 @@ namespace Libro
                     Console.WriteLine("[2].Mostrar documentos");
                     Console.WriteLine("[3].Contiene texto");
                     Console.WriteLine("[4].Borrar documento");
+                    Console.WriteLine("[5].Modificar documento");
                     Console.WriteLine("[0].Salir del programa");
                     Console.Write("Inserte: ");
                     try
                     {
                         opcion = Convert.ToInt32(Console.ReadLine());
-                        if (opcion < 0 || opcion > 4)
+                        if (opcion < 0 || opcion > 5)
                             throw new Exception();
-                        else
-                            done = true;
-                    } catch(Exception e){ Console.WriteLine("ERROR. Inserte un valor disponible."); }
+                        done = true;
+                    } catch(Exception e){ Console.WriteLine("ERROR. Inserte un valor disponible.\n"); }
                 }
                 switch(opcion)
                 {
                     case 0: //Salir del programa
-                        Console.WriteLine("Saliendo del programa. . .");
+                        Console.WriteLine("\nSaliendo del programa. . .");
                         break;
 
-                    case 1: //Añadir nuevo documento
+                   /* case 1: //Añadir nuevo documento
                         int opcionCrear = 0;
                         done = false;
 
@@ -46,7 +46,7 @@ namespace Libro
                         {
                             while (!done)
                             {
-                                Console.WriteLine("Que quiere que sea: ");
+                                Console.WriteLine("\nQue quiere que sea: ");
                                 Console.WriteLine("[1].Documento");
                                 Console.WriteLine("[2].Libro");
                                 Console.WriteLine("[3].Articulo");
@@ -57,55 +57,46 @@ namespace Libro
                                     opcionCrear = Convert.ToInt32(Console.ReadLine());
                                     if (opcionCrear < 0 || opcionCrear > 3)
                                         throw new Exception();
-                                    else
+                                    if (opcionCrear == 0) { break; }
+
+                                    string autor = PedirCadena("autor");
+                                    string titulo = PedirCadena("titulo");
+                                    string ubicacion = PedirCadena("ubicacion");
+                                    if (opcionCrear == 1)
+                                        ld.Crear(new Documento(autor, titulo, ubicacion));
+                                    else if (opcionCrear == 2)
                                     {
-                                        if (opcionCrear == 0) { break; }
-
-                                        Console.Write("Inserte autor: ");
-                                        string autor = Console.ReadLine();
-                                        Console.Write("Inserte titulo: ");
-                                        string titulo = Console.ReadLine();
-                                        Console.Write("Inserte ubicacion: ");
-                                        string ubicacion = Console.ReadLine();
-                                        if (opcionCrear == 1)
-                                            ld.Crear(new Documento(autor, titulo, ubicacion));
-                                        else if (opcionCrear == 2)
-                                        {
-                                            bool exit = false;
-                                            int paginas=0;
-                                            Console.Write("Inserte paginas: ");
-                                            while (!exit)
-                                            {
-                                                try
-                                                {
-                                                    paginas = Convert.ToInt32(Console.ReadLine());
-                                                    if (paginas <= 0) throw new Exception();
-                                                    else exit = true;
-                                                } catch(Exception) { Console.WriteLine("ERROR. Valor no disponible"); }
-                                            }
-                                            ld.Crear(new Libro(autor, titulo, ubicacion, paginas));
-                                        } else
-                                        {
-                                            Console.Write("Inserte procedencia: ");
-                                            string procedencia = Console.ReadLine();
-                                            ld.Crear(new Articulo(autor, titulo, ubicacion, procedencia));
-
-                                        }
+                                        bool exit = false;
+                                        int paginas=0;
                                             
+                                        while (!exit)
+                                        {
+                                            try
+                                            {
+                                                paginas = PedirEntero("paginas");
+                                                if (paginas <= 0) throw new Exception();
+                                                exit = true;
+                                            } catch(Exception) { Console.WriteLine("ERROR. Valor no disponible\n"); }
+                                        }
+                                        ld.Crear(new Libro(autor, titulo, ubicacion, paginas));
+                                    } else
+                                    {
+                                        string procedencia = PedirCadena("procedencia");
+                                        ld.Crear(new Articulo(autor, titulo, ubicacion, procedencia));
                                     }
                                         done = true;
                                 } catch (Exception e){ Console.WriteLine("ERROR. Valor no disponible.\n"); }
                             }
                         } else{ Console.WriteLine("ERROR. Maximo de ficheros alcanzado \"1000\""); }
-                        break;
+                        Console.WriteLine();
+                        break;*/
                     case 2: //Mostrar documentos
-                        Console.WriteLine(ld.Mostrar());
+                        Console.WriteLine("\n"+ld.Mostrar());
                         break;
                     case 3: //Contiene texto
                         Console.Write("Introduzca el texto: ");
                         string textoBuscar = Console.ReadLine();
-                        Console.WriteLine();
-                        ld.Buscar(textoBuscar);
+                        Console.WriteLine("\n"+ld.Buscar(textoBuscar));
                         break;
                     case 4: //Borrar documento
                         int posicionBorrar = 0;
@@ -115,15 +106,46 @@ namespace Libro
                             posicionBorrar = Convert.ToInt32(Console.ReadLine());
                             if (posicionBorrar < 1 || posicionBorrar > ld.Cantidad)
                                 throw new Exception();
-                            else
-                                ld.Borrar(posicionBorrar);
+                            ld.Borrar(posicionBorrar);
                         }
                         catch (Exception){ Console.WriteLine("ERROR. Valor no disponible."); }
+                        break;
+                    case 5: //Modificar documento
+                        Console.Write("Seleccione que documento quiere modificar: ");
+                        int numero=0;
+                        try
+                        {
+                            numero = Convert.ToInt32(Console.ReadLine());
+
+                            string autor = PedirCadena("autor");
+                            if (autor == "") { autor = ld.Documentos[numero].GetAutor(); }
+                            string titulo = PedirCadena("titulo");
+                            if(titulo == "") { titulo = ld.Documentos[numero].GetTitulo(); }
+                            string ubicacion = PedirCadena("ubicacion");
+                            if(ubicacion == "") { ubicacion = ld.Documentos[numero].GetUbicacion(); }
+
+                            if (ld.Documentos[numero].GetType() == typeof(Documento))
+                                ld.Documentos[numero] = new Documento(autor, titulo, ubicacion);
+                            else if (ld.Documentos[numero].GetType() == typeof(Libro))
+                            {
+
+                            }
+                        }
+                        catch (Exception) { Console.WriteLine("ERROR. Valor no disponible\n"); }
                         break;
                 }
             } while (opcion != 0);
         }
-
+        static string PedirCadena(string texto)
+        {
+            Console.Write("Inserte {0}: ", texto);
+            return Console.ReadLine();
+        }
+        static int PedirEntero(string texto)
+        {
+            Console.Write("Inserte {0}: ", texto);
+            return Convert.ToInt32(Console.ReadLine());
+        }
         static void CrearDocumentos(ListaDeDocumentos ld)
         {
             ld.Crear(new Documento("Ruben Martinez", "Curriculum VITAE", "España"));
