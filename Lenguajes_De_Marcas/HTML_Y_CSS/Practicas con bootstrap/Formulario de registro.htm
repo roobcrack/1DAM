@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de registro</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<body>
+    <h1>Formulario de registro</h1>
+    <form action="registro.php" method="post">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label class="form-label" for="nombre">Nombre:</label>
+                    <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre">
+                    <label class="form-label" for="email">E-mail:</label>
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Escribe tu e-mail">
+                    <label class="form-label" for="password">Password:</label>
+                    <input class="form-control" type="password" name="password" id="password" placeholder="Al menos 8 caracteres entre letras y dígitos">
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label" for="provincia">Provincia:</label>
+                    <select class="form-control"name="provincia" id="provincia">
+                        <option value="Alicante" selected="selected">Alicante</option>
+                        <option value="Valencia">Valencia</option>
+                        <option value="Castellón">Castellón</option>
+                    </select>
+                    <input type="checkbox" name="suscripcion" id="suscripcion">
+                    <label class="form-label" for="suscripcion">Deseo suscribirme al boletín de noticias</label>
+                    <input class="form-control btn btn-primary" type="submit" value="Enviar">
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
