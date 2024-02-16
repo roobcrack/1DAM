@@ -1,4 +1,4 @@
-CREATE TABLE vendedor (
+    CREATE TABLE vendedor (
     numvend NUMBER NOT NULL,
     nomvend VARCHAR2(255),
     nombrecomer VARCHAR2(255),

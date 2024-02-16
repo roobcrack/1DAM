@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <style>
+        .contenedor{
+            display: grid;
+            gap: 20px;
+            justify-content: center;
+        }
+
+
+        .caja1{
+            width: 250px;
+            height: 250px;
+            border: 3px solid green;
+            border-radius: 15px;
+            background-color: lightgreen;
+            
+        }
+
+        .caja1:hover{
+            transition: 1s ease-out;
+            opacity: 0.5;
+        }
+
+        .caja2{
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            background-color: lightblue;
+        }
+
+        .caja2:hover{
+            transform: scale(1.1);
+            transition: 0.5s ease-out;
+        }
+
+
+        .caja3{
+            width: 200px;
+            height: 150px;
+            border: 8px solid black;
+            border-radius: 8px;
+            background-color: rgb(245, 245, 170);
+        }
+
+        .caja3:hover{
+            transform: rotate(-10deg);
+            transition: 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="caja1"></div>
+        <div class="caja2"></div>
+        <div class="caja3"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <h1>Serie de Fibonnaci</h1>
+    <h2>Los primeros términos de la serie de Fibonacci son: </h2>
+    <script>
+        function solicitarNumero(){
+            var numero;
+            while(isNaN(numero) || (numero=="") || (numero<=1)){
+                numero = prompt("Introduce un numero: ");
+            }
+            
+            return parseInt(numero);
+        }
+
+        function calcularFibonnaci(){
+            var numero = solicitarNumero();
+            let x = 1;
+            let y = 0;
+            document.write("0, 1, ");
+            for(let i=2; i<numero; i++){
+                x = x + y;
+                y = x - y;
+                document.write(x);
+                if(i<numero-1){
+                    document.write(", ");
+                }
+            }
+        }
+
+        calcularFibonnaci();
+    </script>
+</body>
+</html>
