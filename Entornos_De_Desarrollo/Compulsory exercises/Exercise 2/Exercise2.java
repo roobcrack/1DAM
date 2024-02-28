@@ -19,19 +19,7 @@ public class Exercise2{
 					if(insert<1 || insert > 2)
 						throw new Exception("insert a valid number");
 				} catch(Exception e){
-					System.out.println("Error text parsing: "+e.getMessage());
-				}
-			} while (insert < 1 || insert > 2);
-			switch(insert){
-				case 1: 									//Coffee
-					ingredientsUsed = new int[] {0, 1, 2};
-					break;
-				case 2: 									//Decaffeinated
-					ingredientsUsed = new int[] {0, 3, 2};
-					break;
-			}
-
-			if(insert==0)
+					System.out.println("Error text parsing: "+e.getMessage());			if(insert==0)
 				System.out.println("Closing program...");
 			else if(checkIfIngredients(ingredientsNames, ingredientsAmmount, ingredientsUsed)!=null)
 				System.out.println("EMPTY: "+checkIfIngredients(ingredientsNames, ingredientsAmmount, ingredientsUsed));
@@ -46,6 +34,18 @@ public class Exercise2{
                     } catch(Exception e){
                         System.out.println("Error: "+e.getMessage());
                     }
+
+				}
+			} while (insert < 1 || insert > 2);
+			switch(insert){
+				case 1: 									//Coffee
+					ingredientsUsed = new int[] {0, 1, 2};
+					break;
+				case 2: 									//Decaffeinated
+					ingredientsUsed = new int[] {0, 3, 2};
+					break;
+			}
+
                 } while(sugarAmount>5 || sugarAmount <0);
 
                 do{

@@ -4,7 +4,7 @@ public class Main{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[] ingredientsNames = {"water", "coffee", "cup", "decaffeinated coffee", "powdered milk", "powdered cream"};
-        int[] ingredientsAmmount = {5, 4, 4, 3, 2, 1};
+        int[] ingredientsAmount = {5, 4, 4, 3, 2, 1};
         int[] ingredientsUsed = new int[3];
         int insert=-1, sugarStock=3, sugarAmount=-1, money=-1;
 
@@ -24,8 +24,8 @@ public class Main{
         if (insert == 0)
             System.out.println("Closing program...");
         else {
-             if (checkIfIngredients(ingredientsNames, ingredientsAmmount, ingredientsUsed) != null)
-                System.out.println("EMPTY: " + checkIfIngredients(ingredientsNames, ingredientsAmmount, ingredientsUsed));
+             if (checkIfIngredients(ingredientsNames, ingredientsAmount, ingredientsUsed) != null)
+                System.out.println("EMPTY: " + checkIfIngredients(ingredientsNames, ingredientsAmount, ingredientsUsed));
             else if (sugarStock > 0) {
                 do {
                     try {
@@ -67,14 +67,14 @@ public class Main{
                     System.out.println("-Error: " + e.getMessage());
                 }
             } while (money <= 20 && money >= 1);
-            preparateCoffee(ingredientsAmmount, ingredientsUsed);
+            prepareCoffee(ingredientsAmount, ingredientsUsed);
         }
     }
 
     public static String checkIfIngredients(String[] ingredientsNames, int[] ingredientsAmmount, int[] ingredientsUsed){
-        for(int i=0; i<ingredientsUsed.length; i++){
-            if(ingredientsAmmount[ingredientsUsed[i]]<=0)
-                return ingredientsNames[ingredientsUsed[i]];
+        for (int i : ingredientsUsed) {
+            if (ingredientsAmmount[i] <= 0)
+                return ingredientsNames[i];
         }
         return null;
     }
@@ -92,8 +92,8 @@ public class Main{
         return finalString;
     }
 
-    public static void preparateCoffee(int[] ingredientsAmmount, int[] ingredientsUsed){
-        for(int i=0; i<ingredientsUsed.length; i++)
-            ingredientsAmmount[ingredientsUsed[i]]--;
+    public static void prepareCoffee(int[] ingredientsAmount, int[] ingredientsUsed){
+        for (int i : ingredientsUsed)
+            ingredientsAmount[i]--;
     }
 }
