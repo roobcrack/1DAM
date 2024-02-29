@@ -6,7 +6,7 @@ public class Main{
         String[] ingredientsNames = {"water", "coffee", "cup", "decaffeinated coffee", "powdered milk", "powdered cream"};
         int[] ingredientsAmount = {5, 4, 4, 3, 2, 1};
         int[] ingredientsUsed = new int[3];
-        int insert=-1, sugarStock=3, sugarAmount=-1, money=-1;
+        int insert=-1, sugarStock=8, sugarAmount=-1, money=-1;
 
         do {
             try {
@@ -26,15 +26,16 @@ public class Main{
         else {
              if (checkIfIngredients(ingredientsNames, ingredientsAmount, ingredientsUsed) != null)
                 System.out.println("EMPTY: " + checkIfIngredients(ingredientsNames, ingredientsAmount, ingredientsUsed));
-            else if (sugarStock > 0) {
+             if (sugarStock > 0) {
                 do {
                     try {
                         System.out.println("Insert the amount of sugar from 0-5");
                         System.out.print("  Insert: ");
                         sugarAmount = Integer.parseInt(sc.nextLine());
-                        if (sugarAmount > sugarStock) {
-                            throw new Exception("ammount must be from 0-5");
-                        }
+                        if (sugarAmount < 0 || sugarAmount > 5)
+                            throw new Exception("amount must be from 0-5");
+                        else if(sugarAmount > sugarStock)
+                            throw new Exception("there is not enough sugar");
                     } catch (Exception e2) {
                         System.out.println("-Error: " + e2.getMessage());
                     }
@@ -66,14 +67,14 @@ public class Main{
                 } catch (Exception e) {
                     System.out.println("-Error: " + e.getMessage());
                 }
-            } while (money <= 20 && money >= 1);
-            prepareCoffee(ingredientsAmount, ingredientsUsed);
+            } while (money > 20 || money < 1);
+            prepareCoffee(ingredientsAmount, ingredientsUsed, sugarStock, sugarAmount);
         }
     }
 
-    public static String checkIfIngredients(String[] ingredientsNames, int[] ingredientsAmmount, int[] ingredientsUsed){
+    public static String checkIfIngredients(String[] ingredientsNames, int[] ingredientsAmount, int[] ingredientsUsed){
         for (int i : ingredientsUsed) {
-            if (ingredientsAmmount[i] <= 0)
+            if (ingredientsAmount[i] <= 0)
                 return ingredientsNames[i];
         }
         return null;
@@ -83,17 +84,18 @@ public class Main{
         String finalString="";
         int[] billsAndCoins = {20, 10, 5, 2, 1};
 
-        for (int ammount : billsAndCoins) {
-            while (money >= ammount) {
-                money -= ammount;
-                finalString += ammount + " ";
+        for (int amount : billsAndCoins) {
+            while (money >= amount) {
+                money -= amount;
+                finalString += amount + " ";
             }
         }
         return finalString;
     }
 
-    public static void prepareCoffee(int[] ingredientsAmount, int[] ingredientsUsed){
+    public static void prepareCoffee(int[] ingredientsAmount, int[] ingredientsUsed, int sStock, int sAmount){
         for (int i : ingredientsUsed)
             ingredientsAmount[i]--;
+
     }
 }
