@@ -32,10 +32,7 @@ public class Main{
 
     public static boolean isFollower(int[][] usersArr, int user1, int user2){
         try{
-            if(usersArr[user1-1][user2-1]==1)
-                return true;
-            else
-                return false;
+            return usersArr[user1 - 1][user2 - 1] == 1;
         } catch(NumberFormatException e1){
             System.err.println("Error parsing text: "+e1.getMessage());
         } catch(ArrayIndexOutOfBoundsException e2){
@@ -49,12 +46,10 @@ public class Main{
             int higher = 0;
             for(int i=0; i<10; i++){
                 int sum=0;
-                for(int j=0; j<10; j++){
+                for(int j=0; j<10; j++)
                     sum += usersArr[j][i];
-                }
-                if(higher<sum){
+                if(higher<sum)
                     higher = i;
-                }
             }
             return higher;
         } catch(NumberFormatException e1){
@@ -68,9 +63,8 @@ public class Main{
     public static int lonely(int[][] usersArr){
         for(int i=0; i<10; i++){
             int sum=0;
-            for(int j=0; j<10; j++){
+            for(int j=0; j<10; j++)
                 sum += usersArr[j][i];
-            }
             if(sum==0)
                 return i;
         }
@@ -81,15 +75,11 @@ public class Main{
         try{
             for(int i=0; i<3; i++){
                 for(int j=0; j<3; j++){
-                    if(isFollower(usersArr, group[i], group[j]) || i==j){
-                        continue;
-                    } else{
+                    if(!(isFollower(usersArr, group[i], group[j])) || i!=j)
                         return false;
-                    }
                 }
-                if(i==2){
+                if(i==2)
                     return true;
-                }
             }
         } catch(NumberFormatException e1){
             System.err.println("Error parsing text: "+e1.getMessage());
@@ -103,20 +93,18 @@ public class Main{
         Random rd = new Random();
         for(int i=0; i<10; i++){
             for(int j=0; j<10; j++){
-                if(i==j || j==5){
+                if(i==j || j==5)
                     usersArr[i][j] = 0;
-                } else if(i==0 && (j==1 || j==3) || i==1 && (j==0 || j==3) || i==3 && (j==0 || j==1)){
+                else if(i==0 && (j==1 || j==3) || i==1 && (j==0 || j==3) || i==3 && (j==0 || j==1))
                     usersArr[i][j] = 1;
-                } else{
+                else
                     usersArr[i][j] = rd.nextInt(2);
-                }
             }
         }
 
         for(int i=0; i<10; i++){
-            for(int j=0; j<10; j++){
+            for(int j=0; j<10; j++)
                 System.out.print(usersArr[i][j] + " ");
-            }
             System.out.println();
         }
         System.out.println();
