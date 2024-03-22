@@ -38,10 +38,6 @@ namespace TiendaInformatica
                 {
                     return "Error: El nombre y la conexión del periférico no pueden ser nulos.";
                 }
-            } else if(producto is Portatiles)
-            {
-                Portatiles portailes = (Portatiles)producto;
-                if(string.)
             }
 
             diccionario.Add(producto.GetCodigo(), producto);
