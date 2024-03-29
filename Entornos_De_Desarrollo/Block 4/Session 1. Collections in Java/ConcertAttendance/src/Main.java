@@ -7,18 +7,18 @@ public class Main {
         LinkedList<Person> list = new LinkedList<>();
         Person person = null;
 
-        String name = "";
+        String name;
         do {
             System.out.println("Insert name: ");
             name = sc.nextLine();
-            if(name != "") {
+            if(!name.equals("")) {
                 System.out.println("Insert age: ");
                 int age = sc.nextInt();
 
                 person = new Person(name, age);
                 list.add(person);
             }
-        } while(name != "");
+        } while(!name.equals(""));
 
         while(list.size() > 0){
             if(person.getAge()>=18)
