@@ -1,0 +1,16 @@
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\bin\Debug\net8.0-windows\PruebaForms.exe
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\bin\Debug\net8.0-windows\PruebaForms.deps.json
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\bin\Debug\net8.0-windows\PruebaForms.runtimeconfig.json
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\bin\Debug\net8.0-windows\PruebaForms.dll
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\bin\Debug\net8.0-windows\PruebaForms.pdb
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\PruebaForms.Form1.resources
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\PruebaForms.csproj.GenerateResource.cache
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\PruebaForms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\PruebaForms.AssemblyInfoInputs.cache
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\PruebaForms.AssemblyInfo.cs
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\PruebaForms.csproj.CoreCompileInputs.cache
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\PruebaForms.dll
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\refint\PruebaForms.dll
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\PruebaForms.pdb
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\PruebaForms.genruntimeconfig.cache
+C:\Users\Roob\Desktop\PruebaForms\PruebaForms\obj\Debug\net8.0-windows\ref\PruebaForms.dll
