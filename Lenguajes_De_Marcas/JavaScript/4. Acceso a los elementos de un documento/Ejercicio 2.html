@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Prueba con el DOM</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet, <a href="http://prueba">consectetuer 
+    adipiscing elit</a>. Sed mattis enim vitae orci. Phasellus libero. 
+    Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, 
+    turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, 
+    pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices 
+    porttitor, pede. Nullam sit amet nisl elementum elit convallis 
+    malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, 
+    mi. <a href="http://prueba2">Fusce porta</a>.</p>
+
+    <p>Aenean at nisl. Maecenas egestas dapibus odio. Vestibulum ante ipsum 
+    primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin 
+    consequat auctor diam. <a href="http://prueba">Ut bibendum blandit est</a>. 
+    Curabitur vestibulum. Nunc malesuada porttitor sapien. Aenean a lacus et 
+    metus venenatis porta. Suspendisse cursus, sem non dapibus tincidunt, 
+    lorem magna porttitor felis, id sodales dolor dolor sed urna. Sed rutrum 
+    nulla vitae tellus. Sed quis eros nec lectus tempor lacinia. Aliquam nec 
+    lectus nec neque aliquet dictum. Etiam <a href="http://prueba3">consequat 
+    sem quis massa</a>.</p>
+
+    <p id="p3">Vestibulum aliquet, nulla sit amet imperdiet suscipit, nunc 
+    erat laoreet est, a <a href="http://prueba">aliquam leo odio sed sem</a>. 
+    Quisque eget eros vehicula diam euismod tristique. Proin 
+    <a href="http://prueba4">egestas</a> adipiscing ligula. Duis iaculis 
+    laoreet turpis. Mauris mollis est sit amet diam. Curabitur hendrerit, 
+    eros quis malesuada tristique, ipsum odio euismod tortor, a vestibulum 
+    nisl mi at odio. <a href="http://prueba5">Sed non lectus non est 
+    pellentesque</a> auctor.</p>
+
+    <script>
+        alert("Total de enlaces en la página: " + document.querySelectorAll("a").length);
+    
+        alert("La dirección del primer enlace es: " + document.querySelector("a").href);
+    
+        var tercerParrafo = document.querySelector("#p3");
+        alert("Total de enlaces en el tercer párrafo: " + tercerParrafo.querySelectorAll("a").length);
+    </script>
+</body>
+</html>
