@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Roob\\Desktop\\PruebaForms\\PruebaForms\\PruebaForms.csproj",
+      "projectUniqueName": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\TEMA10\\PruebaForms\\PruebaForms\\PruebaForms.csproj",
       "projectName": "PruebaForms",
-      "projectPath": "C:\\Users\\Roob\\Desktop\\PruebaForms\\PruebaForms\\PruebaForms.csproj",
+      "projectPath": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\TEMA10\\PruebaForms\\PruebaForms\\PruebaForms.csproj",
       "packagesPath": "C:\\Users\\Roob\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Roob\\Desktop\\PruebaForms\\PruebaForms\\obj\\",
+      "outputPath": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\TEMA10\\PruebaForms\\PruebaForms\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Roob\\AppData\\Roaming\\NuGet\\NuGet.Config",
