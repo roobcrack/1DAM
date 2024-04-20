@@ -7,7 +7,7 @@ public class Main {
         Scanner sc = new Scanner((System.in));
         Map<String, String> myMap = new HashMap<>();
 
-        String exit = "";
+        String exit;
         do{
             System.out.print("ID: ");
             String id = sc.nextLine();
@@ -17,6 +17,10 @@ public class Main {
             String author = sc.nextLine();
             System.out.println("Want to add a new one(y for yes, anything else for no)");
             exit = sc.nextLine();
-        } while(exit != "y");
+        } while (exit.equals("y"));
+
+        for (Map book : myMap.values()) {
+            System.out.println(book);
+        }
     }
 }

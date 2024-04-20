@@ -2,29 +2,37 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         LinkedList<Person> list = new LinkedList<>();
-        Person person = null;
+        Person person;
 
         String name;
         do {
-            System.out.println("Insert name: ");
+            System.out.print("Insert name: ");
             name = sc.nextLine();
-            if(!name.equals("")) {
-                System.out.println("Insert age: ");
-                int age = sc.nextInt();
+            if (!name.equals("")) {
+                System.out.print("Insert age: ");
+                int age;
+                while (true) {
+                    String ageInput = sc.nextLine();
+                    try {
+                        age = Integer.parseInt(ageInput);
+                        break;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Please enter a valid age: ");
+                    }
+                }
 
                 person = new Person(name, age);
                 list.add(person);
             }
-        } while(!name.equals(""));
+        } while (!name.equals(""));
 
-        while(list.size() > 0){
-            if(person.getAge()>=18)
-                System.out.println(list.remove());
-            else
-                list.remove();
+        System.out.println("Persons 18 years or older:");
+        for (Person p : list) {
+            if (p.getAge() >= 18)
+                System.out.println(p);
         }
     }
 }

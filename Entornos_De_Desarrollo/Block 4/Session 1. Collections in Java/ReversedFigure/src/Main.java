@@ -7,7 +7,7 @@ public class Main {
         Stack<String> myStack = new Stack<>();
 
         String insert = sc.nextLine();
-        while(insert != ""){
+        while(!insert.equals("")){
             myStack.push(insert);
             insert = sc.nextLine();
         }
