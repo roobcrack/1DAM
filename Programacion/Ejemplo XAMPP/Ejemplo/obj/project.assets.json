@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Roob\\Desktop\\Ejemplo\\Ejemplo\\Ejemplo.csproj",
+      "projectUniqueName": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\Ejemplo.csproj",
       "projectName": "Ejemplo",
-      "projectPath": "C:\\Users\\Roob\\Desktop\\Ejemplo\\Ejemplo\\Ejemplo.csproj",
+      "projectPath": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\Ejemplo.csproj",
       "packagesPath": "C:\\Users\\Roob\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Roob\\Desktop\\Ejemplo\\Ejemplo\\obj\\",
+      "outputPath": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Roob\\AppData\\Roaming\\NuGet\\NuGet.Config",
