@@ -70,8 +70,8 @@ namespace Gestion_Alumnos
                     Dni = Convert.ToString(selectedRow.Cells["Dni"].Value),
                     Nombre = Convert.ToString(selectedRow.Cells["Nombre"].Value),
                     Apellidos = Convert.ToString(selectedRow.Cells["Apellidos"].Value),
-                    Poblacion = Convert.ToString(selectedRow.Cells["Telefono"].Value),
-                    Telefono = Convert.ToString(selectedRow.Cells["Poblacion"].Value)
+                    Telefono = Convert.ToString(selectedRow.Cells["Poblacion"].Value),
+                    Poblacion = Convert.ToString(selectedRow.Cells["Telefono"].Value)
                 };
                 
                 // Cargamos el alumno a la clase de gestión

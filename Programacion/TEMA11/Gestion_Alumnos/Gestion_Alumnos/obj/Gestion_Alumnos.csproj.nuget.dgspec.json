@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ruben\\Desktop\\Gestion_Alumnos\\Gestion_Alumnos\\Gestion_Alumnos.csproj": {}
+    "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\Gestion_Alumnos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ruben\\Desktop\\Gestion_Alumnos\\Gestion_Alumnos\\Gestion_Alumnos.csproj": {
+    "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\Gestion_Alumnos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ruben\\Desktop\\Gestion_Alumnos\\Gestion_Alumnos\\Gestion_Alumnos.csproj",
+        "projectUniqueName": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\Gestion_Alumnos.csproj",
         "projectName": "Gestion_Alumnos",
-        "projectPath": "C:\\Users\\ruben\\Desktop\\Gestion_Alumnos\\Gestion_Alumnos\\Gestion_Alumnos.csproj",
+        "projectPath": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\Gestion_Alumnos.csproj",
         "packagesPath": "C:\\Users\\ruben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ruben\\Desktop\\Gestion_Alumnos\\Gestion_Alumnos\\obj\\",
+        "outputPath": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",

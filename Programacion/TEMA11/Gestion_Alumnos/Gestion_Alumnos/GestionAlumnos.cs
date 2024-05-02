@@ -17,10 +17,7 @@ class GestionAlumnos
     }
     public Alumno Primero()
     {
-        // Consulta SQL para obtener el primer alumno
-        string sql = "SELECT * FROM alumnos ORDER BY id_alumno ASC LIMIT 1";
-
-        // Obtener el primer alumno utilizando el método GetOneBySql
+        string sql = "SELECT * FROM alumnos ORDER BY dni ASC LIMIT 1";
         return GetOneBySql(sql);
     }
     public Alumno Ultimo()
