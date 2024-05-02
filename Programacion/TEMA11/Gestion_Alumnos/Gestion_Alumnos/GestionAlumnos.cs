@@ -60,7 +60,7 @@ class GestionAlumnos
     {
         string sql = "select * from alumnos where dni = '" + this.Alumno.Dni + "'";
         if (BaseDatos.Consulta(sql).Rows.Count > 0)
-        {
+            {
             sql = "update alumnos set nombre = '" + this.Alumno.Nombre + "', apellidos = '"
                 + this.Alumno.Apellidos + "', telefono = '" + this.Alumno.Telefono +
                 "', poblacion = '" + this.Alumno.Poblacion + "' where dni = '" + this.Alumno.Dni +

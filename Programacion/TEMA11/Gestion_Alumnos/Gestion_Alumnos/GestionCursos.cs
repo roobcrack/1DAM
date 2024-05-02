@@ -14,13 +14,13 @@ class GestionCursos
     {
         return BaseDatos.Error;
     }
-    /*
+ 
     // Selecciona el primer curso de la base de datos
     public Curso Primero()
     {
-        string sql = "SELECT * FROM cursos ORDERED BY codigo ASC LIMIT 1"
-        return 
+        return GetOneBySql("SELECT * FROM cursos ORDERED BY codigo ASC LIMIT 1");
     }
+       /*
     // Selecciona el ultimo curso
     public Curso Ultimo()
     {

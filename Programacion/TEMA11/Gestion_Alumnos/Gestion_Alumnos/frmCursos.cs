@@ -26,7 +26,7 @@ namespace Gestion_Alumnos
         {
             Curso curso = new Curso();
             curso.Codigo = txtCodigo.Text;
-            curso.Titulo= txtTitulo.Text;
+            curso.Titulo = txtTitulo.Text;
             curso.Num_plazas = txtNumeroPlazas.Text;
             curso.Precio = txtPrecio.Text;
             curso.Lugar_realizacion = txtLugarRealizacion.Text;
@@ -40,27 +40,44 @@ namespace Gestion_Alumnos
 
         private void dgvGestionCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Obtener el índice de la fila seleccionada
-            if (e.ColumnIndex >= 0 && e.RowIndex < dgvGestionCursos.Rows.Count)
+            // Verificar si la columna clicada es válida y si el índice de la fila es válido
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
-                // Obtener el alumno seleccionado en el DataGridView
+                // Obtener la fila seleccionada
                 DataGridViewRow selectedRow = dgvGestionCursos.Rows[e.RowIndex];
 
-                // Declarar el alumno a mapear
+                // Crear un objeto Curso con los datos de la fila seleccionada
                 Curso curso = new Curso()
                 {
-                    Codigo = Convert.ToString(selectedRow.Cells["Codigo"].Value),
-                    Titulo = Convert.ToString(selectedRow.Cells["Titulo"].Value),
-                    Num_plazas = Convert.ToString(selectedRow.Cells["Num_plazas"].Value),
-                    Precio = Convert.ToString(selectedRow.Cells["Precio"].Value),
-                    Lugar_realizacion = Convert.ToString(selectedRow.Cells["Lugar_realizacion"].Value)
+                    Codigo = Convert.ToString(selectedRow.Cells["codigo"].Value), // Ajusta el nombre de la columna según tu DataGridView
+                    Titulo = Convert.ToString(selectedRow.Cells["titulo"].Value),
+                    Num_plazas = Convert.ToString(selectedRow.Cells["num_plazas"].Value), // Ajusta el tipo de dato según corresponda
+                    Precio = Convert.ToString(selectedRow.Cells["precio"].Value), // Ajusta el tipo de dato según corresponda
+                    Lugar_realizacion = Convert.ToString(selectedRow.Cells["lugar_realizacion"].Value) // Ajusta el nombre de la columna según tu DataGridView
                 };
 
-                // Cargamos el alumno a la clase de gestión
-                //dgvGestionCursos.Curso = curso;
-
-                // Mapear los datos del alumno seleccionado a los campos de texto
+                // Mapear los datos del curso seleccionado a los campos de presentación
                 MapearNegocioPresentacion(curso);
+            }
+        }
+
+        private void btnPrimero_Click(object sender, EventArgs e)
+        {
+            Curso curso = gestionCursos.Primero();
+            if (curso != null)
+            {
+                MapearNegocioPresentacion(curso);
+
+                // Verificar si hay al menos una fila en el DataGridView
+                if (dgvGestionCursos.Rows.Count > 0)
+                {
+                    dgvGestionCursos.Rows[0].Selected = true;
+                }
+            }
+            else
+            {
+                // Manejar el caso en el que no se encuentre ningún curso
+                MessageBox.Show("No se encontró ningún curso.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
