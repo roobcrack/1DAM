@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\Ejemplo.csproj": {}
+    "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\Ejemplo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\Ejemplo.csproj": {
+    "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\Ejemplo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\Ejemplo.csproj",
+        "projectUniqueName": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\Ejemplo.csproj",
         "projectName": "Ejemplo",
-        "projectPath": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\Ejemplo.csproj",
-        "packagesPath": "C:\\Users\\Roob\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Roob\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\obj\\",
+        "projectPath": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\Ejemplo.csproj",
+        "packagesPath": "C:\\Users\\ruben\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\Ejemplo XAMPP\\Ejemplo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Roob\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,15 +50,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            },
-            "Microsoft.WindowsDesktop.App.WindowsForms": {
-              "privateAssets": "none"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
