@@ -65,9 +65,9 @@ class GestionAlumnos
         if (dt != null && dt.Rows.Count > 0)
         {
             Alumno a = new Alumno(dt.Rows[0]["dni"].ToString(), dt.Rows[0]["nombre"].ToString(),
-                dt.Rows[0]["apellidos"].ToString(), dt.Rows[0]["telefono"].ToString(), dt.Rows[0]
-                ["poblacion"].ToString());
-            return (a);
+                dt.Rows[0]["apellidos"].ToString(), dt.Rows[0]["telefono"].ToString(), 
+                dt.Rows[0]["poblacion"].ToString());
+            return a;
         }
         return null;
     }

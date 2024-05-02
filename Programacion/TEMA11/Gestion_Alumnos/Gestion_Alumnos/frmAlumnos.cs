@@ -51,7 +51,7 @@ namespace Gestion_Alumnos
         {
             DataGridViewRow selectedRow = dgvAlumnos.Rows[e.RowIndex];
 
-            Alumno alumno = new Alumno()
+            alumno = new Alumno()
             {
                 Dni = Convert.ToString(selectedRow.Cells["Dni"].Value),
                 Nombre = Convert.ToString(selectedRow.Cells["Nombre"].Value),
@@ -151,14 +151,6 @@ namespace Gestion_Alumnos
             else
                 MessageBox.Show("Ingrese un dni", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtDni.Text = txtNombre.Text = txtApellidos.Text = txtTelefono.Text = txtPoblacion.Text = "";
-            gestionAlumnos.Alumno = new Alumno();
-            dgvAlumnos.ClearSelection();
-        }
-
         private void btnFind_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(txtDni.Text))
@@ -174,13 +166,20 @@ namespace Gestion_Alumnos
             else
                 MessageBox.Show("Ingrese un dni", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtDni.Text = txtNombre.Text = txtApellidos.Text = txtTelefono.Text = txtPoblacion.Text = "";
+            gestionAlumnos.Alumno = new Alumno();
+            dgvAlumnos.ClearSelection();
+        }
+        
         private void SeleccionarFilaAlumno(string dni)
         {
             foreach (DataGridViewRow row in dgvAlumnos.Rows)
             {
-                if (row.Cells["Dni"].Value.ToString() == dni)
+                if (row.Cells["dni"].Value.ToString() == dni)
                 {
-                    dgvAlumnos.CurrentCell = row.Cells["Dni"];
+                    dgvAlumnos.CurrentCell = row.Cells["dni"];
                     break;
                 }
             }
