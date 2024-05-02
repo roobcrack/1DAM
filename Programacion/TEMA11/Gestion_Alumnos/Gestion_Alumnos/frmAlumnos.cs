@@ -6,23 +6,36 @@ namespace Gestion_Alumnos
     public partial class frmAlumnos : Form
     {
         private GestionAlumnos gestionAlumnos = new GestionAlumnos();
+        private Alumno alumno;
 
         public frmAlumnos()
         {
             InitializeComponent();
         }
 
-        // Método para mapear datos del objeto Alumno a los textBox
+        private void frmAlumnos_Load(object sender, EventArgs e)
+        {
+            dgvAlumnos.DataSource = gestionAlumnos.GetAll();
+        }
         public void MapearNegocioPresentacion(Alumno alumno)
         {
-            txtDni.Text = alumno.Dni;
-            txtNombre.Text = alumno.Nombre;
-            txtApellidos.Text = alumno.Apellidos;
-            txtTelefono.Text = alumno.Telefono;
-            txtPoblacion.Text = alumno.Poblacion;
+            if (alumno != null)
+            {
+                txtDni.Text = alumno.Dni;
+                txtNombre.Text = alumno.Nombre;
+                txtApellidos.Text = alumno.Apellidos;
+                txtTelefono.Text = alumno.Telefono;
+                txtPoblacion.Text = alumno.Poblacion;
+                gestionAlumnos.Alumno = alumno;
+            }
+            else
+            {
+                string message = gestionAlumnos.Error();
+                if (message == "")
+                    message = "No hay mas alumnos en la base de datos";
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
-        // Método para mapear datos de los textBox al objeto Alumno
         public Alumno MapearPresentacionNegocio()
         {
             Alumno alumno = new Alumno();
@@ -34,52 +47,73 @@ namespace Gestion_Alumnos
 
             return alumno;
         }
-
-        private void frmAlumnos_Load(object sender, EventArgs e)
+        private void dgvAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Obtener y cargar la lista de alumnos en el DataGridView
-            dgvAlumnos.DataSource = gestionAlumnos.GetAll();
+            DataGridViewRow selectedRow = dgvAlumnos.Rows[e.RowIndex];
+
+            Alumno alumno = new Alumno()
+            {
+                Dni = Convert.ToString(selectedRow.Cells["Dni"].Value),
+                Nombre = Convert.ToString(selectedRow.Cells["Nombre"].Value),
+                Apellidos = Convert.ToString(selectedRow.Cells["Apellidos"].Value),
+                Telefono = Convert.ToString(selectedRow.Cells["Telefono"].Value),
+                Poblacion = Convert.ToString(selectedRow.Cells["Poblacion"].Value)
+            };
+
+            MapearNegocioPresentacion(alumno);
         }
 
         private void btnPrimero_Click(object sender, EventArgs e)
         {
-            // Obtener el primer alumno y mapear sus datos a los campos de texto
-            Alumno primerAlumno = gestionAlumnos.Primero();
-            if (primerAlumno != null)
+            alumno = gestionAlumnos.Primero();
+            MapearNegocioPresentacion(alumno);
+        }
+        private void btnUltimo_Click(object sender, EventArgs e)
+        {
+            alumno = gestionAlumnos.Ultimo();
+            MapearNegocioPresentacion(alumno);
+        }
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            alumno = gestionAlumnos.Siguiente();
+            MapearNegocioPresentacion(alumno);
+        }
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            alumno = gestionAlumnos.Anterior();
+            MapearNegocioPresentacion(alumno);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Alumno alumno = MapearPresentacionNegocio();
+
+            // Asignar el alumno actual al objeto gestionAlumnos
+            gestionAlumnos.Alumno = alumno;
+
+            // Llamar al método Edit() para editar el alumno
+            int resultado = gestionAlumnos.Edit();
+
+            // Verificar el resultado de la edición
+            if (resultado > 0)
             {
-                MapearNegocioPresentacion(primerAlumno);
+                // Éxito: Mostrar mensaje de éxito
+                MessageBox.Show("Alumno editado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Actualizar el DataGridView
+                dgvAlumnos.DataSource = gestionAlumnos.GetAll();
+            }
+            else if (resultado == 0)
+            {
+                // No se realizaron cambios: Mostrar mensaje informativo
+                MessageBox.Show("No se realizaron cambios.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                // Manejar el caso en el que no se encuentre ningún alumno
-                MessageBox.Show("No se encontró ningún alumno.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Error: Mostrar mensaje de error
+                MessageBox.Show("Error al editar alumno. Por favor, inténtalo de nuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void dgvAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Obtener el índice de la fila seleccionada
-            if (e.ColumnIndex >= 0 && e.RowIndex < dgvAlumnos.Rows.Count)
-            {
-                // Obtener el alumno seleccionado en el DataGridView
-                DataGridViewRow selectedRow = dgvAlumnos.Rows[e.RowIndex];
-
-                // Declarar el alumno a mapear
-                Alumno alumno = new Alumno()
-                {
-                    Dni = Convert.ToString(selectedRow.Cells["Dni"].Value),
-                    Nombre = Convert.ToString(selectedRow.Cells["Nombre"].Value),
-                    Apellidos = Convert.ToString(selectedRow.Cells["Apellidos"].Value),
-                    Telefono = Convert.ToString(selectedRow.Cells["Poblacion"].Value),
-                    Poblacion = Convert.ToString(selectedRow.Cells["Telefono"].Value)
-                };
-                
-                // Cargamos el alumno a la clase de gestión
-                gestionAlumnos.Alumno = alumno;
-
-                // Mapear los datos del alumno seleccionado a los campos de texto
-                MapearNegocioPresentacion(alumno);
-            }
-        }
+    }
     }
 }

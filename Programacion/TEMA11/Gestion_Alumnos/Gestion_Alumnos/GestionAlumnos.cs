@@ -1,69 +1,55 @@
 ﻿using academia_03data;
+using Mysqlx.Crud;
 using Mysqlx.Datatypes;
 using Org.BouncyCastle.Math;
 using System.Data;
+using System.Net;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 class GestionAlumnos
 {
-    public Alumno Alumno { set; get; } //El alumno con el que trabajaremos
+    public Alumno Alumno { set; get; }
     public GestionAlumnos()
     {
         Alumno = new Alumno();
     }
+
     public string Error()
     {
         return BaseDatos.Error;
     }
     public Alumno Primero()
     {
-        string sql = "SELECT * FROM alumnos ORDER BY dni ASC LIMIT 1";
-        return GetOneBySql(sql);
+        return GetOneBySql($"SELECT * FROM alumnos ORDER BY dni ASC LIMIT 1");
     }
     public Alumno Ultimo()
     {
-        // Busca el último alumno y si lo encuentra lo asigna a la propiedad Alumno
-        DataTable tablaAlumnos = BaseDatos.Consulta("SELECT * FROM alumnos ORDER BY dni DESC LIMIT 1");
-        if (tablaAlumnos != null && tablaAlumnos.Rows.Count > 0)
-        {
-            DataRow row = tablaAlumnos.Rows[0];
-            Alumno alumno = new Alumno();
-            alumno.Dni = Convert.ToString(row["dni"]);
-            alumno.Nombre = Convert.ToString(row["nombre"]);
-            alumno.Apellidos = Convert.ToString(row["apellidos"]);
-            alumno.Telefono = Convert.ToString(row["telefono"]);
-            alumno.Poblacion = Convert.ToString(row["poblacion"]);
-            return alumno;
-        }
-        else
-        {
-            return null; // Retornar null si no se encuentra ningún alumno
-        }
+        return GetOneBySql($"SELECT * FROM alumnos ORDER BY dni DESC LIMIT 1");
     }
-    /*
     public Alumno Siguiente()
     {
-        //Busca el siguiente alumno al actual (this.Alumno.dni) y si lo encuentra lo asigna a la
-        //propiedad Alumno
+        if (Alumno == null)
+            return null;
+
+        return GetOneBySql($"SELECT * FROM alumnos WHERE dni > '{Alumno.Dni}' ORDER BY dni ASC LIMIT 1");
     }
     public Alumno Anterior()
     {
-        //Busca el anterior alumno al actual (this.Alumno.dni) y si lo encuentra lo asigna a la
-        //propiedad Alumno
-    }
-     */
+        if (Alumno == null)
+            return null;
 
-    //Este método actualiza los datos de alumno cargado, hace un select con la clave principal
-    //Aluno.Dni y si existe en la base de datos hace un update, en caso de no existir devuelve -1 para que la
-    //capa de encima pueda sacar un mensaje
+        return GetOneBySql($"SELECT * FROM alumnos WHERE dni < '{Alumno.Dni}' ORDER BY dni DESC LIMIT 1");
+    }
+
     public int Edit()
     {
-        string sql = "select * from alumnos where dni = '" + this.Alumno.Dni + "'";
+        string sql = $"SELECT * FROM alumnos WHERE dni = '" + this.Alumno.Dni + "'";
         if (BaseDatos.Consulta(sql).Rows.Count > 0)
-            {
-            sql = "update alumnos set nombre = '" + this.Alumno.Nombre + "', apellidos = '"
+        {
+            sql = $"UPDATE alumnos SET nombre = '" + this.Alumno.Nombre + "', apellidos = '"
                 + this.Alumno.Apellidos + "', telefono = '" + this.Alumno.Telefono +
-                "', poblacion = '" + this.Alumno.Poblacion + "' where dni = '" + this.Alumno.Dni +
+                "', poblacion = '" + this.Alumno.Poblacion + "' WHERE dni = '" + this.Alumno.Dni +
                 "'";
             return BaseDatos.Modificacion(sql);
         }

@@ -46,7 +46,8 @@ namespace Gestion_Alumnos
                 // Obtener la fila seleccionada
                 DataGridViewRow selectedRow = dgvGestionCursos.Rows[e.RowIndex];
 
-                // Crear un objeto Curso con los datos de la fila seleccionada
+                // Crear un objeto Curso con los datos 0.
+                // ................. .de la fila seleccionada
                 Curso curso = new Curso()
                 {
                     Codigo = Convert.ToString(selectedRow.Cells["codigo"].Value), // Ajusta el nombre de la columna según tu DataGridView

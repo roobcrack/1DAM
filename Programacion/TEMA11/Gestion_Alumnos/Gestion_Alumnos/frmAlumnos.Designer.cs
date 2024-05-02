@@ -28,245 +28,249 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDni = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblApellidos = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
-            this.lblPoblacion = new System.Windows.Forms.Label();
-            this.txtDni = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellidos = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtPoblacion = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnFind = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnUltimo = new System.Windows.Forms.Button();
-            this.btnSiguiente = new System.Windows.Forms.Button();
-            this.btnAnterior = new System.Windows.Forms.Button();
-            this.btnPrimero = new System.Windows.Forms.Button();
-            this.dgvAlumnos = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
-            this.SuspendLayout();
+            lblDni = new Label();
+            lblNombre = new Label();
+            lblApellidos = new Label();
+            lblTelefono = new Label();
+            lblPoblacion = new Label();
+            txtDni = new TextBox();
+            txtNombre = new TextBox();
+            txtApellidos = new TextBox();
+            txtTelefono = new TextBox();
+            txtPoblacion = new TextBox();
+            groupBox1 = new GroupBox();
+            btnClear = new Button();
+            btnFind = new Button();
+            btnRemove = new Button();
+            btnInsert = new Button();
+            btnEdit = new Button();
+            btnUltimo = new Button();
+            btnSiguiente = new Button();
+            btnAnterior = new Button();
+            btnPrimero = new Button();
+            dgvAlumnos = new DataGridView();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvAlumnos).BeginInit();
+            SuspendLayout();
             // 
             // lblDni
             // 
-            this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(67, 80);
-            this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(28, 15);
-            this.lblDni.TabIndex = 0;
-            this.lblDni.Text = "Dni:";
+            lblDni.AutoSize = true;
+            lblDni.Location = new Point(67, 80);
+            lblDni.Name = "lblDni";
+            lblDni.Size = new Size(28, 15);
+            lblDni.TabIndex = 0;
+            lblDni.Text = "Dni:";
             // 
             // lblNombre
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(67, 119);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(54, 15);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre:";
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(67, 119);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(54, 15);
+            lblNombre.TabIndex = 1;
+            lblNombre.Text = "Nombre:";
             // 
             // lblApellidos
             // 
-            this.lblApellidos.AutoSize = true;
-            this.lblApellidos.Location = new System.Drawing.Point(67, 160);
-            this.lblApellidos.Name = "lblApellidos";
-            this.lblApellidos.Size = new System.Drawing.Size(59, 15);
-            this.lblApellidos.TabIndex = 2;
-            this.lblApellidos.Text = "Apellidos:";
+            lblApellidos.AutoSize = true;
+            lblApellidos.Location = new Point(67, 160);
+            lblApellidos.Name = "lblApellidos";
+            lblApellidos.Size = new Size(59, 15);
+            lblApellidos.TabIndex = 2;
+            lblApellidos.Text = "Apellidos:";
             // 
             // lblTelefono
             // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(67, 200);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(55, 15);
-            this.lblTelefono.TabIndex = 3;
-            this.lblTelefono.Text = "Teléfono:";
+            lblTelefono.AutoSize = true;
+            lblTelefono.Location = new Point(67, 200);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new Size(55, 15);
+            lblTelefono.TabIndex = 3;
+            lblTelefono.Text = "Teléfono:";
             // 
             // lblPoblacion
             // 
-            this.lblPoblacion.AutoSize = true;
-            this.lblPoblacion.Location = new System.Drawing.Point(67, 242);
-            this.lblPoblacion.Name = "lblPoblacion";
-            this.lblPoblacion.Size = new System.Drawing.Size(63, 15);
-            this.lblPoblacion.TabIndex = 4;
-            this.lblPoblacion.Text = "Población:";
+            lblPoblacion.AutoSize = true;
+            lblPoblacion.Location = new Point(67, 242);
+            lblPoblacion.Name = "lblPoblacion";
+            lblPoblacion.Size = new Size(63, 15);
+            lblPoblacion.TabIndex = 4;
+            lblPoblacion.Text = "Población:";
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(142, 80);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(100, 23);
-            this.txtDni.TabIndex = 5;
+            txtDni.Location = new Point(142, 80);
+            txtDni.Name = "txtDni";
+            txtDni.Size = new Size(100, 23);
+            txtDni.TabIndex = 5;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(142, 119);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 23);
-            this.txtNombre.TabIndex = 6;
+            txtNombre.Location = new Point(142, 119);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(100, 23);
+            txtNombre.TabIndex = 6;
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(142, 160);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(100, 23);
-            this.txtApellidos.TabIndex = 7;
+            txtApellidos.Location = new Point(142, 160);
+            txtApellidos.Name = "txtApellidos";
+            txtApellidos.Size = new Size(100, 23);
+            txtApellidos.TabIndex = 7;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(142, 200);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(100, 23);
-            this.txtTelefono.TabIndex = 8;
+            txtTelefono.Location = new Point(142, 200);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(100, 23);
+            txtTelefono.TabIndex = 8;
             // 
             // txtPoblacion
             // 
-            this.txtPoblacion.Location = new System.Drawing.Point(142, 242);
-            this.txtPoblacion.Name = "txtPoblacion";
-            this.txtPoblacion.Size = new System.Drawing.Size(100, 23);
-            this.txtPoblacion.TabIndex = 9;
+            txtPoblacion.Location = new Point(142, 242);
+            txtPoblacion.Name = "txtPoblacion";
+            txtPoblacion.Size = new Size(100, 23);
+            txtPoblacion.TabIndex = 9;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnClear);
-            this.groupBox1.Controls.Add(this.btnFind);
-            this.groupBox1.Controls.Add(this.btnRemove);
-            this.groupBox1.Controls.Add(this.btnInsert);
-            this.groupBox1.Controls.Add(this.btnEdit);
-            this.groupBox1.Controls.Add(this.btnUltimo);
-            this.groupBox1.Controls.Add(this.btnSiguiente);
-            this.groupBox1.Controls.Add(this.btnAnterior);
-            this.groupBox1.Controls.Add(this.btnPrimero);
-            this.groupBox1.Location = new System.Drawing.Point(34, 353);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(855, 66);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
+            groupBox1.Controls.Add(btnClear);
+            groupBox1.Controls.Add(btnFind);
+            groupBox1.Controls.Add(btnRemove);
+            groupBox1.Controls.Add(btnInsert);
+            groupBox1.Controls.Add(btnEdit);
+            groupBox1.Controls.Add(btnUltimo);
+            groupBox1.Controls.Add(btnSiguiente);
+            groupBox1.Controls.Add(btnAnterior);
+            groupBox1.Controls.Add(btnPrimero);
+            groupBox1.Location = new Point(34, 353);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(855, 66);
+            groupBox1.TabIndex = 10;
+            groupBox1.TabStop = false;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(759, 22);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(88, 29);
-            this.btnClear.TabIndex = 17;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            btnClear.Location = new Point(759, 22);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(88, 29);
+            btnClear.TabIndex = 17;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(665, 22);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(88, 29);
-            this.btnFind.TabIndex = 16;
-            this.btnFind.Text = "Find";
-            this.btnFind.UseVisualStyleBackColor = true;
+            btnFind.Location = new Point(665, 22);
+            btnFind.Name = "btnFind";
+            btnFind.Size = new Size(88, 29);
+            btnFind.TabIndex = 16;
+            btnFind.Text = "Find";
+            btnFind.UseVisualStyleBackColor = true;
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(571, 22);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(88, 29);
-            this.btnRemove.TabIndex = 15;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Location = new Point(571, 22);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(88, 29);
+            btnRemove.TabIndex = 15;
+            btnRemove.Text = "Remove";
+            btnRemove.UseVisualStyleBackColor = true;
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(477, 22);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(88, 29);
-            this.btnInsert.TabIndex = 15;
-            this.btnInsert.Text = "Insert";
-            this.btnInsert.UseVisualStyleBackColor = true;
+            btnInsert.Location = new Point(477, 22);
+            btnInsert.Name = "btnInsert";
+            btnInsert.Size = new Size(88, 29);
+            btnInsert.TabIndex = 15;
+            btnInsert.Text = "Insert";
+            btnInsert.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(383, 22);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(88, 29);
-            this.btnEdit.TabIndex = 14;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Location = new Point(383, 22);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(88, 29);
+            btnEdit.TabIndex = 14;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnUltimo
             // 
-            this.btnUltimo.Location = new System.Drawing.Point(289, 22);
-            this.btnUltimo.Name = "btnUltimo";
-            this.btnUltimo.Size = new System.Drawing.Size(88, 29);
-            this.btnUltimo.TabIndex = 14;
-            this.btnUltimo.Text = ">>";
-            this.btnUltimo.UseVisualStyleBackColor = true;
+            btnUltimo.Location = new Point(289, 22);
+            btnUltimo.Name = "btnUltimo";
+            btnUltimo.Size = new Size(88, 29);
+            btnUltimo.TabIndex = 14;
+            btnUltimo.Text = ">>";
+            btnUltimo.UseVisualStyleBackColor = true;
+            btnUltimo.Click += btnUltimo_Click;
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(195, 22);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(88, 29);
-            this.btnSiguiente.TabIndex = 13;
-            this.btnSiguiente.Text = ">";
-            this.btnSiguiente.UseVisualStyleBackColor = true;
+            btnSiguiente.Location = new Point(195, 22);
+            btnSiguiente.Name = "btnSiguiente";
+            btnSiguiente.Size = new Size(88, 29);
+            btnSiguiente.TabIndex = 13;
+            btnSiguiente.Text = ">";
+            btnSiguiente.UseVisualStyleBackColor = true;
+            btnSiguiente.Click += btnSiguiente_Click;
             // 
             // btnAnterior
             // 
-            this.btnAnterior.Location = new System.Drawing.Point(101, 22);
-            this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(88, 29);
-            this.btnAnterior.TabIndex = 12;
-            this.btnAnterior.Text = "<";
-            this.btnAnterior.UseVisualStyleBackColor = true;
+            btnAnterior.Location = new Point(101, 22);
+            btnAnterior.Name = "btnAnterior";
+            btnAnterior.Size = new Size(88, 29);
+            btnAnterior.TabIndex = 12;
+            btnAnterior.Text = "<";
+            btnAnterior.UseVisualStyleBackColor = true;
+            btnAnterior.Click += btnAnterior_Click;
             // 
             // btnPrimero
             // 
-            this.btnPrimero.Location = new System.Drawing.Point(6, 22);
-            this.btnPrimero.Name = "btnPrimero";
-            this.btnPrimero.Size = new System.Drawing.Size(88, 29);
-            this.btnPrimero.TabIndex = 11;
-            this.btnPrimero.Text = "<<";
-            this.btnPrimero.UseVisualStyleBackColor = true;
-            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
+            btnPrimero.Location = new Point(6, 22);
+            btnPrimero.Name = "btnPrimero";
+            btnPrimero.Size = new Size(88, 29);
+            btnPrimero.TabIndex = 11;
+            btnPrimero.Text = "<<";
+            btnPrimero.UseVisualStyleBackColor = true;
+            btnPrimero.Click += btnPrimero_Click;
             // 
             // dgvAlumnos
             // 
-            this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlumnos.Location = new System.Drawing.Point(344, 40);
-            this.dgvAlumnos.Name = "dgvAlumnos";
-            this.dgvAlumnos.RowTemplate.Height = 25;
-            this.dgvAlumnos.Size = new System.Drawing.Size(545, 294);
-            this.dgvAlumnos.TabIndex = 23;
-            this.dgvAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellContentClick);
+            dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAlumnos.Enabled = false;
+            dgvAlumnos.Location = new Point(344, 40);
+            dgvAlumnos.Name = "dgvAlumnos";
+            dgvAlumnos.RowTemplate.Height = 25;
+            dgvAlumnos.Size = new Size(545, 294);
+            dgvAlumnos.TabIndex = 23;
+            dgvAlumnos.CellContentClick += dgvAlumnos_CellContentClick;
             // 
             // frmAlumnos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 450);
-            this.Controls.Add(this.dgvAlumnos);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtPoblacion);
-            this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.txtApellidos);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtDni);
-            this.Controls.Add(this.lblPoblacion);
-            this.Controls.Add(this.lblTelefono);
-            this.Controls.Add(this.lblApellidos);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.lblDni);
-            this.Name = "frmAlumnos";
-            this.Text = "frmAlumnos";
-            this.Load += new System.EventHandler(this.frmAlumnos_Load);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(925, 450);
+            Controls.Add(dgvAlumnos);
+            Controls.Add(groupBox1);
+            Controls.Add(txtPoblacion);
+            Controls.Add(txtTelefono);
+            Controls.Add(txtApellidos);
+            Controls.Add(txtNombre);
+            Controls.Add(txtDni);
+            Controls.Add(lblPoblacion);
+            Controls.Add(lblTelefono);
+            Controls.Add(lblApellidos);
+            Controls.Add(lblNombre);
+            Controls.Add(lblDni);
+            Name = "frmAlumnos";
+            Text = "frmAlumnos";
+            Load += frmAlumnos_Load;
+            groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvAlumnos).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
