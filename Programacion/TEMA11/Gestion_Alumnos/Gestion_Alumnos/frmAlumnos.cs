@@ -27,18 +27,18 @@ namespace Gestion_Alumnos
                 txtTelefono.Text = alumno.Telefono;
                 txtPoblacion.Text = alumno.Poblacion;
                 gestionAlumnos.Alumno = alumno;
+                SeleccionarFilaAlumno(alumno.Dni);
             }
             else
             {
                 string message = gestionAlumnos.Error();
-                if (message == "")
-                    message = "No hay mas alumnos en la base de datos";
-                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.IsNullOrEmpty(message) ? "No hay más alumnos en la base de datos" :
+                    message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public Alumno MapearPresentacionNegocio()
         {
-            Alumno alumno = new Alumno();
+            alumno = new Alumno();
             alumno.Dni = txtDni.Text;
             alumno.Nombre = txtNombre.Text;
             alumno.Apellidos = txtApellidos.Text;
@@ -86,34 +86,104 @@ namespace Gestion_Alumnos
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Alumno alumno = MapearPresentacionNegocio();
-
-            // Asignar el alumno actual al objeto gestionAlumnos
-            gestionAlumnos.Alumno = alumno;
-
-            // Llamar al método Edit() para editar el alumno
-            int resultado = gestionAlumnos.Edit();
-
-            // Verificar el resultado de la edición
-            if (resultado > 0)
+            if (!string.IsNullOrWhiteSpace(txtDni.Text))
             {
-                // Éxito: Mostrar mensaje de éxito
-                MessageBox.Show("Alumno editado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                alumno = MapearPresentacionNegocio();
+                gestionAlumnos.Alumno = alumno;
 
-                // Actualizar el DataGridView
-                dgvAlumnos.DataSource = gestionAlumnos.GetAll();
-            }
-            else if (resultado == 0)
-            {
-                // No se realizaron cambios: Mostrar mensaje informativo
-                MessageBox.Show("No se realizaron cambios.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int resultado = gestionAlumnos.Edit();
+                if (resultado > 0)
+                {
+                    MessageBox.Show("Alumno editado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvAlumnos.DataSource = gestionAlumnos.GetAll();
+                    btnClear_Click(sender, e);
+                }
+                else if (resultado == 0)
+                    MessageBox.Show("No se realizaron cambios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("Error al editar, compruebe que el dni no esté repetido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
+                MessageBox.Show("Seleccione a un alumno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(txtDni.Text))
             {
-                // Error: Mostrar mensaje de error
-                MessageBox.Show("Error al editar alumno. Por favor, inténtalo de nuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                alumno = MapearPresentacionNegocio();
+                gestionAlumnos.Alumno = alumno;
+
+                int resultado = gestionAlumnos.Insert();
+                if (resultado > 0)
+                {
+                    MessageBox.Show("Alumno insertado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvAlumnos.DataSource = gestionAlumnos.GetAll();
+                    btnClear_Click(sender, e);
+                }
+                else if (resultado == -1)
+                    MessageBox.Show("El DNI ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("Error al insertar alumno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Ingrese un dni", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {   
+            if (!String.IsNullOrWhiteSpace(txtDni.Text))
+            {
+                DialogResult opcion = MessageBox.Show("¿Estás seguro?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (opcion == DialogResult.Yes)
+                {
+                    int resultado = gestionAlumnos.Remove();
+                    if (resultado > 0)
+                    {
+                        MessageBox.Show("Alumno borrado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dgvAlumnos.DataSource = gestionAlumnos.GetAll();
+                        btnClear_Click(sender, e);
+                        dgvAlumnos.ClearSelection();
+                    }
+                    else
+                        MessageBox.Show("Error al borrar al alumno", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+                MessageBox.Show("Ingrese un dni", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtDni.Text = txtNombre.Text = txtApellidos.Text = txtTelefono.Text = txtPoblacion.Text = "";
+            gestionAlumnos.Alumno = new Alumno();
+            dgvAlumnos.ClearSelection();
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(txtDni.Text))
+            {
+                alumno = gestionAlumnos.GetById(txtDni.Text);
+                if (alumno is not null)
+                {
+                    MapearNegocioPresentacion(alumno);
+                }
+                else
+                    MessageBox.Show("No existe ese dni", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Ingrese un dni", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private void SeleccionarFilaAlumno(string dni)
+        {
+            foreach (DataGridViewRow row in dgvAlumnos.Rows)
+            {
+                if (row.Cells["Dni"].Value.ToString() == dni)
+                {
+                    dgvAlumnos.CurrentCell = row.Cells["Dni"];
+                    break;
+                }
             }
         }
-    }
     }
 }

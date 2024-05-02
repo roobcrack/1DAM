@@ -158,6 +158,7 @@
             btnClear.TabIndex = 17;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnFind
             // 
@@ -167,6 +168,7 @@
             btnFind.TabIndex = 16;
             btnFind.Text = "Find";
             btnFind.UseVisualStyleBackColor = true;
+            btnFind.Click += btnFind_Click;
             // 
             // btnRemove
             // 
@@ -176,6 +178,7 @@
             btnRemove.TabIndex = 15;
             btnRemove.Text = "Remove";
             btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Click += btnRemove_Click;
             // 
             // btnInsert
             // 
@@ -185,6 +188,7 @@
             btnInsert.TabIndex = 15;
             btnInsert.Text = "Insert";
             btnInsert.UseVisualStyleBackColor = true;
+            btnInsert.Click += btnInsert_Click;
             // 
             // btnEdit
             // 
@@ -239,11 +243,10 @@
             // dgvAlumnos
             // 
             dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAlumnos.Enabled = false;
-            dgvAlumnos.Location = new Point(344, 40);
+            dgvAlumnos.Location = new Point(342, 38);
             dgvAlumnos.Name = "dgvAlumnos";
             dgvAlumnos.RowTemplate.Height = 25;
-            dgvAlumnos.Size = new Size(545, 294);
+            dgvAlumnos.Size = new Size(547, 294);
             dgvAlumnos.TabIndex = 23;
             dgvAlumnos.CellContentClick += dgvAlumnos_CellContentClick;
             // 

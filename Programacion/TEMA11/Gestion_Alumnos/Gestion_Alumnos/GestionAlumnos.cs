@@ -1,11 +1,5 @@
 ﻿using academia_03data;
-using Mysqlx.Crud;
-using Mysqlx.Datatypes;
-using Org.BouncyCastle.Math;
 using System.Data;
-using System.Net;
-using System.Windows.Forms;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 class GestionAlumnos
 {
@@ -29,49 +23,42 @@ class GestionAlumnos
     }
     public Alumno Siguiente()
     {
-        if (Alumno == null)
-            return null;
-
-        return GetOneBySql($"SELECT * FROM alumnos WHERE dni > '{Alumno.Dni}' ORDER BY dni ASC LIMIT 1");
+        return GetOneBySql($"SELECT * FROM alumnos WHERE dni > '"+this.Alumno.Dni+"' ORDER BY dni ASC LIMIT 1");
     }
     public Alumno Anterior()
     {
-        if (Alumno == null)
-            return null;
-
-        return GetOneBySql($"SELECT * FROM alumnos WHERE dni < '{Alumno.Dni}' ORDER BY dni DESC LIMIT 1");
+        return GetOneBySql($"SELECT * FROM alumnos WHERE dni < '"+this.Alumno.Dni+"' ORDER BY dni DESC LIMIT 1");
     }
 
     public int Edit()
     {
-        string sql = $"SELECT * FROM alumnos WHERE dni = '" + this.Alumno.Dni + "'";
-        if (BaseDatos.Consulta(sql).Rows.Count > 0)
+        string sql = $"SELECT * FROM alumnos WHERE dni = '{this.Alumno.Dni}'";
+        DataTable consulta = BaseDatos.Consulta(sql);
+
+        if (consulta != null && consulta.Rows.Count > 0)
         {
-            sql = $"UPDATE alumnos SET nombre = '" + this.Alumno.Nombre + "', apellidos = '"
-                + this.Alumno.Apellidos + "', telefono = '" + this.Alumno.Telefono +
-                "', poblacion = '" + this.Alumno.Poblacion + "' WHERE dni = '" + this.Alumno.Dni +
-                "'";
+            sql = $"UPDATE alumnos SET nombre = '{this.Alumno.Nombre}', apellidos = '{this.Alumno.Apellidos}', " +
+                $"telefono = '{this.Alumno.Telefono}', poblacion = '{this.Alumno.Poblacion}' WHERE dni = '{this.Alumno.Dni}'";
             return BaseDatos.Modificacion(sql);
         }
         return -1;
     }
-    //Este método inserta un nuevo alumno cuyos datos tenemos cargados en la propiedad Alumno, para ello
-    //primero mira que el alumno no exista en la base de datos, en caso de que ya exista devuelve -1
     public int Insert()
     {
-        //Este método hace intenta insertar el alumno que tenemos en la propiedad
-        //GestionAlumnos.Alumno:
-        //-si no existe su DNI en la base de datos lo inserta y devuelve 1
-        //- Si existe su DNI o hay algún error devuelve -1
-        return 0;
+        DataTable consulta = BaseDatos.Consulta($"SELECT COUNT(*) FROM alumnos WHERE dni = '"+this.Alumno.Dni+"'");
+
+        if (consulta != null && consulta.Rows.Count > 0 && Convert.ToInt32(consulta.Rows[0][0]) > 0)
+            return -1;
+
+        return BaseDatos.Modificacion($"INSERT INTO alumnos (dni, nombre, apellidos, poblacion, telefono) VALUES " +
+                     "('" + this.Alumno.Dni + "', '" + this.Alumno.Nombre + "', '" + this.Alumno.Apellidos + "', " +
+                     "'" + this.Alumno.Poblacion + "', '" + this.Alumno.Telefono + "')");
     }
     public int Remove()
-    {
-        //Este método borra de la base de la base de datos el alumno con la clave principal:
-        //Alumno.dni.Habrá que sacar una ventana de advertencia antes de borrarlo
-        return 0;
+    {        
+        return BaseDatos.Modificacion($"DELETE FROM alumnos WHERE dni = '" + Alumno.Dni + "'");
     }
-    //Este método obtiene el alumno cuyo dni se pasa como parámetro
+
     public Alumno GetById(string dni)
     {
         DataTable dt = BaseDatos.Consulta("select * from alumnos where dni = '" + dni + "'");
@@ -84,7 +71,6 @@ class GestionAlumnos
         }
         return null;
     }
-    //Este método obtiene una lista con todos los alumnos
     public List<Alumno> GetAll()
     {
         List<Alumno> alumnos = new List<Alumno>();
@@ -97,7 +83,6 @@ class GestionAlumnos
         }
         return alumnos;
     }
-    //Este método obtiene un alumno (el primero en orden) a partir de una consulta SQL
     public Alumno GetOneBySql(string sql)
     {
         DataTable dt = BaseDatos.Consulta(sql);
