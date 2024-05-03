@@ -103,3 +103,4 @@ C:\Users\Roob\Desktop\1DAM\Programacion\TEMA11\Gestion_Alumnos\Gestion_Alumnos\o
 C:\Users\Roob\Desktop\1DAM\Programacion\TEMA11\Gestion_Alumnos\Gestion_Alumnos\obj\Debug\net7.0-windows\Gestion_Alumnos.pdb
 C:\Users\Roob\Desktop\1DAM\Programacion\TEMA11\Gestion_Alumnos\Gestion_Alumnos\obj\Debug\net7.0-windows\Gestion_Alumnos.genruntimeconfig.cache
 C:\Users\Roob\Desktop\1DAM\Programacion\TEMA11\Gestion_Alumnos\Gestion_Alumnos\obj\Debug\net7.0-windows\ref\Gestion_Alumnos.dll
+C:\Users\ruben\Desktop\1DAM\Programacion\TEMA11\Gestion_Alumnos\Gestion_Alumnos\obj\Debug\net7.0-windows\Gestion_Alumnos.frmMatriculas.resources

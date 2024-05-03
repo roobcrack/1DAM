@@ -231,10 +231,10 @@
             // dgvGestionCursos
             // 
             this.dgvGestionCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGestionCursos.Location = new System.Drawing.Point(345, 29);
+            this.dgvGestionCursos.Location = new System.Drawing.Point(344, 29);
             this.dgvGestionCursos.Name = "dgvGestionCursos";
             this.dgvGestionCursos.RowTemplate.Height = 25;
-            this.dgvGestionCursos.Size = new System.Drawing.Size(545, 294);
+            this.dgvGestionCursos.Size = new System.Drawing.Size(546, 294);
             this.dgvGestionCursos.TabIndex = 22;
             this.dgvGestionCursos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGestionCursos_CellContentClick_1);
             // 
