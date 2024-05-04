@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.Cmp;
+using System;
 using System.Windows.Forms;
 
 namespace Gestion_Alumnos
@@ -31,11 +32,9 @@ namespace Gestion_Alumnos
             else
             {
                 string message = gestionCursos.Error();
-                MessageBox.Show(string.IsNullOrEmpty(message) ? "No hay más cursos en la base de datos" :
-                    message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageError(string.IsNullOrEmpty(message) ? "No hay más cursos en la base de datos" : message);
             }
         }
-
         public Curso MapearPresentacionNegocio()
         {
             curso = new Curso();
@@ -59,113 +58,103 @@ namespace Gestion_Alumnos
                 Precio = Convert.ToString(selectedRow.Cells["precio"].Value),
                 Lugar_realizacion = Convert.ToString(selectedRow.Cells["lugar_realizacion"].Value)
             };
-
             MapearNegocioPresentacion(curso);
         }
-
         private void btnPrimero_Click_1(object sender, EventArgs e)
         {
-            curso = gestionCursos.Primero();
-            MapearNegocioPresentacion(curso);
+            MapearNegocioPresentacion(gestionCursos.Primero());
         }
-
         private void btnUltimo_Click(object sender, EventArgs e)
         {
-            curso = gestionCursos.Ultimo();
-            MapearNegocioPresentacion(curso);
+            MapearNegocioPresentacion(gestionCursos.Ultimo());
         }
-
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            curso = gestionCursos.Siguiente();
-            MapearNegocioPresentacion(curso);
+            MapearNegocioPresentacion(gestionCursos.Siguiente());
         }
-
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            curso = gestionCursos.Anterior();
-            MapearNegocioPresentacion(curso);
+            MapearNegocioPresentacion(gestionCursos.Anterior());
         }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtCodigo.Text))
+            if (curso is not null)
             {
-                curso = MapearPresentacionNegocio();
-                gestionCursos.Curso = curso;
+                gestionCursos.Curso = MapearPresentacionNegocio();
 
-                int resultado = gestionCursos.Edit();
-                if (resultado > 0)
+                if (VerificarOperacion(gestionCursos.Edit()))
                 {
-                    MessageBox.Show("Curso editado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dgvGestionCursos.DataSource = gestionCursos.GetAll();
                     btnClear_Click(sender, e);
                 }
-                else if (resultado == 0)
-                    MessageBox.Show("No se realizaron cambios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
-                    MessageBox.Show("Error al editar, compruebe que el codigo no esté repetido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                MessageBox.Show("Seleccione un curso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageError("Seleccione un curso");
         }
-
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(txtCodigo.Text))
+            if (curso is not null)
             {
                 DialogResult opcion = MessageBox.Show("¿Estás seguro?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (opcion == DialogResult.Yes)
                 {
-                    int resultado = gestionCursos.Remove();
-                    if (resultado > 0)
+                    if(VerificarOperacion(gestionCursos.Remove()))
                     {
-                        MessageBox.Show("Curso borrado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         dgvGestionCursos.DataSource = gestionCursos.GetAll();
-                        btnClear_Click(sender, e);
-                        dgvGestionCursos.ClearSelection();
+                        btnClear_Click(sender, e);                    
                     }
-                    else
-                        MessageBox.Show("Error al borrar el curso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
-                MessageBox.Show("Ingrese un codigo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageError("Seleccione un curso");
         }
-
         private void btnFind_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(txtCodigo.Text))
             {
                 curso = gestionCursos.GetById(txtCodigo.Text);
                 if (curso is not null)
-                {
                     MapearNegocioPresentacion(curso);
-                }
                 else
-                    MessageBox.Show("No existe ese codigo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageError("No existe ese codigo");
             }
             else
-                MessageBox.Show("Ingrese un codigo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageError("Ingrese un codigo");
         }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtCodigo.Text = txtTitulo.Text = txtNumeroPlazas.Text = txtPrecio.Text = txtLugarRealizacion.Text = "";
             gestionCursos.Curso = new Curso();
             dgvGestionCursos.ClearSelection();
         }
-
-        private void SeleccionarFilaCurso(string dni)
+        private void SeleccionarFilaCurso(string codigo)
         {
             foreach (DataGridViewRow row in dgvGestionCursos.Rows)
             {
-                if (row.Cells["Codigo"].Value.ToString() == dni)
+                if (row.Cells["Codigo"].Value.ToString() == codigo)
                 {
                     dgvGestionCursos.CurrentCell = row.Cells["Codigo"];
                     break;
                 }
             }
+        }
+        private void MessageError(string text)
+        {
+            MessageBox.Show(text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private bool VerificarOperacion(int resultado)
+        {
+            switch (resultado)
+            {
+                case 1: MessageBox.Show("Se ha realizado correctamente", "Correcto",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 0: MessageError("No se realizaron cambios");
+                    break;
+                default: MessageError("Error, compruebe que no haya fallos");
+                    break;
+            }
+            return resultado > 0;
         }
     }
 }

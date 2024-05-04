@@ -28,142 +28,146 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.SuspendLayout();
+            dgvAlumnos = new DataGridView();
+            dgvCursos = new DataGridView();
+            txtDni = new TextBox();
+            txtCodigo = new TextBox();
+            btnMatricular = new Button();
+            btnDesmatricular = new Button();
+            btnAlumnos = new Button();
+            btnAlumnosCurso = new Button();
+            btnCursosAlumno = new Button();
+            btnCursos = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvAlumnos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCursos).BeginInit();
+            SuspendLayout();
             // 
-            // dataGridView1
+            // dgvAlumnos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(33, 59);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(465, 308);
-            this.dataGridView1.TabIndex = 0;
+            dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAlumnos.Location = new Point(33, 59);
+            dgvAlumnos.Name = "dgvAlumnos";
+            dgvAlumnos.RowTemplate.Height = 25;
+            dgvAlumnos.Size = new Size(465, 308);
+            dgvAlumnos.TabIndex = 0;
+            dgvAlumnos.CellContentClick += dgvAlumnos_CellContentClick_1;
             // 
-            // dataGridView2
+            // dgvCursos
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(559, 59);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(461, 308);
-            this.dataGridView2.TabIndex = 1;
+            dgvCursos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCursos.Location = new Point(559, 59);
+            dgvCursos.Name = "dgvCursos";
+            dgvCursos.RowTemplate.Height = 25;
+            dgvCursos.Size = new Size(461, 308);
+            dgvCursos.TabIndex = 1;
+            dgvCursos.CellContentClick += dgvCursos_CellContentClick;
             // 
-            // textBox1
+            // txtDni
             // 
-            this.textBox1.Location = new System.Drawing.Point(398, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 2;
+            txtDni.Location = new Point(398, 30);
+            txtDni.Name = "txtDni";
+            txtDni.Size = new Size(100, 23);
+            txtDni.TabIndex = 2;
             // 
-            // textBox2
+            // txtCodigo
             // 
-            this.textBox2.Location = new System.Drawing.Point(559, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 3;
+            txtCodigo.Location = new Point(559, 30);
+            txtCodigo.Name = "txtCodigo";
+            txtCodigo.Size = new Size(100, 23);
+            txtCodigo.TabIndex = 3;
             // 
-            // button1
+            // btnMatricular
             // 
-            this.button1.Location = new System.Drawing.Point(708, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 38);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Matricular alumno";
-            this.button1.UseVisualStyleBackColor = true;
+            btnMatricular.Location = new Point(708, 15);
+            btnMatricular.Name = "btnMatricular";
+            btnMatricular.Size = new Size(138, 38);
+            btnMatricular.TabIndex = 4;
+            btnMatricular.Text = "Matricular alumno";
+            btnMatricular.UseVisualStyleBackColor = true;
+            btnMatricular.Click += btnMatricular_Click;
             // 
-            // button2
+            // btnDesmatricular
             // 
-            this.button2.Location = new System.Drawing.Point(882, 15);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 38);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Desmatricular alumno";
-            this.button2.UseVisualStyleBackColor = true;
+            btnDesmatricular.Location = new Point(882, 15);
+            btnDesmatricular.Name = "btnDesmatricular";
+            btnDesmatricular.Size = new Size(138, 38);
+            btnDesmatricular.TabIndex = 5;
+            btnDesmatricular.Text = "Desmatricular alumno";
+            btnDesmatricular.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnAlumnos
             // 
-            this.button3.Location = new System.Drawing.Point(33, 387);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(202, 62);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Ver todos";
-            this.button3.UseVisualStyleBackColor = true;
+            btnAlumnos.Location = new Point(33, 387);
+            btnAlumnos.Name = "btnAlumnos";
+            btnAlumnos.Size = new Size(202, 62);
+            btnAlumnos.TabIndex = 6;
+            btnAlumnos.Text = "Ver todos";
+            btnAlumnos.UseVisualStyleBackColor = true;
+            btnAlumnos.Click += btnAlumnos_Click;
             // 
-            // button4
+            // btnAlumnosCurso
             // 
-            this.button4.Location = new System.Drawing.Point(296, 387);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(202, 62);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Ver alumnos del curso";
-            this.button4.UseVisualStyleBackColor = true;
+            btnAlumnosCurso.Location = new Point(296, 387);
+            btnAlumnosCurso.Name = "btnAlumnosCurso";
+            btnAlumnosCurso.Size = new Size(202, 62);
+            btnAlumnosCurso.TabIndex = 7;
+            btnAlumnosCurso.Text = "Ver alumnos del curso";
+            btnAlumnosCurso.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnCursosAlumno
             // 
-            this.button5.Location = new System.Drawing.Point(559, 387);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(202, 62);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Ver cursos del alumno";
-            this.button5.UseVisualStyleBackColor = true;
+            btnCursosAlumno.Location = new Point(559, 387);
+            btnCursosAlumno.Name = "btnCursosAlumno";
+            btnCursosAlumno.Size = new Size(202, 62);
+            btnCursosAlumno.TabIndex = 8;
+            btnCursosAlumno.Text = "Ver cursos del alumno";
+            btnCursosAlumno.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnCursos
             // 
-            this.button6.Location = new System.Drawing.Point(818, 387);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(202, 62);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Ver todos";
-            this.button6.UseVisualStyleBackColor = true;
+            btnCursos.Location = new Point(818, 387);
+            btnCursos.Name = "btnCursos";
+            btnCursos.Size = new Size(202, 62);
+            btnCursos.TabIndex = 9;
+            btnCursos.Text = "Ver todos";
+            btnCursos.UseVisualStyleBackColor = true;
+            btnCursos.Click += btnCursos_Click;
             // 
             // frmMatriculas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 482);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "frmMatriculas";
-            this.Text = "frmMatriculas";
-            this.Load += new System.EventHandler(this.frmMatriculas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1048, 482);
+            Controls.Add(btnCursos);
+            Controls.Add(btnCursosAlumno);
+            Controls.Add(btnAlumnosCurso);
+            Controls.Add(btnAlumnos);
+            Controls.Add(btnDesmatricular);
+            Controls.Add(btnMatricular);
+            Controls.Add(txtCodigo);
+            Controls.Add(txtDni);
+            Controls.Add(dgvCursos);
+            Controls.Add(dgvAlumnos);
+            Name = "frmMatriculas";
+            Text = "frmMatriculas";
+            Load += frmMatriculas_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvAlumnos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCursos).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        private DataGridView dgvAlumnos;
+        private DataGridView dgvCursos;
+        private TextBox txtDni;
+        private TextBox txtCodigo;
+        private Button btnMatricular;
+        private Button btnDesmatricular;
+        private Button btnAlumnos;
+        private Button btnAlumnosCurso;
+        private Button btnCursosAlumno;
+        private Button btnCursos;
     }
 }

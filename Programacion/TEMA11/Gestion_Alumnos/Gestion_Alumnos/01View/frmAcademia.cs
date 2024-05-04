@@ -21,7 +21,8 @@
 
         private void btnMatriculacion_Click(object sender, EventArgs e)
         {
-
+            Form frmMatriculas = new frmMatriculas();
+            frmMatriculas.Show();
         }
     }
 }
