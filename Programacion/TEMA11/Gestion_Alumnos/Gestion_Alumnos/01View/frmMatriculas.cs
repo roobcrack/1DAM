@@ -82,8 +82,10 @@
 
         private void btnMatricular_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtDni.Text) || string.IsNullOrWhiteSpace(txtCodigo.Text)) ;R
+            if (!string.IsNullOrWhiteSpace(txtDni.Text) || string.IsNullOrWhiteSpace(txtCodigo.Text))
+            {
 
+            }
         }
     }
 }
