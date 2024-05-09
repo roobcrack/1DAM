@@ -52,25 +52,22 @@ window.onload = function() {
 
     function definirEventosDeArrastre() {
         let lupa = document.getElementById("lupa");
-
-        // Evento dragover para permitir soltar imágenes en la lupa
+    
         lupa.addEventListener("dragover", function(event) {
-            event.preventDefault(); // Prevenir el comportamiento predeterminado
+            event.preventDefault();
         });
-
-        // Evento drop para manejar la acción de soltar la imagen en la lupa
+    
         lupa.addEventListener("drop", function(event) {
-            event.preventDefault(); // Prevenir el comportamiento predeterminado
+            event.preventDefault();
             let idPersonaje = event.dataTransfer.getData("text/plain");
             mostrarFicha(idPersonaje);
         });
     }
-
-    // Función para mostrar la ficha del personaje en la sección de ficha
+    
     function mostrarFicha(idPersonaje) {
         let fichaSection = document.getElementById("ficha");
-        let personaje = personajes.find(p => p.id === idPersonaje);
-
+        let personaje = personajes.find(p => p.id === idPersonaje); // Corregido === aquí
+    
         if (personaje) {
             fichaSection.innerHTML = `
                 <h2>Ficha de personaje</h2>
@@ -86,7 +83,9 @@ window.onload = function() {
                 </section>
             `;
         }
+        console.log("Printed");
     }
+
 
 
     cargar(personajes);
