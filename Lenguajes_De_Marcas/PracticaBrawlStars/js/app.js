@@ -78,7 +78,7 @@ window.onload = function() {
     
         if (personaje) {
             fichaSection.style.width = "400px";
-            fichaSection.style.height = "640px";
+            fichaSection.style.height = "620px";
             fichaSection.innerHTML = `
                 <h2>Ficha de personaje</h2>
                 <section id="detalle">
@@ -98,7 +98,7 @@ window.onload = function() {
     let ficha = document.getElementById("ficha");
 
     ficha.addEventListener("mouseenter", function() {
-        this.style.backgroundColor = "2275c2";
+        this.style.backgroundColor = "#2275c2";
     });
 
     ficha.addEventListener("mouseleave", function() {
