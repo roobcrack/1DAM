@@ -8,7 +8,7 @@ window.onload = function() {
         {id: "p6", nombre: "Nita", tipo: "luchador", salud: 3800, ataque: 740, imagen: "img/nita.png", habilidad: "Recupera salud con sus ataques"}
     ];
 
-    function cargar(personajes) {
+    function cargarPersonajes(personajes) {
         let personajesSec = document.getElementById("personajes");
         personajesSec.innerHTML = "";
 
@@ -18,7 +18,7 @@ window.onload = function() {
 
             list.innerHTML = `
                 <section>
-                    <img src="${personaje.imagen}" id="${personaje.id}">
+                    <img src="${personaje.imagen}" id="${personaje.id}" draggable="true">
                 </section>
                 <section>
                     <h2>${personaje.nombre}</h2>
@@ -32,9 +32,31 @@ window.onload = function() {
 
     function filtrarPorTipo(tipo) {
         let persFiltrado = personajes.filter(personaje => personaje.tipo == tipo);
-        cargar(persFiltrado);
+        cargarPersonajes(persFiltrado);
     }
    
+    function definirEventosDeArrastre() {
+        let imagenes = document.querySelectorAll("#personajes img");
+
+        imagenes.forEach(imagen => {
+            imagen.addEventListener("dragstart", function(event) {
+                event.dataTransfer.setData("text/plain", event.target.id);
+            });
+        });
+
+        let lupa = document.getElementById("lupa");
+
+        lupa.addEventListener("dragover", function(event) {
+            event.preventDefault();
+        });
+
+        lupa.addEventListener("drop", function(event) {
+            event.preventDefault();
+            let idPersonaje = event.dataTransfer.getData("text/plain");
+            mostrarFicha(idPersonaje);
+        });
+    }
+
     let luchador = document.getElementById("luchador");
     luchador.addEventListener("click", function() {
         filtrarPorTipo("luchador");
@@ -47,32 +69,20 @@ window.onload = function() {
 
     let todos = document.getElementById("todos");
     todos.addEventListener("click", function() {
-        cargar(personajes);
+        cargarPersonajes(personajes);
     });
 
-    function definirEventosDeArrastre() {
-        let lupa = document.getElementById("lupa");
-    
-        lupa.addEventListener("dragover", function(event) {
-            event.preventDefault();
-        });
-    
-        lupa.addEventListener("drop", function(event) {
-            event.preventDefault();
-            let idPersonaje = event.dataTransfer.getData("text/plain");
-            mostrarFicha(idPersonaje);
-        });
-    }
-    
     function mostrarFicha(idPersonaje) {
         let fichaSection = document.getElementById("ficha");
-        let personaje = personajes.find(p => p.id === idPersonaje); // Corregido === aquí
+        let personaje = personajes.find(p => p.id == idPersonaje);
     
         if (personaje) {
+            fichaSection.style.width = "400px";
+            fichaSection.style.height = "640px";
             fichaSection.innerHTML = `
                 <h2>Ficha de personaje</h2>
                 <section id="detalle">
-                    <img src="${personaje.imagen}">
+                    <img style ="width: 400px;" src="${personaje.imagen}">
                     <section>
                         <p><strong>Nombre: </strong>${personaje.nombre}</p>
                         <p><strong>Tipo: </strong>${personaje.tipo}</p>
@@ -83,10 +93,17 @@ window.onload = function() {
                 </section>
             `;
         }
-        console.log("Printed");
     }
 
+    let ficha = document.getElementById("ficha");
 
+    ficha.addEventListener("mouseenter", function() {
+        this.style.backgroundColor = "2275c2";
+    });
 
-    cargar(personajes);
+    ficha.addEventListener("mouseleave", function() {
+        this.style.backgroundColor = "#045FB4";
+    });
+  
+    cargarPersonajes(personajes);
 };
