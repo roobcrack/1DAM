@@ -1786,19 +1786,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Roob\\.nuget\\packages\\": {}
+    "C:\\Users\\ruben\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Roob\\Desktop\\ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "projectUniqueName": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
       "projectName": "ProyectoFinal",
-      "projectPath": "C:\\Users\\Roob\\Desktop\\ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
-      "packagesPath": "C:\\Users\\Roob\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Roob\\Desktop\\ProyectoFinal\\ProyectoFinal\\obj\\",
+      "projectPath": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\ProyectoFinal.csproj",
+      "packagesPath": "C:\\Users\\ruben\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Roob\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1818,6 +1818,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1848,7 +1853,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

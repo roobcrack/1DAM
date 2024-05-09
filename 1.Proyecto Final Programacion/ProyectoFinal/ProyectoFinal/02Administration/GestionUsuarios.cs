@@ -1,10 +1,6 @@
 ﻿using ProyectoFinal._03Data;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProyectoFinal._02Administration
 {
@@ -12,10 +8,18 @@ namespace ProyectoFinal._02Administration
     {
         public Usuario Usuario { get; set; }
 
-
         public Usuario GetByName(string nombre)
         {
-            DataTable dt = BaseDatos.Consulta("select * from usuario where nombre = '" + nombre + "'");
+            return GetBy("SELECT * FROM usuario WHERE nombre = '" + nombre + "'");
+        }
+        public Usuario GetById(string id)
+        {
+            return GetBy("SELECT * FROM usuario WHERE idusuario = '" + id + "'");
+        }
+
+        public Usuario GetBy(string sql)
+        {
+            DataTable dt = BaseDatos.Consulta(sql);
             if (dt != null && dt.Rows.Count > 0)
             {
                 return new Usuario(dt.Rows[0]["idusuario"].ToString(), dt.Rows[0]["nombre"].ToString(),
