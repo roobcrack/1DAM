@@ -34,11 +34,12 @@
             txtContraseña = new TextBox();
             txtNombre = new TextBox();
             txtError = new Label();
+            lblCrearUsuario = new LinkLabel();
             SuspendLayout();
             // 
             // btnEntrar
             // 
-            btnEntrar.Location = new Point(161, 195);
+            btnEntrar.Location = new Point(151, 190);
             btnEntrar.Name = "btnEntrar";
             btnEntrar.Size = new Size(137, 55);
             btnEntrar.TabIndex = 3;
@@ -88,11 +89,23 @@
             txtError.TabIndex = 6;
             txtError.Text = "                 ";
             // 
+            // lblCrearUsuario
+            // 
+            lblCrearUsuario.AutoSize = true;
+            lblCrearUsuario.Location = new Point(183, 257);
+            lblCrearUsuario.Name = "lblCrearUsuario";
+            lblCrearUsuario.Size = new Size(78, 15);
+            lblCrearUsuario.TabIndex = 7;
+            lblCrearUsuario.TabStop = true;
+            lblCrearUsuario.Text = "Crear Usuario";
+            lblCrearUsuario.LinkClicked += lblCrearUsuario_LinkClicked;
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(449, 324);
+            Controls.Add(lblCrearUsuario);
             Controls.Add(txtError);
             Controls.Add(txtNombre);
             Controls.Add(txtContraseña);
@@ -113,5 +126,6 @@
         private TextBox txtContraseña;
         private TextBox txtNombre;
         private Label txtError;
+        private LinkLabel lblCrearUsuario;
     }
 }

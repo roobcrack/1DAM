@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\gestion_alumnos\\01view\\frmalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|solutionrelative:gestion_alumnos\\01view\\frmalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|c:\\users\\ruben\\desktop\\1dam\\programacion\\tema11\\gestion_alumnos\\gestion_alumnos\\02aplication\\gestionalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|solutionrelative:gestion_alumnos\\02aplication\\gestionalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\gestion_alumnos\\01view\\frmmatriculas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|solutionrelative:gestion_alumnos\\01view\\frmmatriculas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\gestion_alumnos\\02aplication\\matricula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|solutionrelative:gestion_alumnos\\02aplication\\matricula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\gestion_alumnos\\02aplication\\gestioncursos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|solutionrelative:gestion_alumnos\\02aplication\\gestioncursos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\gestion_alumnos\\01view\\frmmatriculas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|solutionrelative:gestion_alumnos\\01view\\frmmatriculas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 275,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmAlumnos.cs",
+              "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\01View\\frmAlumnos.cs",
+              "RelativeDocumentMoniker": "Gestion_Alumnos\\01View\\frmAlumnos.cs",
+              "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\01View\\frmAlumnos.cs",
+              "RelativeToolTip": "Gestion_Alumnos\\01View\\frmAlumnos.cs",
+              "ViewState": "AQIAAFkAAAAAAAAAAAA7wHMAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T23:42:08.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GestionCursos.cs",
+              "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\02Aplication\\GestionCursos.cs",
+              "RelativeDocumentMoniker": "Gestion_Alumnos\\02Aplication\\GestionCursos.cs",
+              "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\02Aplication\\GestionCursos.cs",
+              "RelativeToolTip": "Gestion_Alumnos\\02Aplication\\GestionCursos.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAqwEoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T23:42:09.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GestionAlumnos.cs",
+              "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\02Aplication\\GestionAlumnos.cs",
+              "RelativeDocumentMoniker": "Gestion_Alumnos\\02Aplication\\GestionAlumnos.cs",
+              "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\02Aplication\\GestionAlumnos.cs",
+              "RelativeToolTip": "Gestion_Alumnos\\02Aplication\\GestionAlumnos.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAswDAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T23:42:09.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Matricula.cs",
+              "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\02Aplication\\Matricula.cs",
+              "RelativeDocumentMoniker": "Gestion_Alumnos\\02Aplication\\Matricula.cs",
+              "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\02Aplication\\Matricula.cs",
+              "RelativeToolTip": "Gestion_Alumnos\\02Aplication\\Matricula.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T23:42:10.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmMatriculas.cs",
+              "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\01View\\frmMatriculas.cs",
+              "RelativeDocumentMoniker": "Gestion_Alumnos\\01View\\frmMatriculas.cs",
+              "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\01View\\frmMatriculas.cs",
+              "RelativeToolTip": "Gestion_Alumnos\\01View\\frmMatriculas.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAA0wFQAAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T23:42:10.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmMatriculas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\01View\\frmMatriculas.cs",
+              "RelativeDocumentMoniker": "Gestion_Alumnos\\01View\\frmMatriculas.cs",
+              "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\01View\\frmMatriculas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Gestion_Alumnos\\01View\\frmMatriculas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T23:42:10.454Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

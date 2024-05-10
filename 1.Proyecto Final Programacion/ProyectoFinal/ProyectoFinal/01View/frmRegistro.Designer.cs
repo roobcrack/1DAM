@@ -40,14 +40,14 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(162, 70);
+            txtNombre.Location = new Point(208, 73);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 0;
             // 
             // txtContraseña
             // 
-            txtContraseña.Location = new Point(162, 108);
+            txtContraseña.Location = new Point(208, 111);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Size = new Size(100, 23);
             txtContraseña.TabIndex = 1;
@@ -55,7 +55,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(105, 73);
+            label1.Location = new Point(151, 76);
             label1.Name = "label1";
             label1.Size = new Size(51, 15);
             label1.TabIndex = 2;
@@ -64,7 +64,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(89, 111);
+            label2.Location = new Point(135, 114);
             label2.Name = "label2";
             label2.Size = new Size(67, 15);
             label2.TabIndex = 3;
@@ -73,7 +73,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(51, 148);
+            label3.Location = new Point(97, 151);
             label3.Name = "label3";
             label3.Size = new Size(105, 15);
             label3.TabIndex = 4;
@@ -81,14 +81,14 @@
             // 
             // txtRepetirContraseña
             // 
-            txtRepetirContraseña.Location = new Point(162, 145);
+            txtRepetirContraseña.Location = new Point(208, 148);
             txtRepetirContraseña.Name = "txtRepetirContraseña";
             txtRepetirContraseña.Size = new Size(100, 23);
             txtRepetirContraseña.TabIndex = 5;
             // 
             // btnRegistrarse
             // 
-            btnRegistrarse.Location = new Point(105, 209);
+            btnRegistrarse.Location = new Point(151, 212);
             btnRegistrarse.Name = "btnRegistrarse";
             btnRegistrarse.Size = new Size(115, 42);
             btnRegistrarse.TabIndex = 6;
@@ -100,17 +100,16 @@
             // 
             lblError.AutoSize = true;
             lblError.ForeColor = Color.Red;
-            lblError.Location = new Point(115, 181);
+            lblError.Location = new Point(161, 184);
             lblError.Name = "lblError";
-            lblError.Size = new Size(32, 15);
+            lblError.Size = new Size(0, 15);
             lblError.TabIndex = 7;
-            lblError.Text = "Error";
             // 
             // frmRegistro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(345, 307);
+            ClientSize = new Size(449, 324);
             Controls.Add(lblError);
             Controls.Add(btnRegistrarse);
             Controls.Add(txtRepetirContraseña);
