@@ -5,13 +5,14 @@ namespace ProyectoFinal._01View
 {
     public partial class frmRegistro : Form
     {
-        private GestionUsuarios gu = new GestionUsuarios();
         public frmRegistro()
         {
             InitializeComponent();
         }
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
+            GestionUsuarios gu = new GestionUsuarios();
+
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtContraseña.Text) ||
                 string.IsNullOrWhiteSpace(txtRepetirContraseña.Text))
@@ -24,7 +25,11 @@ namespace ProyectoFinal._01View
             {
                 gu.Usuario = new Usuario(Convert.ToString(gu.GetAll().Count + 1), txtNombre.Text, txtContraseña.Text, "usuario");
                 if (VerificarOperacion(gu.RegistrarUsuario()))
+                {
+                    Form frmusUarios = new frmUsuarios(gu.Usuario);
+                    frmusUarios.Show();
                     this.Hide();
+                }
             }
         }
         private void MessageError(string text)

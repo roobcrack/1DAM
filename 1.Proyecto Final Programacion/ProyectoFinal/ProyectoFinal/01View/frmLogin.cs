@@ -4,8 +4,6 @@ namespace ProyectoFinal._01View
 {
     public partial class frmLogin : Form
     {
-        private GestionUsuarios gu = new GestionUsuarios();
-        private Usuario usuario;
         public frmLogin()
         {
             InitializeComponent();
@@ -13,11 +11,12 @@ namespace ProyectoFinal._01View
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            usuario = gu.GetByName(txtNombre.Text);
+            GestionUsuarios gu = new GestionUsuarios();
+            Usuario usuario = gu.GetByName(txtNombre.Text);
             if (usuario is not null && usuario.Nombre == txtNombre.Text &&
                 usuario.Contraseña == txtContraseña.Text)
             {
-                Form frmusUarios = new frmUsuarios(usuario.Rol);
+                Form frmusUarios = new frmUsuarios(usuario);
                 frmusUarios.Show();
                 this.Hide();
             }

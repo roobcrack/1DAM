@@ -1,20 +1,74 @@
 ﻿using ProyectoFinal._02Administration;
+using System;
+using System.Windows.Forms;
 
 namespace ProyectoFinal._01View
 {
     public partial class frmUsuarios : Form
     {
-        private string rol { get; set; }
-        private GestionUsuarios gu = new GestionUsuarios();
-        public frmUsuarios(string rol)
+        private Usuario usuarioActual;
+        private GestionUsuarios gu;
+
+        public frmUsuarios(Usuario usuario)
         {
             InitializeComponent();
-            this.rol = rol;
+            gu = new GestionUsuarios();
+            this.usuarioActual = usuario;
         }
 
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
-            dgvUsuarios.DataSource = gu.GetAll();
+            lblRolUsuario.Text = usuarioActual.Rol;
+            try
+            {
+                MostrarUsuarios();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar usuarios: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        //////GESTION USUARIOS
+        private void btnMiUsuario_Click_1(object sender, EventArgs e)
+        {
+            SeleccionarFilaUsuario(usuarioActual.IdUsuario);
+            gu.Usuario = usuarioActual;
+            txtNombreUsuario.Text = "";
+            if (usuarioActual.Rol == "usuario")
+                chxOcultarUsuarios.Checked = false;
+        }
+        private void SeleccionarFilaUsuario(string id)
+        {
+            foreach (DataGridViewRow row in dgvUsuarios.Rows)
+            {
+                if (row.Cells["idusuario"].Value.ToString() == id)
+                {
+                    dgvUsuarios.CurrentCell = row.Cells["idusuario"];
+                    break;
+                }
+            }
+        }
+        private void chxOcultarUsuarios_CheckedChanged(object sender, EventArgs e)
+        {
+            gu.Filtrar(chxOcultarUsuarios.Checked, txtNombreUsuario.Text);
+            MostrarUsuarios();
+        }
+        private void txtNombreUsuario_TextChanged(object sender, EventArgs e)
+        {
+            gu.Filtrar(chxOcultarUsuarios.Checked, txtNombreUsuario.Text);
+            MostrarUsuarios();
+        }
+        private void MostrarUsuarios()
+        {
+            dgvUsuarios.DataSource = gu.Usuarios;
+        }
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        //////GESTION PERFILES
     }
 }

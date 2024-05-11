@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinal
 {
-    internal class Usuario
+    public class Usuario
     {
         public string IdUsuario { get; set; }
         public string Nombre { get; set; }
