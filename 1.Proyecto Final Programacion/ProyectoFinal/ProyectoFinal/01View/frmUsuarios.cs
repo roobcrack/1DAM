@@ -8,11 +8,13 @@ namespace ProyectoFinal._01View
     {
         private Usuario usuarioActual;
         private GestionUsuarios gu;
+        private GestionPerfiles gp;
 
         public frmUsuarios(Usuario usuario)
         {
             InitializeComponent();
             gu = new GestionUsuarios();
+            gp = new GestionPerfiles();
             this.usuarioActual = usuario;
         }
 
@@ -22,6 +24,7 @@ namespace ProyectoFinal._01View
             try
             {
                 MostrarUsuarios();
+                MostrarPerfiles("");
             }
             catch (Exception ex)
             {
@@ -36,6 +39,8 @@ namespace ProyectoFinal._01View
             SeleccionarFilaUsuario(usuarioActual.IdUsuario);
             gu.Usuario = usuarioActual;
             txtNombreUsuario.Text = "";
+            lblNombreUsuario.Text = usuarioActual.Nombre;
+            MostrarPerfiles(usuarioActual.IdUsuario);
             if (usuarioActual.Rol == "usuario")
                 chxOcultarUsuarios.Checked = false;
         }
@@ -70,5 +75,11 @@ namespace ProyectoFinal._01View
         }
 
         //////GESTION PERFILES
+        private void MostrarPerfiles(string id)
+        {
+            dgvPerfiles.DataSource = gp.GetAll(id);
+        }
+
+
     }
 }

@@ -44,12 +44,6 @@ namespace ProyectoFinal._02Administration
                     Usuarios.RemoveAt(i--);
             }
         }
-
-
-
-
-
-
         public Usuario GetBySql(string sql)
         {
             DataTable dt = BaseDatos.Consulta(sql);
