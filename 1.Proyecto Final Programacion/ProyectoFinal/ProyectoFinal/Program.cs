@@ -1,19 +1,24 @@
 using ProyectoFinal._01View;
+using ProyectoFinal._02Administration;
+using ProyectoFinal._03Data;
 
 namespace ProyectoFinal
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmLogin());
+
+            Usuario usuarioActual = null;
+
+            frmLogin frmLogin = new frmLogin();
+            Application.Run(frmLogin);
+            usuarioActual = frmLogin.Usuario;
+            frmLogin.Close();
+            if (usuarioActual is not null)
+                Application.Run(new frmUsuarios(usuarioActual));
         }
     }
 }

@@ -25,10 +25,11 @@ namespace ProyectoFinal._01View
             {
                 gu.Usuario = new Usuario(Convert.ToString(gu.GetAll().Count + 1), txtNombre.Text, txtContraseña.Text, "usuario");
                 if (VerificarOperacion(gu.RegistrarUsuario()))
-                {
-                    Form frmusUarios = new frmUsuarios(gu.Usuario);
-                    frmusUarios.Show();
-                    this.Hide();
+                {                    
+                    if (Application.OpenForms["frmLogin"] != null)
+                    {
+                        Application.OpenForms["frmLogin"].Close();
+                    }
                 }
             }
         }

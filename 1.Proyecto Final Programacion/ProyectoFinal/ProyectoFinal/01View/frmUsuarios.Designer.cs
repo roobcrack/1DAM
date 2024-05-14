@@ -41,6 +41,7 @@
             btnEliminarPublicacion = new Button();
             cbxOcultarPerfiles = new CheckBox();
             groupBox1 = new GroupBox();
+            checkBox1 = new CheckBox();
             button6 = new Button();
             groupBox2 = new GroupBox();
             button7 = new Button();
@@ -174,17 +175,28 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(checkBox1);
             groupBox1.Controls.Add(button6);
-            groupBox1.Location = new Point(57, 528);
+            groupBox1.Location = new Point(27, 528);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(153, 64);
+            groupBox1.Size = new Size(227, 64);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "Administrar usuarios";
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(7, 29);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(107, 19);
+            checkBox1.TabIndex = 25;
+            checkBox1.Text = "Ocultar admins";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // button6
             // 
-            button6.Location = new Point(31, 16);
+            button6.Location = new Point(120, 16);
             button6.Name = "button6";
             button6.Size = new Size(92, 42);
             button6.TabIndex = 13;
@@ -342,6 +354,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvPerfiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPublicaciones).EndInit();
             groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             ResumeLayout(false);
@@ -375,7 +388,13 @@
         private Label label4;
         private Button btnCrearPerfil;
         private Button btnEliminarPerfil;
+<<<<<<< HEAD
         private Button btnComentar;
         private TextBox txtComentario;
+=======
+        private Button button11;
+        private TextBox textBox3;
+        private CheckBox checkBox1;
+>>>>>>> 453cbfa003be399e6fb98c5a3546c79b39ba4865
     }
 }
