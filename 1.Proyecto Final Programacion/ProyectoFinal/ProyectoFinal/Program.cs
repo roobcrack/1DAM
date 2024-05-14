@@ -15,10 +15,8 @@ namespace ProyectoFinal
 
             frmLogin frmLogin = new frmLogin();
             Application.Run(frmLogin);
-
             usuarioActual = frmLogin.Usuario;
             frmLogin.Close();
-
             if (usuarioActual is not null)
                 Application.Run(new frmUsuarios(usuarioActual));
         }

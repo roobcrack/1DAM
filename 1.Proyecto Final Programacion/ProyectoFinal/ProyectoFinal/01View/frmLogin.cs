@@ -9,26 +9,25 @@ namespace ProyectoFinal._01View
         public frmLogin()
         {
             InitializeComponent();
-
         }
-        private void btnEntrar_Click(object sender, EventArgs e)
+        public void BtnEntrar_Click(object sender, EventArgs e)
         {
             GestionUsuarios gu = new GestionUsuarios();
             Usuario = gu.GetByName(txtNombre.Text);
             if (Usuario is not null && Usuario.Nombre == txtNombre.Text &&
                 Usuario.Contraseña == txtContraseña.Text)
             {
-                this.Close();
+                this.Hide();
             }
             else
                 txtError.Text = "Nombre o contraseña erróneos";
         }
-
+        /*
         private void lblCrearUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Form frmRegistro = new frmRegistro();
             frmRegistro.Show();
             this.Hide();
-        }
+        }*/
     }
 }
