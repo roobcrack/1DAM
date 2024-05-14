@@ -53,8 +53,8 @@
             label4 = new Label();
             btnCrearPerfil = new Button();
             btnEliminarPerfil = new Button();
-            button11 = new Button();
-            textBox3 = new TextBox();
+            btnComentar = new Button();
+            txtComentario = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPerfiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPublicaciones).BeginInit();
@@ -232,7 +232,7 @@
             // lblRolUsuario
             // 
             lblRolUsuario.AutoSize = true;
-            lblRolUsuario.Location = new Point(188, 23);
+            lblRolUsuario.Location = new Point(188, 44);
             lblRolUsuario.Name = "lblRolUsuario";
             lblRolUsuario.Size = new Size(66, 15);
             lblRolUsuario.TabIndex = 16;
@@ -241,7 +241,7 @@
             // lblNombreUsuario
             // 
             lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.Location = new Point(443, 23);
+            lblNombreUsuario.Location = new Point(443, 44);
             lblNombreUsuario.Name = "lblNombreUsuario";
             lblNombreUsuario.Size = new Size(93, 15);
             lblNombreUsuario.TabIndex = 17;
@@ -250,7 +250,7 @@
             // lblNombrePerfil
             // 
             lblNombrePerfil.AutoSize = true;
-            lblNombrePerfil.Location = new Point(947, 23);
+            lblNombrePerfil.Location = new Point(947, 44);
             lblNombrePerfil.Name = "lblNombrePerfil";
             lblNombrePerfil.Size = new Size(81, 15);
             lblNombrePerfil.TabIndex = 18;
@@ -290,29 +290,29 @@
             btnEliminarPerfil.Text = "Eliminar";
             btnEliminarPerfil.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // btnComentar
             // 
-            button11.Location = new Point(583, 12);
-            button11.Name = "button11";
-            button11.Size = new Size(97, 36);
-            button11.TabIndex = 23;
-            button11.Text = "Comentar";
-            button11.UseVisualStyleBackColor = true;
+            btnComentar.Location = new Point(805, 12);
+            btnComentar.Name = "btnComentar";
+            btnComentar.Size = new Size(97, 36);
+            btnComentar.TabIndex = 23;
+            btnComentar.Text = "Comentar";
+            btnComentar.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // txtComentario
             // 
-            textBox3.Location = new Point(686, 20);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(216, 23);
-            textBox3.TabIndex = 24;
+            txtComentario.Location = new Point(583, 20);
+            txtComentario.Name = "txtComentario";
+            txtComentario.Size = new Size(216, 23);
+            txtComentario.TabIndex = 24;
             // 
             // frmUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1058, 613);
-            Controls.Add(textBox3);
-            Controls.Add(button11);
+            Controls.Add(txtComentario);
+            Controls.Add(btnComentar);
             Controls.Add(btnEliminarPerfil);
             Controls.Add(btnCrearPerfil);
             Controls.Add(txtBuscarTitulo);
@@ -375,7 +375,7 @@
         private Label label4;
         private Button btnCrearPerfil;
         private Button btnEliminarPerfil;
-        private Button button11;
-        private TextBox textBox3;
+        private Button btnComentar;
+        private TextBox txtComentario;
     }
 }

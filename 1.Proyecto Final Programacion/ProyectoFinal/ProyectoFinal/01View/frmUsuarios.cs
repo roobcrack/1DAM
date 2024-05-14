@@ -36,6 +36,7 @@ namespace ProyectoFinal._01View
             SeleccionarFilaUsuario(usuarioActual.IdUsuario);
             gu.Usuario = usuarioActual;
             txtNombreUsuario.Text = "";
+            lblNombreUsuario.Text = usuarioActual.Nombre;
             if (usuarioActual.Rol == "usuario")
                 chxOcultarUsuarios.Checked = false;
         }
@@ -66,7 +67,15 @@ namespace ProyectoFinal._01View
         }
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataGridViewRow selectedRow = dgvUsuarios.Rows[e.RowIndex];
 
+            Usuario usuario = new Usuario()
+            {
+                IdUsuario = Convert.ToString(selectedRow.Cells["idusuario"].Value),
+                Nombre = Convert.ToString(selectedRow.Cells["nombre"].Value),
+            };
+            gu.Usuario = gu.GetByName(usuario.IdUsuario);
+            lblNombreUsuario.Text = usuario.Nombre;
         }
 
         //////GESTION PERFILES

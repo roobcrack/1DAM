@@ -18,5 +18,6 @@ namespace ProyectoFinal
             NombrePerfil = nombrePerfil;
             Resumen = resumen;
         }
+        public Perfil() { }
     }
 }
