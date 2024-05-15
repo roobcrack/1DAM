@@ -5,7 +5,7 @@ namespace ProyectoFinal._01View
     public partial class frmLogin : Form
     {
         GestionUsuarios gu = new GestionUsuarios();
-        public Usuario Usuario = null;
+        public Usuario Usuario;
 
         public frmLogin()
         {

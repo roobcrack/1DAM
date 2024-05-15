@@ -7,30 +7,22 @@ namespace ProyectoFinal._01View
     public partial class frmUsuarios : Form
     {
         private Usuario usuarioActual;
-        private GestionUsuarios gu;
-        private GestionPerfiles gp;
+        private GestionUsuarios gu = new GestionUsuarios();
+        private GestionPerfiles gp = new GestionPerfiles();
+        private GestionPublicaciones gpu = new GestionPublicaciones();
 
         public frmUsuarios(Usuario usuario)
         {
             InitializeComponent();
-            gu = new GestionUsuarios();
-            gp = new GestionPerfiles();
             this.usuarioActual = usuario;
         }
 
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             lblRolUsuario.Text = usuarioActual.Rol;
-            try
-            {
-                MostrarUsuarios();
-                MostrarPerfiles("");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar usuarios: " + ex.Message,
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            MostrarUsuarios();
+            MostrarPerfiles("");
+            MostrarPublicaciones("");
         }
 
         //////GESTION USUARIOS
@@ -39,9 +31,9 @@ namespace ProyectoFinal._01View
             SeleccionarFilaUsuario(usuarioActual.IdUsuario);
             gu.Usuario = usuarioActual;
             txtNombreUsuario.Text = "";
-            lblNombreUsuario.Text = usuarioActual.Nombre;
-            MostrarPerfiles(usuarioActual.IdUsuario);
-            if (usuarioActual.Rol == "usuario")
+            lblNombreUsuario.Text = gu.Usuario.Nombre;
+            MostrarPerfiles(gu.Usuario.IdUsuario);
+            if (gu.Usuario.Rol == "usuario")
                 chxOcultarUsuarios.Checked = false;
         }
         private void SeleccionarFilaUsuario(string id)
@@ -71,15 +63,55 @@ namespace ProyectoFinal._01View
         }
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataGridViewRow selectedRow = dgvUsuarios.Rows[e.RowIndex];
 
+            gu.Usuario = new Usuario()
+            {
+                IdUsuario = Convert.ToString(selectedRow.Cells["idusuario"].Value),
+                Nombre = Convert.ToString(selectedRow.Cells["nombre"].Value),
+                Contraseña = Convert.ToString(selectedRow.Cells["contraseña"].Value),
+                Rol = Convert.ToString(selectedRow.Cells["rol"].Value)
+            };
+
+            lblNombreUsuario.Text = gu.Usuario.Nombre;
+            MostrarPerfiles(gu.Usuario.IdUsuario);
         }
 
         //////GESTION PERFILES
         private void MostrarPerfiles(string id)
         {
-            dgvPerfiles.DataSource = gp.GetAll(id);
+            gp.Perfiles = gp.GetAll(id);
+            if (cbxOcultarPerfiles.Checked)
+            {
+                for (int i = 0; i < gp.Perfiles.Count; i++)
+                {
+                    if (gpu.GetAll(gp.Perfiles[i].IdPerfil).Count == 0)
+                        gp.Perfiles.RemoveAt(i--);
+                }
+            }
+            dgvPerfiles.DataSource = gp.Perfiles;
         }
 
+        private void cbxOcultarPerfiles_CheckedChanged(object sender, EventArgs e)
+        {
+            MostrarPerfiles(gu.Usuario.IdUsuario);
+        }
+        private void btnSeleccionarPerfiles_Click(object sender, EventArgs e)
+        {
+            gp.Perfiles = gp.GetAllAll();
+            if(gu.Usuario != null)
+                dgvPublicaciones.DataSource = gpu.GetAllAll(gu.Usuario.IdUsuario);
+            lblNombrePerfil.Text = "todos";
+            foreach (DataGridViewRow row in dgvPerfiles.Rows)
+            {
+                row.Cells[dgvPerfiles.Columns["idperfil"].Index].Selected = true;
+            }
+        }
 
+        //////GESTION PUBLICACIONES
+        private void MostrarPublicaciones(string id)
+        {
+            dgvPublicaciones.DataSource = gpu.GetAll(id);
+        }
     }
 }
