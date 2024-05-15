@@ -98,7 +98,7 @@
             lblCrearUsuario.TabIndex = 7;
             lblCrearUsuario.TabStop = true;
             lblCrearUsuario.Text = "Crear Usuario";
-            lblCrearUsuario.LinkClicked += lblCrearUsuario_LinkClicked;
+            lblCrearUsuario.LinkClicked += lblCrearUsuario_LinkClicked_1;
             // 
             // frmLogin
             // 

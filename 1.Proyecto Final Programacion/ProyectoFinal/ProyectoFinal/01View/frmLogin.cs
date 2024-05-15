@@ -4,30 +4,27 @@ namespace ProyectoFinal._01View
 {
     public partial class frmLogin : Form
     {
-        public Usuario Usuario;
+        GestionUsuarios gu = new GestionUsuarios();
+        public Usuario Usuario = null;
 
         public frmLogin()
         {
             InitializeComponent();
         }
-        public void BtnEntrar_Click(object sender, EventArgs e)
+        private void btnEntrar_Click(object sender, EventArgs e)
         {
-            GestionUsuarios gu = new GestionUsuarios();
             Usuario = gu.GetByName(txtNombre.Text);
+
             if (Usuario is not null && Usuario.Nombre == txtNombre.Text &&
                 Usuario.Contraseña == txtContraseña.Text)
-            {
-                this.Hide();
-            }
+                this.Close();
             else
                 txtError.Text = "Nombre o contraseña erróneos";
         }
-        /*
-        private void lblCrearUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lblCrearUsuario_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form frmRegistro = new frmRegistro();
-            frmRegistro.Show();
-            this.Hide();
-        }*/
+            Usuario = new Usuario();
+            this.Close();
+        }
     }
 }

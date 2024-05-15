@@ -5,14 +5,14 @@ namespace ProyectoFinal._01View
 {
     public partial class frmRegistro : Form
     {
+        GestionUsuarios gu = new GestionUsuarios();
+        public Usuario Usuario = null;
         public frmRegistro()
         {
             InitializeComponent();
         }
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
-            GestionUsuarios gu = new GestionUsuarios();
-
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtContraseña.Text) ||
                 string.IsNullOrWhiteSpace(txtRepetirContraseña.Text))
@@ -23,14 +23,10 @@ namespace ProyectoFinal._01View
                 lblError.Text = "Las contraseñas no coinciden";
             else
             {
-                gu.Usuario = new Usuario(Convert.ToString(gu.GetAll().Count + 1), txtNombre.Text, txtContraseña.Text, "usuario");
-                if (VerificarOperacion(gu.RegistrarUsuario()))
-                {                    
-                    if (Application.OpenForms["frmLogin"] != null)
-                    {
-                        Application.OpenForms["frmLogin"].Close();
-                    }
-                }
+                Usuario = new Usuario(Convert.ToString(gu.GetAll().Count + 1), txtNombre.Text, txtContraseña.Text, "usuario");
+                gu.Usuario = Usuario;
+                if (VerificarOperacion(gu.RegistrarUsuario()))                  
+                    this.Close();
             }
         }
         private void MessageError(string text)
