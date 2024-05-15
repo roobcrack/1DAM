@@ -17,7 +17,7 @@ namespace ProyectoFinal
             Application.Run(frmLogin);
             usuarioActual = frmLogin.Usuario;
 
-            //COMPROBAR QUE SE HA LOGEADO UN USUARIO REAL
+            //COMPROBAR SI NO SE HA INICIADO UN USUARIOACTUAL REAL
             if (usuarioActual is not null && 
                 string.IsNullOrWhiteSpace(usuarioActual.Nombre))   
             {
@@ -25,10 +25,11 @@ namespace ProyectoFinal
                 Application.Run(frmRegistro);
                 usuarioActual = frmRegistro.Usuario;
             }
-            //SI HAY UN USUARIO INICIADO SE ABRE EL FORMULARIO DE USUARIO
+            //SI HAY UN USUARIOACTUAL INICIADO SE ABRE EL FORMULARIO DE USUARIO
             if (usuarioActual is not null &&
                 !string.IsNullOrWhiteSpace(usuarioActual.Nombre))
                 Application.Run(new frmUsuarios(usuarioActual));
         }
     }
 }
+ 
