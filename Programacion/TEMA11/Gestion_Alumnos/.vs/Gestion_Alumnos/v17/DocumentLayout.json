@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\gestion_alumnos\\01view\\frmmatriculas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|c:\\users\\ruben\\desktop\\1dam\\programacion\\tema11\\gestion_alumnos\\gestion_alumnos\\01view\\frmmatriculas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|solutionrelative:gestion_alumnos\\01view\\frmmatriculas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,7 +23,7 @@
       "RelativeMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|solutionrelative:gestion_alumnos\\02aplication\\gestioncursos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|c:\\users\\ruben\\desktop\\1dam\\programacion\\tema11\\gestion_alumnos\\gestion_alumnos\\01view\\frmalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\gestion_alumnos\\01view\\frmalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA0425AD-77A9-40E3-96C7-742F0CF65543}|Gestion_Alumnos\\Gestion_Alumnos.csproj|solutionrelative:gestion_alumnos\\01view\\frmalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -50,8 +50,7 @@
               "RelativeToolTip": "Gestion_Alumnos\\01View\\frmAlumnos.cs",
               "ViewState": "AQIAAB4AAAAAAAAAAAAowDsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T23:42:08.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T23:42:08.959Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "Gestion_Alumnos\\02Aplication\\GestionCursos.cs",
               "ViewState": "AQIAACwAAAAAAAAAAAAqwEoAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T23:42:09.123Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T23:42:09.123Z"
             },
             {
               "$type": "Document",
@@ -76,8 +74,7 @@
               "RelativeToolTip": "Gestion_Alumnos\\02Aplication\\GestionAlumnos.cs",
               "ViewState": "AQIAAEQAAAAAAAAAAAAswDAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T23:42:09.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T23:42:09.876Z"
             },
             {
               "$type": "Document",
@@ -89,8 +86,7 @@
               "RelativeToolTip": "Gestion_Alumnos\\02Aplication\\Matricula.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T23:42:10.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T23:42:10.452Z"
             },
             {
               "$type": "Document",
@@ -100,7 +96,7 @@
               "RelativeDocumentMoniker": "Gestion_Alumnos\\01View\\frmMatriculas.cs",
               "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\01View\\frmMatriculas.cs",
               "RelativeToolTip": "Gestion_Alumnos\\01View\\frmMatriculas.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAIwCwAAAAoAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-09T23:42:10.453Z",
               "EditorCaption": ""
@@ -114,8 +110,7 @@
               "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\Programacion\\TEMA11\\Gestion_Alumnos\\Gestion_Alumnos\\01View\\frmMatriculas.cs [Dise\u00F1o]",
               "RelativeToolTip": "Gestion_Alumnos\\01View\\frmMatriculas.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T23:42:10.454Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-05-09T23:42:10.454Z"
             }
           ]
         }

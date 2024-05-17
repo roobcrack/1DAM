@@ -3,7 +3,27 @@
   "WorkspaceRootPath": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|c:\\users\\ruben\\desktop\\1dam\\1.proyecto final programacion\\proyectofinal\\proyectofinal\\01view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|c:\\users\\ruben\\desktop\\1dam\\1.proyecto final programacion\\proyectofinal\\proyectofinal\\01view\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|solutionrelative:proyectofinal\\01view\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|c:\\users\\ruben\\desktop\\1dam\\1.proyecto final programacion\\proyectofinal\\proyectofinal\\02administration\\gestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|solutionrelative:proyectofinal\\02administration\\gestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\proyectofinal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|solutionrelative:proyectofinal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\proyectofinal\\01view\\frmregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|solutionrelative:proyectofinal\\01view\\frmregistro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|c:\\users\\ruben\\desktop\\1dam\\1.proyecto final programacion\\proyectofinal\\proyectofinal\\01view\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|solutionrelative:proyectofinal\\01view\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\proyectofinal\\01view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|solutionrelative:proyectofinal\\01view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -13,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\proyectofinal\\01view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|solutionrelative:proyectofinal\\01view\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\proyectofinal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A73D8278-46C8-43D7-A942-BA2D8610428A}|ProyectoFinal\\ProyectoFinal.csproj|solutionrelative:proyectofinal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 275,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,20 +50,70 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GestionUsuarios.cs",
+              "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\02Administration\\GestionUsuarios.cs",
+              "RelativeDocumentMoniker": "ProyectoFinal\\02Administration\\GestionUsuarios.cs",
+              "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\02Administration\\GestionUsuarios.cs",
+              "RelativeToolTip": "ProyectoFinal\\02Administration\\GestionUsuarios.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T19:39:04.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmUsuarios.cs",
+              "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\01View\\frmUsuarios.cs",
+              "RelativeDocumentMoniker": "ProyectoFinal\\01View\\frmUsuarios.cs",
+              "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\01View\\frmUsuarios.cs",
+              "RelativeToolTip": "ProyectoFinal\\01View\\frmUsuarios.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T19:38:59.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmUsuarios.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\01View\\frmUsuarios.cs",
+              "RelativeDocumentMoniker": "ProyectoFinal\\01View\\frmUsuarios.cs",
+              "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\01View\\frmUsuarios.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ProyectoFinal\\01View\\frmUsuarios.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T19:36:12.201Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "frmRegistro.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\01View\\frmRegistro.cs",
+              "RelativeDocumentMoniker": "ProyectoFinal\\01View\\frmRegistro.cs",
+              "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\01View\\frmRegistro.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ProyectoFinal\\01View\\frmRegistro.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T19:36:09.707Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\Program.cs",
               "RelativeDocumentMoniker": "ProyectoFinal\\Program.cs",
               "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\Program.cs",
               "RelativeToolTip": "ProyectoFinal\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-14T23:21:25.999Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "frmLogin.cs",
               "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\01View\\frmLogin.cs",
               "RelativeDocumentMoniker": "ProyectoFinal\\01View\\frmLogin.cs",
@@ -55,12 +121,11 @@
               "RelativeToolTip": "ProyectoFinal\\01View\\frmLogin.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-14T23:20:46.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T23:20:46.698Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "frmRegistro.cs",
               "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\01View\\frmRegistro.cs",
               "RelativeDocumentMoniker": "ProyectoFinal\\01View\\frmRegistro.cs",
@@ -73,15 +138,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "frmLogin.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\01View\\frmLogin.cs",
               "RelativeDocumentMoniker": "ProyectoFinal\\01View\\frmLogin.cs",
               "ToolTip": "C:\\Users\\ruben\\Desktop\\1DAM\\1.Proyecto Final Programacion\\ProyectoFinal\\ProyectoFinal\\01View\\frmLogin.cs [Dise\u00F1o]",
               "RelativeToolTip": "ProyectoFinal\\01View\\frmLogin.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-14T23:23:47.959Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-05-14T23:23:47.959Z"
             }
           ]
         }
