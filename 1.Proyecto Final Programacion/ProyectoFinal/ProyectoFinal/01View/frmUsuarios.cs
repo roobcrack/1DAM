@@ -21,7 +21,7 @@ namespace ProyectoFinal._01View
         {
             lblRolUsuario.Text = usuarioActual.Rol;
             MostrarUsuarios();
-            MostrarPerfiles("");
+            MostrarPerfiles();
             MostrarPublicaciones("");
         }
 
@@ -32,7 +32,8 @@ namespace ProyectoFinal._01View
             gu.Usuario = usuarioActual;
             txtNombreUsuario.Text = "";
             lblNombreUsuario.Text = gu.Usuario.Nombre;
-            MostrarPerfiles(gu.Usuario.IdUsuario);
+            gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
+            MostrarPerfiles();
             if (gu.Usuario.Rol == "usuario")
                 chxOcultarUsuarios.Checked = false;
         }
@@ -74,32 +75,23 @@ namespace ProyectoFinal._01View
             };
 
             lblNombreUsuario.Text = gu.Usuario.Nombre;
-            MostrarPerfiles(gu.Usuario.IdUsuario);
+            gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
+            MostrarPerfiles();
         }
 
         //////GESTION PERFILES
-        private void MostrarPerfiles(string id)
+        private void MostrarPerfiles()
         {
-            gp.Perfiles = gp.GetAll(id);
-            if (cbxOcultarPerfiles.Checked)
-            {
-                for (int i = 0; i < gp.Perfiles.Count; i++)
-                {
-                    if (gpu.GetAll(gp.Perfiles[i].IdPerfil).Count == 0)
-                        gp.Perfiles.RemoveAt(i--);
-                }
-            }
             dgvPerfiles.DataSource = gp.Perfiles;
         }
-
         private void cbxOcultarPerfiles_CheckedChanged(object sender, EventArgs e)
         {
-            MostrarPerfiles(gu.Usuario.IdUsuario);
+            gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
+            MostrarPerfiles();
         }
         private void btnSeleccionarPerfiles_Click(object sender, EventArgs e)
         {
-            gp.Perfiles = gp.GetAllAll();
-            if(gu.Usuario != null)
+            if (gu.Usuario != null)
                 dgvPublicaciones.DataSource = gpu.GetAllAll(gu.Usuario.IdUsuario);
             lblNombrePerfil.Text = "todos";
             foreach (DataGridViewRow row in dgvPerfiles.Rows)
@@ -107,7 +99,45 @@ namespace ProyectoFinal._01View
                 row.Cells[dgvPerfiles.Columns["idperfil"].Index].Selected = true;
             }
         }
+        private void dgvPerfiles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvPerfiles.Rows[e.RowIndex];
 
+            gp.Perfil = new Perfil()
+            {
+                IdPerfil = Convert.ToString(selectedRow.Cells["idperfil"].Value),
+                NombrePerfil = Convert.ToString(selectedRow.Cells["nombreperfil"].Value),
+                Resumen = Convert.ToString(selectedRow.Cells["resumen"].Value),
+                IdUsuario = Convert.ToString(selectedRow.Cells["idusuario"].Value)
+            };
+
+            lblNombrePerfil.Text = gp.Perfil.NombrePerfil;
+            MostrarPublicaciones(gp.Perfil.IdPerfil);
+        }
+        private void btnEliminarPerfil_Click(object sender, EventArgs e)
+        {
+            if (gp.Perfil is not null)
+            {
+                DialogResult opcion = MessageBox.Show("¿Estás seguro?", "Advertencia",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (opcion == DialogResult.Yes)
+                {
+                    if (gp.Remove(gu.Usuario.IdUsuario) == 1)
+                    {
+                        gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
+                        MostrarPerfiles();
+                    }
+                    else
+                        MessageBox.Show("No se ha podido registrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void btnCrearPerfil_Click(object sender, EventArgs e)
+        {
+            gp.Insert(gu.Usuario.IdUsuario);
+            gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
+            MostrarPerfiles();
+        }
         //////GESTION PUBLICACIONES
         private void MostrarPublicaciones(string id)
         {

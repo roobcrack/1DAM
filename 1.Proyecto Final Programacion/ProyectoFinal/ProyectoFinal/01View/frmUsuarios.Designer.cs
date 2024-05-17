@@ -83,6 +83,7 @@
             dgvPerfiles.Name = "dgvPerfiles";
             dgvPerfiles.Size = new Size(227, 392);
             dgvPerfiles.TabIndex = 1;
+            dgvPerfiles.CellContentClick += dgvPerfiles_CellContentClick;
             // 
             // btnMiUsuario
             // 
@@ -302,6 +303,7 @@
             btnCrearPerfil.TabIndex = 21;
             btnCrearPerfil.Text = "Crear";
             btnCrearPerfil.UseVisualStyleBackColor = true;
+            btnCrearPerfil.Click += btnCrearPerfil_Click;
             // 
             // btnEliminarPerfil
             // 
@@ -311,6 +313,7 @@
             btnEliminarPerfil.TabIndex = 22;
             btnEliminarPerfil.Text = "Eliminar";
             btnEliminarPerfil.UseVisualStyleBackColor = true;
+            btnEliminarPerfil.Click += btnEliminarPerfil_Click;
             // 
             // button1
             // 

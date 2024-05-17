@@ -1,4 +1,5 @@
-﻿using ProyectoFinal._03Data;
+﻿using ProyectoFinal._01View;
+using ProyectoFinal._03Data;
 using System.Data;
 
 namespace ProyectoFinal._02Administration
@@ -16,19 +17,33 @@ namespace ProyectoFinal._02Administration
         {
             return GetBySql("SELECT * FROM perfil WHERE idperfil = '" + idperfil + "'");
         }
-        public void Filtrar(bool perfil, string nombre, List<GestionPublicaciones> gpu)
+        public void Filtrar(bool filtrado, string idusuario, GestionPublicaciones gpu)
         {
-            if (perfil && gpu is null)
+            Perfiles = GetAll(idusuario);
+            if (filtrado)
             {
-                
+                for(int i=0; i<Perfiles.Count; i++)
+                {
+                    if (gpu.GetAll(Perfiles[i].IdPerfil).Count <= 0)
+                        Perfiles.RemoveAt(i--);
+                }
             }
-            
         }
+        public int Remove(string idperfil)
+        {
+            return BaseDatos.Modificacion($"DELETE FROM perfil WHERE idperfil = '" + idperfil + "'");
+        }
+        public int Insert(string idusuario)
+        {
+            frmCrearPerfil frmCrearPerfil = new frmCrearPerfil(idusuario);
+            frmCrearPerfil.Show();
+            Perfil = frmCrearPerfil.Perfil;
 
-
-
-
-
+            if (Perfil.IdPerfil is not null)
+                return BaseDatos.Modificacion($"INSERT INTO perfil (idperfil, nombreperfil, resumen, idusuario) VALUES ('{Perfil.IdPerfil}'," +
+                $" '{Perfil.NombrePerfil}', '{Perfil.Resumen}', '{Perfil.IdUsuario}')");
+            return -1;
+        }
         public Perfil GetBySql(string sql)
         {
             DataTable dt = BaseDatos.Consulta(sql);
@@ -42,17 +57,7 @@ namespace ProyectoFinal._02Administration
         public List<Perfil> GetAll(string id)
         {
             List<Perfil> perfiles = new List<Perfil>();
-            DataTable dt = BaseDatos.Consulta("SELECT * FROM perfil WHERE idusuario = '" +
-                id + "' ORDER BY idperfil ASC");
-            for (int i = 0; dt != null && i < dt.Rows.Count; i++)
-                perfiles.Add(new Perfil(dt.Rows[i]["idperfil"].ToString(), dt.Rows[i]["nombreperfil"].ToString(),
-                dt.Rows[i]["resumen"].ToString(), dt.Rows[i]["idusuario"].ToString()));
-            return perfiles;
-        }
-        public List<Perfil> GetAllAll()
-        {
-            List<Perfil> perfiles = new List<Perfil>();
-            DataTable dt = BaseDatos.Consulta("SELECT * FROM perfil ORDER BY idperfil ASC");
+            DataTable dt = BaseDatos.Consulta($"SELECT * FROM perfil WHERE idusuario = '{id}'");
             for (int i = 0; dt != null && i < dt.Rows.Count; i++)
                 perfiles.Add(new Perfil(dt.Rows[i]["idperfil"].ToString(), dt.Rows[i]["nombreperfil"].ToString(),
                 dt.Rows[i]["resumen"].ToString(), dt.Rows[i]["idusuario"].ToString()));

@@ -24,7 +24,7 @@ namespace ProyectoFinal._02Administration
         public List<Publicacion> GetAll(string idperfil)
         {
             List<Publicacion> publicaciones = new List<Publicacion>();
-            DataTable dt = BaseDatos.Consulta($"SELECT * FROM publicacion WHERE idperfil = '{idperfil}' ORDER BY idperfil ASC");
+            DataTable dt = BaseDatos.Consulta($"SELECT * FROM publicaciones WHERE idperfil = '{idperfil}'");
             for (int i = 0; dt != null && i < dt.Rows.Count; i++)
                 publicaciones.Add(new Publicacion(dt.Rows[i]["idpublicacion"].ToString(), dt.Rows[i]["titulo"].ToString(),
                 dt.Rows[i]["descripcion"].ToString(), dt.Rows[i]["imagen"].ToString(), dt.Rows[i]["idperfil"].ToString()));

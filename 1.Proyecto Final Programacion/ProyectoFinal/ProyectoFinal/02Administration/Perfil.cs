@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinal
 {
-    internal class Perfil
+    public class Perfil
     {
         public string IdPerfil { get; set; }
         public string NombrePerfil { get; set; }
