@@ -8,12 +8,22 @@ namespace ProyectoFinal._02Administration
         public Perfil Perfil { get; set; }
         public List<Perfil> Perfiles { get; set;  }
 
-        public GestionPerfiles() { }
+        public GestionPerfiles()
+        {
+            Perfiles = GetAll("");
+        }
         public Perfil GetById(string idperfil)
         {
             return GetBySql("SELECT * FROM perfil WHERE idperfil = '" + idperfil + "'");
         }
-
+        public void Filtrar(bool perfil, string nombre, List<GestionPublicaciones> gpu)
+        {
+            if (perfil && gpu is null)
+            {
+                
+            }
+            
+        }
 
 
 
@@ -29,11 +39,20 @@ namespace ProyectoFinal._02Administration
             }
             return null;
         }
-        public List<Perfil> GetAll(string idusuario)
+        public List<Perfil> GetAll(string id)
         {
             List<Perfil> perfiles = new List<Perfil>();
-            DataTable dt = BaseDatos.Consulta("SELECT * FROM perfil WHERE idusuario = '"+ 
-                idusuario + "' ORDER BY idperfil ASC");
+            DataTable dt = BaseDatos.Consulta("SELECT * FROM perfil WHERE idusuario = '" +
+                id + "' ORDER BY idperfil ASC");
+            for (int i = 0; dt != null && i < dt.Rows.Count; i++)
+                perfiles.Add(new Perfil(dt.Rows[i]["idperfil"].ToString(), dt.Rows[i]["nombreperfil"].ToString(),
+                dt.Rows[i]["resumen"].ToString(), dt.Rows[i]["idusuario"].ToString()));
+            return perfiles;
+        }
+        public List<Perfil> GetAllAll()
+        {
+            List<Perfil> perfiles = new List<Perfil>();
+            DataTable dt = BaseDatos.Consulta("SELECT * FROM perfil ORDER BY idperfil ASC");
             for (int i = 0; dt != null && i < dt.Rows.Count; i++)
                 perfiles.Add(new Perfil(dt.Rows[i]["idperfil"].ToString(), dt.Rows[i]["nombreperfil"].ToString(),
                 dt.Rows[i]["resumen"].ToString(), dt.Rows[i]["idusuario"].ToString()));
