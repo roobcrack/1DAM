@@ -1,4 +1,5 @@
 ﻿using ProyectoFinal._02Administration;
+using ProyectoFinal._03Data;
 using System;
 using System.Windows.Forms;
 
@@ -32,7 +33,6 @@ namespace ProyectoFinal._01View
             gu.Usuario = usuarioActual;
             txtNombreUsuario.Text = "";
             lblNombreUsuario.Text = gu.Usuario.Nombre;
-            gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
             MostrarPerfiles();
             if (gu.Usuario.Rol == "usuario")
                 chxOcultarUsuarios.Checked = false;
@@ -75,18 +75,18 @@ namespace ProyectoFinal._01View
             };
 
             lblNombreUsuario.Text = gu.Usuario.Nombre;
-            gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
             MostrarPerfiles();
         }
 
         //////GESTION PERFILES
         private void MostrarPerfiles()
         {
+            if(gu.Usuario is not null)
+                gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
             dgvPerfiles.DataSource = gp.Perfiles;
         }
         private void cbxOcultarPerfiles_CheckedChanged(object sender, EventArgs e)
         {
-            gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
             MostrarPerfiles();
         }
         private void btnSeleccionarPerfiles_Click(object sender, EventArgs e)
@@ -122,26 +122,71 @@ namespace ProyectoFinal._01View
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (opcion == DialogResult.Yes)
                 {
-                    if (gp.Remove(gu.Usuario.IdUsuario) == 1)
+                    if (VerificarOperacion(gp.Eliminar()))
                     {
-                        gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
+                        MessageBox.Show(Convert.ToString(gp.ActualizarId()));
                         MostrarPerfiles();
+                        gp.Perfil = new Perfil();
+                        lblNombrePerfil.Text = "Nombre perfil";
                     }
-                    else
-                        MessageBox.Show("No se ha podido registrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else
+                MessageError("Seleccione un perfil");
         }
         private void btnCrearPerfil_Click(object sender, EventArgs e)
         {
-            gp.Insert(gu.Usuario.IdUsuario);
-            gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
-            MostrarPerfiles();
+            if (gu.Usuario is not null)
+            {
+                frmCrearPerfil frm = new frmCrearPerfil(gu.Usuario.IdUsuario);
+                frm.ShowDialog();
+                if (!string.IsNullOrEmpty(frm.Perfil.NombrePerfil))
+                {
+                    gp.Perfil = frm.Perfil;
+                    if (VerificarOperacion(gp.Insertar()))
+                    {
+                        MostrarPerfiles();
+                        lblNombrePerfil.Text = gp.Perfil.NombrePerfil;
+                    }
+                }
+            }
+            else
+                MessageError("Seleccione un usuario");
         }
         //////GESTION PUBLICACIONES
         private void MostrarPublicaciones(string id)
         {
             dgvPublicaciones.DataSource = gpu.GetAll(id);
+        }
+
+
+
+
+
+
+
+
+
+        private void MessageError(string text)
+        {
+            MessageBox.Show(text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private bool VerificarOperacion(int resultado)
+        {
+            switch (resultado)
+            {
+                case 1:
+                    MessageBox.Show("Se ha realizado correctamente", "Correcto",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 0:
+                    MessageError("No se realizaron cambios");
+                    break;
+                default:
+                    MessageError("Error, compruebe que no haya fallos");
+                    break;
+            }
+            return resultado > 0;
         }
     }
 }

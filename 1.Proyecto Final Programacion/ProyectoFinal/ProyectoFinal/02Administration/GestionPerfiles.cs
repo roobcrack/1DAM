@@ -29,20 +29,28 @@ namespace ProyectoFinal._02Administration
                 }
             }
         }
-        public int Remove(string idperfil)
+        public int Insertar()
         {
-            return BaseDatos.Modificacion($"DELETE FROM perfil WHERE idperfil = '" + idperfil + "'");
+            return BaseDatos.Modificacion($"INSERT INTO perfil (idperfil, nombreperfil, resumen, idusuario) VALUES " +
+                         $"('" + Perfil.IdPerfil + "', '" + Perfil.NombrePerfil + "', '" + Perfil.Resumen + "', " +
+                         $"'" + Perfil.IdUsuario + "')");
         }
-        public int Insert(string idusuario)
+        public int Eliminar()
         {
-            frmCrearPerfil frmCrearPerfil = new frmCrearPerfil(idusuario);
-            frmCrearPerfil.Show();
-            Perfil = frmCrearPerfil.Perfil;
-
-            if (Perfil.IdPerfil is not null)
-                return BaseDatos.Modificacion($"INSERT INTO perfil (idperfil, nombreperfil, resumen, idusuario) VALUES ('{Perfil.IdPerfil}'," +
-                $" '{Perfil.NombrePerfil}', '{Perfil.Resumen}', '{Perfil.IdUsuario}')");
-            return -1;
+            return BaseDatos.Modificacion($"DELETE FROM perfil WHERE idperfil = '" + Perfil.IdPerfil + "'");
+        }
+        public int ActualizarId()
+        {
+            List<Perfil> perfiles = GetAllAll();
+            foreach(Perfil p in perfiles)
+            {
+                int newId = 1;
+                int consulta = BaseDatos.Modificacion($"UPDATE perfil SET idperfil = '{newId}' WHERE idperfil = '{p.IdPerfil}'");
+                if (consulta <= 0)
+                    return consulta;
+                newId++;
+            }
+            return 2;
         }
         public Perfil GetBySql(string sql)
         {
@@ -58,6 +66,15 @@ namespace ProyectoFinal._02Administration
         {
             List<Perfil> perfiles = new List<Perfil>();
             DataTable dt = BaseDatos.Consulta($"SELECT * FROM perfil WHERE idusuario = '{id}'");
+            for (int i = 0; dt != null && i < dt.Rows.Count; i++)
+                perfiles.Add(new Perfil(dt.Rows[i]["idperfil"].ToString(), dt.Rows[i]["nombreperfil"].ToString(),
+                dt.Rows[i]["resumen"].ToString(), dt.Rows[i]["idusuario"].ToString()));
+            return perfiles;
+        }
+        public List<Perfil> GetAllAll()
+        {
+            List<Perfil> perfiles = new List<Perfil>();
+            DataTable dt = BaseDatos.Consulta($"SELECT * FROM perfil");
             for (int i = 0; dt != null && i < dt.Rows.Count; i++)
                 perfiles.Add(new Perfil(dt.Rows[i]["idperfil"].ToString(), dt.Rows[i]["nombreperfil"].ToString(),
                 dt.Rows[i]["resumen"].ToString(), dt.Rows[i]["idusuario"].ToString()));

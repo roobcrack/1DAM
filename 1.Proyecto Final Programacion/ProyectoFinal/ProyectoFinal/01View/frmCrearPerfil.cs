@@ -24,7 +24,7 @@ namespace ProyectoFinal._01View
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            Perfil = new Perfil(Convert.ToString(gp.GetAll(idusuario).Count + 1), txtNombre.Text, txtResumen.Text, idusuario);
+            Perfil = new Perfil(Convert.ToString(gp.GetAllAll().Count + 1), txtNombre.Text, txtResumen.Text, this.idusuario);
             this.Close();
         }
     }
