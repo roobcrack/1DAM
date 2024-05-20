@@ -54,23 +54,27 @@
             lblNombrePerfil = new Label();
             btnCrearPerfil = new Button();
             btnEliminarPerfil = new Button();
-            button1 = new Button();
-            button2 = new Button();
+            btnComentar = new Button();
             comboBox1 = new ComboBox();
             label2 = new Label();
             button3 = new Button();
+            lblTitulo = new Label();
+            menuStrip1 = new MenuStrip();
+            opcionesToolStripMenuItem = new ToolStripMenuItem();
+            logOutToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPerfiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPublicaciones).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // dgvUsuarios
             // 
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Location = new Point(27, 62);
+            dgvUsuarios.Location = new Point(25, 86);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.Size = new Size(227, 392);
             dgvUsuarios.TabIndex = 0;
@@ -79,7 +83,7 @@
             // dgvPerfiles
             // 
             dgvPerfiles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPerfiles.Location = new Point(309, 62);
+            dgvPerfiles.Location = new Point(307, 86);
             dgvPerfiles.Name = "dgvPerfiles";
             dgvPerfiles.Size = new Size(227, 392);
             dgvPerfiles.TabIndex = 1;
@@ -87,7 +91,7 @@
             // 
             // btnMiUsuario
             // 
-            btnMiUsuario.Location = new Point(27, 12);
+            btnMiUsuario.Location = new Point(25, 36);
             btnMiUsuario.Name = "btnMiUsuario";
             btnMiUsuario.Size = new Size(88, 36);
             btnMiUsuario.TabIndex = 2;
@@ -98,7 +102,7 @@
             // chxOcultarUsuarios
             // 
             chxOcultarUsuarios.AutoSize = true;
-            chxOcultarUsuarios.Location = new Point(27, 460);
+            chxOcultarUsuarios.Location = new Point(25, 484);
             chxOcultarUsuarios.Name = "chxOcultarUsuarios";
             chxOcultarUsuarios.Size = new Size(183, 19);
             chxOcultarUsuarios.TabIndex = 3;
@@ -109,15 +113,16 @@
             // dgvPublicaciones
             // 
             dgvPublicaciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPublicaciones.Location = new Point(584, 62);
+            dgvPublicaciones.Location = new Point(582, 86);
             dgvPublicaciones.Name = "dgvPublicaciones";
             dgvPublicaciones.Size = new Size(444, 392);
             dgvPublicaciones.TabIndex = 4;
+            dgvPublicaciones.CellContentClick += dgvPublicaciones_CellContentClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(36, 492);
+            label1.Location = new Point(34, 516);
             label1.Name = "label1";
             label1.Size = new Size(90, 15);
             label1.TabIndex = 5;
@@ -125,7 +130,7 @@
             // 
             // txtNombreUsuario
             // 
-            txtNombreUsuario.Location = new Point(132, 489);
+            txtNombreUsuario.Location = new Point(130, 513);
             txtNombreUsuario.Name = "txtNombreUsuario";
             txtNombreUsuario.Size = new Size(110, 23);
             txtNombreUsuario.TabIndex = 6;
@@ -133,7 +138,7 @@
             // 
             // btnSeleccionarPerfiles
             // 
-            btnSeleccionarPerfiles.Location = new Point(309, 12);
+            btnSeleccionarPerfiles.Location = new Point(307, 36);
             btnSeleccionarPerfiles.Name = "btnSeleccionarPerfiles";
             btnSeleccionarPerfiles.Size = new Size(112, 36);
             btnSeleccionarPerfiles.TabIndex = 7;
@@ -143,35 +148,38 @@
             // 
             // btnModificarPublicacion
             // 
-            btnModificarPublicacion.Location = new Point(682, 461);
+            btnModificarPublicacion.Location = new Point(680, 495);
             btnModificarPublicacion.Name = "btnModificarPublicacion";
             btnModificarPublicacion.Size = new Size(68, 42);
             btnModificarPublicacion.TabIndex = 8;
             btnModificarPublicacion.Text = "Modificar";
             btnModificarPublicacion.UseVisualStyleBackColor = true;
+            btnModificarPublicacion.Click += btnModificarPublicacion_Click;
             // 
             // btnCrearPublicacion
             // 
-            btnCrearPublicacion.Location = new Point(608, 460);
+            btnCrearPublicacion.Location = new Point(606, 494);
             btnCrearPublicacion.Name = "btnCrearPublicacion";
             btnCrearPublicacion.Size = new Size(68, 42);
             btnCrearPublicacion.TabIndex = 9;
             btnCrearPublicacion.Text = "Crear";
             btnCrearPublicacion.UseVisualStyleBackColor = true;
+            btnCrearPublicacion.Click += btnCrearPublicacion_Click;
             // 
             // btnEliminarPublicacion
             // 
-            btnEliminarPublicacion.Location = new Point(756, 461);
+            btnEliminarPublicacion.Location = new Point(754, 495);
             btnEliminarPublicacion.Name = "btnEliminarPublicacion";
             btnEliminarPublicacion.Size = new Size(68, 42);
             btnEliminarPublicacion.TabIndex = 10;
             btnEliminarPublicacion.Text = "Eliminar";
             btnEliminarPublicacion.UseVisualStyleBackColor = true;
+            btnEliminarPublicacion.Click += btnEliminarPublicacion_Click;
             // 
             // cbxOcultarPerfiles
             // 
             cbxOcultarPerfiles.AutoSize = true;
-            cbxOcultarPerfiles.Location = new Point(309, 460);
+            cbxOcultarPerfiles.Location = new Point(307, 484);
             cbxOcultarPerfiles.Name = "cbxOcultarPerfiles";
             cbxOcultarPerfiles.Size = new Size(189, 19);
             cbxOcultarPerfiles.TabIndex = 11;
@@ -183,7 +191,7 @@
             // 
             groupBox1.Controls.Add(checkBox1);
             groupBox1.Controls.Add(button6);
-            groupBox1.Location = new Point(27, 528);
+            groupBox1.Location = new Point(25, 552);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(227, 64);
             groupBox1.TabIndex = 12;
@@ -212,7 +220,7 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(button7);
-            groupBox2.Location = new Point(345, 528);
+            groupBox2.Location = new Point(343, 552);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(153, 64);
             groupBox2.TabIndex = 14;
@@ -233,7 +241,7 @@
             groupBox3.Controls.Add(button8);
             groupBox3.Controls.Add(txtBuscarTitulo);
             groupBox3.Controls.Add(label4);
-            groupBox3.Location = new Point(650, 528);
+            groupBox3.Location = new Point(648, 552);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(285, 64);
             groupBox3.TabIndex = 15;
@@ -268,7 +276,7 @@
             // lblRolUsuario
             // 
             lblRolUsuario.AutoSize = true;
-            lblRolUsuario.Location = new Point(188, 23);
+            lblRolUsuario.Location = new Point(186, 47);
             lblRolUsuario.Name = "lblRolUsuario";
             lblRolUsuario.Size = new Size(66, 15);
             lblRolUsuario.TabIndex = 16;
@@ -278,7 +286,7 @@
             // lblNombreUsuario
             // 
             lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.Location = new Point(443, 23);
+            lblNombreUsuario.Location = new Point(441, 47);
             lblNombreUsuario.Name = "lblNombreUsuario";
             lblNombreUsuario.Size = new Size(93, 15);
             lblNombreUsuario.TabIndex = 17;
@@ -288,7 +296,7 @@
             // lblNombrePerfil
             // 
             lblNombrePerfil.AutoSize = true;
-            lblNombrePerfil.Location = new Point(947, 23);
+            lblNombrePerfil.Location = new Point(945, 36);
             lblNombrePerfil.Name = "lblNombrePerfil";
             lblNombrePerfil.Size = new Size(81, 15);
             lblNombrePerfil.TabIndex = 18;
@@ -297,7 +305,7 @@
             // 
             // btnCrearPerfil
             // 
-            btnCrearPerfil.Location = new Point(345, 485);
+            btnCrearPerfil.Location = new Point(343, 509);
             btnCrearPerfil.Name = "btnCrearPerfil";
             btnCrearPerfil.Size = new Size(68, 42);
             btnCrearPerfil.TabIndex = 21;
@@ -307,7 +315,7 @@
             // 
             // btnEliminarPerfil
             // 
-            btnEliminarPerfil.Location = new Point(431, 485);
+            btnEliminarPerfil.Location = new Point(429, 509);
             btnEliminarPerfil.Name = "btnEliminarPerfil";
             btnEliminarPerfil.Size = new Size(68, 42);
             btnEliminarPerfil.TabIndex = 22;
@@ -315,29 +323,20 @@
             btnEliminarPerfil.UseVisualStyleBackColor = true;
             btnEliminarPerfil.Click += btnEliminarPerfil_Click;
             // 
-            // button1
+            // btnComentar
             // 
-            button1.Location = new Point(830, 461);
-            button1.Name = "button1";
-            button1.Size = new Size(68, 42);
-            button1.TabIndex = 24;
-            button1.Text = "Comentar";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(904, 460);
-            button2.Name = "button2";
-            button2.Size = new Size(101, 42);
-            button2.TabIndex = 25;
-            button2.Text = "Ver comentarios";
-            button2.UseVisualStyleBackColor = true;
+            btnComentar.Location = new Point(828, 494);
+            btnComentar.Name = "btnComentar";
+            btnComentar.Size = new Size(175, 42);
+            btnComentar.TabIndex = 25;
+            btnComentar.Text = "Ver comentarios / Comentar";
+            btnComentar.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "", "id", "titulo", "fecha de publicacion" });
-            comboBox1.Location = new Point(667, 23);
+            comboBox1.Location = new Point(665, 47);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(157, 23);
             comboBox1.TabIndex = 26;
@@ -345,7 +344,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(584, 28);
+            label2.Location = new Point(582, 52);
             label2.Name = "label2";
             label2.Size = new Size(77, 15);
             label2.TabIndex = 27;
@@ -354,23 +353,54 @@
             // 
             // button3
             // 
-            button3.Location = new Point(830, 21);
+            button3.Location = new Point(828, 45);
             button3.Name = "button3";
             button3.Size = new Size(58, 28);
             button3.TabIndex = 28;
             button3.Text = "Filtrar";
             button3.UseVisualStyleBackColor = true;
             // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Location = new Point(910, 57);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(116, 15);
+            lblTitulo.TabIndex = 29;
+            lblTitulo.Text = "Nombre publicacion";
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1058, 24);
+            menuStrip1.TabIndex = 30;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // opcionesToolStripMenuItem
+            // 
+            opcionesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { logOutToolStripMenuItem });
+            opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
+            opcionesToolStripMenuItem.Size = new Size(69, 20);
+            opcionesToolStripMenuItem.Text = "Opciones";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            logOutToolStripMenuItem.Size = new Size(117, 22);
+            logOutToolStripMenuItem.Text = "Log Out";
+            // 
             // frmUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1058, 613);
+            ClientSize = new Size(1058, 637);
+            Controls.Add(lblTitulo);
             Controls.Add(button3);
             Controls.Add(label2);
             Controls.Add(comboBox1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnComentar);
             Controls.Add(btnEliminarPerfil);
             Controls.Add(btnCrearPerfil);
             Controls.Add(lblNombrePerfil);
@@ -391,6 +421,8 @@
             Controls.Add(btnMiUsuario);
             Controls.Add(dgvPerfiles);
             Controls.Add(dgvUsuarios);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "frmUsuarios";
             Text = "frmUsuarios";
             Load += frmUsuarios_Load;
@@ -402,6 +434,8 @@
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -434,10 +468,13 @@
         private Button btnCrearPerfil;
         private Button btnEliminarPerfil;
         private CheckBox checkBox1;
-        private Button button1;
-        private Button button2;
+        private Button btnComentar;
         private ComboBox comboBox1;
         private Label label2;
         private Button button3;
+        private Label lblTitulo;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem opcionesToolStripMenuItem;
+        private ToolStripMenuItem logOutToolStripMenuItem;
     }
 }

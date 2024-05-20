@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal
 {
-    internal class Comentario
+    public class Comentario
     {
         public string IdComentario { get; set; }
-        public string Conntenido {  get; set; }
+        public string Contenido {  get; set; }
+        public string IdPublicacion { get; set; }
 
-        public Comentario(string idComentario, string conntenido)
+        public Comentario(string idComentario, string conntenido, string idPublicacion)
         {
             IdComentario = idComentario;
             Conntenido = conntenido;
+            IdPublicacion = idPublicacion;
         }
     }
 }

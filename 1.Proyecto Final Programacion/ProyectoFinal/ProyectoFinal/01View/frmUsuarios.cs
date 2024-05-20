@@ -77,11 +77,10 @@ namespace ProyectoFinal._01View
             lblNombreUsuario.Text = gu.Usuario.Nombre;
             MostrarPerfiles();
         }
-
         //////GESTION PERFILES
         private void MostrarPerfiles()
         {
-            if(gu.Usuario is not null)
+            if (gu.Usuario is not null)
                 gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
             dgvPerfiles.DataSource = gp.Perfiles;
         }
@@ -92,7 +91,7 @@ namespace ProyectoFinal._01View
         private void btnSeleccionarPerfiles_Click(object sender, EventArgs e)
         {
             if (gu.Usuario != null)
-                dgvPublicaciones.DataSource = gpu.GetAllAll(gu.Usuario.IdUsuario);
+                dgvPublicaciones.DataSource = gpu.GetAllFromUser(gu.Usuario.IdUsuario);
             lblNombrePerfil.Text = "todos";
             foreach (DataGridViewRow row in dgvPerfiles.Rows)
             {
@@ -118,13 +117,13 @@ namespace ProyectoFinal._01View
         {
             if (gp.Perfil is not null)
             {
-                DialogResult opcion = MessageBox.Show("¿Estás seguro?", "Advertencia",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult opcion = MessageBox.Show("¿Estás seguro? Se borraran las publicaciones asociadas."
+                    , "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (opcion == DialogResult.Yes)
                 {
                     if (VerificarOperacion(gp.Eliminar()))
                     {
-                        MessageBox.Show(Convert.ToString(gp.ActualizarId()));
+                        gp.ActualizarId();
                         MostrarPerfiles();
                         gp.Perfil = new Perfil();
                         lblNombrePerfil.Text = "Nombre perfil";
@@ -158,9 +157,80 @@ namespace ProyectoFinal._01View
         {
             dgvPublicaciones.DataSource = gpu.GetAll(id);
         }
+        private void dgvPublicaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvPublicaciones.Rows[e.RowIndex];
 
+            gpu.Publicacion = new Publicacion()
+            {
+                IdPublicacion = Convert.ToString(selectedRow.Cells["idpublicacion"].Value),
+                Titulo = Convert.ToString(selectedRow.Cells["titulo"].Value),
+                Descripcion = Convert.ToString(selectedRow.Cells["descripcion"].Value),
+                ImagenRuta = Convert.ToString(selectedRow.Cells["imagenruta"].Value),
+                IdPerfil = Convert.ToString(selectedRow.Cells["idperfil"].Value)
+            };
 
-
+            lblTitulo.Text = gpu.Publicacion.Titulo;
+        }
+        private void btnCrearPublicacion_Click(object sender, EventArgs e)
+        {
+            if (gp.Perfil is not null)
+            {
+                frmCrearPublicacion frm = new frmCrearPublicacion(gp.Perfil.IdPerfil, new Publicacion());
+                frm.ShowDialog();
+                if (!string.IsNullOrEmpty(frm.Publicacion.Titulo))
+                {
+                    gpu.Publicacion = frm.Publicacion;
+                    if (VerificarOperacion(gpu.Insertar()))
+                    {
+                        MostrarPublicaciones(gp.Perfil.IdPerfil);
+                        lblTitulo.Text = gpu.Publicacion.Titulo;
+                    }
+                }
+            }
+            else
+                MessageError("Seleccione un perfil");
+        }
+        private void btnModificarPublicacion_Click(object sender, EventArgs e)
+        {
+            if (gpu.Publicacion is not null)
+            {
+                frmCrearPublicacion frm = new frmCrearPublicacion(gp.Perfil.IdPerfil, gpu.Publicacion);
+                frm.ShowDialog();
+                if (!string.IsNullOrEmpty(frm.Publicacion.Titulo))
+                {
+                    gpu.Publicacion = frm.Publicacion;
+                    if (VerificarOperacion(gpu.Modificar()))
+                    {
+                        MostrarPublicaciones(gp.Perfil.IdPerfil);
+                        lblTitulo.Text = gpu.Publicacion.Titulo;
+                    }
+                }
+            }
+            else
+                MessageError("Seleccione una publicacion");
+        }
+        private void btnEliminarPublicacion_Click(object sender, EventArgs e)
+        {
+            if (gpu.Publicacion is not null)
+            {
+                DialogResult opcion = MessageBox.Show("¿Estás seguro?", "Advertencia",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (opcion == DialogResult.Yes)
+                {
+                    if (VerificarOperacion(gpu.Eliminar()))
+                    {
+                        gpu.ActualizarId();
+                        MostrarPublicaciones(gp.Perfil.IdPerfil);
+                        gpu.Publicacion = new Publicacion();
+                        lblTitulo.Text = "Nombre publicacion";
+                    }
+                }
+            }
+            else
+                MessageError("Seleccione una publicacion");
+        }
+        //////GESTION COMENTARIOS
 
 
 
@@ -180,13 +250,15 @@ namespace ProyectoFinal._01View
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 0:
-                    MessageError("No se realizaron cambios");
+                    MessageError(gpu.Error());
                     break;
                 default:
-                    MessageError("Error, compruebe que no haya fallos");
+                    MessageError(gpu.Error());
                     break;
             }
             return resultado > 0;
         }
+
+
     }
 }

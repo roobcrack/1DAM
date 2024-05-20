@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinal
 {
-    internal class Publicacion
+    public class Publicacion
     {
         public string IdPublicacion { get; set; }
         public string Titulo { get; set; }

@@ -37,20 +37,19 @@ namespace ProyectoFinal._02Administration
         }
         public int Eliminar()
         {
-            return BaseDatos.Modificacion($"DELETE FROM perfil WHERE idperfil = '" + Perfil.IdPerfil + "'");
+            return BaseDatos.Modificacion($"DELETE FROM perfil WHERE idperfil = " + Perfil.IdPerfil);
         }
         public int ActualizarId()
         {
-            List<Perfil> perfiles = GetAllAll();
-            foreach(Perfil p in perfiles)
+            List<Perfil> perf = GetAllAll();
+            int newId = 1;
+            foreach (Perfil p in perf)
             {
-                int newId = 1;
-                int consulta = BaseDatos.Modificacion($"UPDATE perfil SET idperfil = '{newId}' WHERE idperfil = '{p.IdPerfil}'");
+                int consulta = BaseDatos.Modificacion($"UPDATE perfil SET idperfil = '{newId++}' WHERE idperfil = '{p.IdPerfil}'");
                 if (consulta <= 0)
                     return consulta;
-                newId++;
             }
-            return 2;
+            return 1;
         }
         public Perfil GetBySql(string sql)
         {
