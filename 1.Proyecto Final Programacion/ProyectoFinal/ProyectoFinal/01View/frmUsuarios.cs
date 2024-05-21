@@ -7,7 +7,7 @@ namespace ProyectoFinal._01View
 {
     public partial class frmUsuarios : Form
     {
-        private Usuario usuarioActual;
+        public Usuario usuarioActual;
         private GestionUsuarios gu = new GestionUsuarios();
         private GestionPerfiles gp = new GestionPerfiles();
         private GestionPublicaciones gpu = new GestionPublicaciones();
@@ -24,6 +24,15 @@ namespace ProyectoFinal._01View
             MostrarUsuarios();
             MostrarPerfiles();
             MostrarPublicaciones("");
+            if (usuarioActual.Rol != "administrador")
+            {
+                groupBox1.Visible = false;
+                groupBox2.Visible = false;
+                groupBox3.Visible = false;
+            }
+            dgvUsuarios.Columns.Remove("contraseña");
+            dgvUsuarios.Columns.Remove("rol");
+            dgvUsuarios.Columns["idusuario"].Width = 85;
         }
 
         //////GESTION USUARIOS
@@ -33,8 +42,10 @@ namespace ProyectoFinal._01View
             gu.Usuario = usuarioActual;
             txtNombreUsuario.Text = "";
             lblNombreUsuario.Text = gu.Usuario.Nombre;
+            gp.Perfil = new Perfil();
+            lblNombrePerfil.Text = "Nombre perfil";
             MostrarPerfiles();
-            if (gu.Usuario.Rol == "usuario")
+            if (gpu.GetAllFromUser(gu.Usuario.IdUsuario).Count <= 0)
                 chxOcultarUsuarios.Checked = false;
         }
         private void SeleccionarFilaUsuario(string id)
@@ -50,29 +61,30 @@ namespace ProyectoFinal._01View
         }
         private void chxOcultarUsuarios_CheckedChanged(object sender, EventArgs e)
         {
-            gu.Filtrar(chxOcultarUsuarios.Checked, txtNombreUsuario.Text);
+            gu.Usuario = new Usuario();
+            gu.Filtrar(chxOcultarUsuarios.Checked, checkBox1.Checked, txtNombreUsuario.Text);
             MostrarUsuarios();
         }
         private void txtNombreUsuario_TextChanged(object sender, EventArgs e)
         {
-            gu.Filtrar(chxOcultarUsuarios.Checked, txtNombreUsuario.Text);
+            gu.Usuario = new Usuario();
+            gu.Filtrar(chxOcultarUsuarios.Checked, checkBox1.Checked, txtNombreUsuario.Text);
             MostrarUsuarios();
         }
         private void MostrarUsuarios()
         {
             dgvUsuarios.DataSource = gu.Usuarios;
         }
-        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvUsuarios_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow selectedRow = dgvUsuarios.Rows[e.RowIndex];
 
-            gu.Usuario = new Usuario()
+            Usuario usuario = new Usuario()
             {
                 IdUsuario = Convert.ToString(selectedRow.Cells["idusuario"].Value),
-                Nombre = Convert.ToString(selectedRow.Cells["nombre"].Value),
-                Contraseña = Convert.ToString(selectedRow.Cells["contraseña"].Value),
-                Rol = Convert.ToString(selectedRow.Cells["rol"].Value)
+                Nombre = Convert.ToString(selectedRow.Cells["nombre"].Value)
             };
+            gu.Usuario = gu.GetByName(usuario.Nombre);
 
             lblNombreUsuario.Text = gu.Usuario.Nombre;
             MostrarPerfiles();
@@ -83,6 +95,25 @@ namespace ProyectoFinal._01View
             if (gu.Usuario is not null)
                 gp.Filtrar(cbxOcultarPerfiles.Checked, gu.Usuario.IdUsuario, gpu);
             dgvPerfiles.DataSource = gp.Perfiles;
+            dgvPerfiles.Columns.Remove("idusuario");
+            dgvPerfiles.Columns["idperfil"].Width = 40;
+            MostrarPublicaciones("");
+            if (gu.Usuario is null || gu.Usuario.IdUsuario != usuarioActual.IdUsuario)
+            {
+                btnCrearPerfil.Enabled = false;
+                btnEliminarPerfil.Enabled = false;
+                btnCrearPublicacion.Enabled = false;
+                btnEliminarPublicacion.Enabled = false;
+                btnModificarPublicacion.Enabled = false;
+            }
+            else
+            {
+                btnCrearPerfil.Enabled = true;
+                btnEliminarPerfil.Enabled = true;
+                btnCrearPublicacion.Enabled = true;
+                btnEliminarPublicacion.Enabled = true;
+                btnModificarPublicacion.Enabled = true;
+            }
         }
         private void cbxOcultarPerfiles_CheckedChanged(object sender, EventArgs e)
         {
@@ -102,13 +133,11 @@ namespace ProyectoFinal._01View
         {
             DataGridViewRow selectedRow = dgvPerfiles.Rows[e.RowIndex];
 
-            gp.Perfil = new Perfil()
+            Perfil p = new Perfil()
             {
-                IdPerfil = Convert.ToString(selectedRow.Cells["idperfil"].Value),
-                NombrePerfil = Convert.ToString(selectedRow.Cells["nombreperfil"].Value),
-                Resumen = Convert.ToString(selectedRow.Cells["resumen"].Value),
-                IdUsuario = Convert.ToString(selectedRow.Cells["idusuario"].Value)
+                IdPerfil = Convert.ToString(selectedRow.Cells["idperfil"].Value)
             };
+            gp.Perfil = gp.GetById(p.IdPerfil);
 
             lblNombrePerfil.Text = gp.Perfil.NombrePerfil;
             MostrarPublicaciones(gp.Perfil.IdPerfil);
@@ -139,7 +168,7 @@ namespace ProyectoFinal._01View
             {
                 frmCrearPerfil frm = new frmCrearPerfil(gu.Usuario.IdUsuario);
                 frm.ShowDialog();
-                if (!string.IsNullOrEmpty(frm.Perfil.NombrePerfil))
+                if (frm.Perfil is not null && !string.IsNullOrEmpty(frm.Perfil.NombrePerfil))
                 {
                     gp.Perfil = frm.Perfil;
                     if (VerificarOperacion(gp.Insertar()))
@@ -156,19 +185,19 @@ namespace ProyectoFinal._01View
         private void MostrarPublicaciones(string id)
         {
             dgvPublicaciones.DataSource = gpu.GetAll(id);
+            dgvPublicaciones.Columns.Remove("idperfil");
+            dgvPublicaciones.Columns["idpublicacion"].Width = 40;
+            dgvPublicaciones.Columns["descripcion"].Width = 250;
         }
         private void dgvPublicaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow selectedRow = dgvPublicaciones.Rows[e.RowIndex];
 
-            gpu.Publicacion = new Publicacion()
+            Publicacion p = new Publicacion()
             {
-                IdPublicacion = Convert.ToString(selectedRow.Cells["idpublicacion"].Value),
-                Titulo = Convert.ToString(selectedRow.Cells["titulo"].Value),
-                Descripcion = Convert.ToString(selectedRow.Cells["descripcion"].Value),
-                ImagenRuta = Convert.ToString(selectedRow.Cells["imagenruta"].Value),
-                IdPerfil = Convert.ToString(selectedRow.Cells["idperfil"].Value)
+                IdPublicacion = Convert.ToString(selectedRow.Cells["idpublicacion"].Value)
             };
+            gpu.Publicacion = gpu.GetById(p.IdPublicacion);
 
             lblTitulo.Text = gpu.Publicacion.Titulo;
         }
@@ -231,12 +260,85 @@ namespace ProyectoFinal._01View
                 MessageError("Seleccione una publicacion");
         }
         //////GESTION COMENTARIOS
+        private void btnComentar_Click(object sender, EventArgs e)
+        {
+            if (gpu.Publicacion is not null)
+            {
+                frmComentar frm = new frmComentar(gpu.Publicacion);
+                frm.Show();
+            }
+        }
+
+        //////GESTION ADMINISTRADOR
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (gu.Usuario.IdUsuario is not null && gu.Usuario != usuarioActual)
+            {
+                DialogResult opcion = MessageBox.Show("¿Estás seguro? Se borraran las publicaciones asociadas y perfiles asociados."
+                    , "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (opcion == DialogResult.Yes)
+                {
+                    if (VerificarOperacion(gu.Eliminar()))
+                    {
+                        gu.ActualizarId();
+                        gu.Usuarios = gu.GetAll();
+                        MostrarUsuarios();
+                        gu.Usuario = new Usuario();
+                        lblNombreUsuario.Text = "Nombre usuario";
+                    }
+                }
+            }
+            else
+                MessageError("Seleccione un usuario");
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (gp.Perfil is not null)
+            {
+                DialogResult opcion = MessageBox.Show("¿Estás seguro? Se borraran las publicaciones asociadas."
+                    , "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (opcion == DialogResult.Yes)
+                {
+                    if (VerificarOperacion(gp.Eliminar()))
+                    {
+                        gp.ActualizarId();
+                        MostrarPerfiles();
+                        gp.Perfil = new Perfil();
+                        lblNombrePerfil.Text = "Nombre perfil";
+                    }
+                }
+            }
+            else
+                MessageError("Seleccione un perfil");
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (gpu.Publicacion is not null)
+            {
+                DialogResult opcion = MessageBox.Show("¿Estás seguro?", "Advertencia",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (opcion == DialogResult.Yes)
+                {
+                    if (VerificarOperacion(gpu.Eliminar()))
+                    {
+                        gpu.ActualizarId();
+                        MostrarPublicaciones(gp.Perfil.IdPerfil);
+                        gpu.Publicacion = new Publicacion();
+                        lblTitulo.Text = "Nombre publicacion";
+                    }
+                }
+            }
+            else
+                MessageError("Seleccione una publicacion");
+        }
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            gu.Filtrar(chxOcultarUsuarios.Checked, checkBox1.Checked, txtNombreUsuario.Text);
+            MostrarUsuarios();
+        }
 
 
-
-
-
-
+        //////GESTION GENERAL
         private void MessageError(string text)
         {
             MessageBox.Show(text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -250,15 +352,18 @@ namespace ProyectoFinal._01View
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 0:
-                    MessageError(gpu.Error());
+                    MessageError("No se han realizado cambios");
                     break;
                 default:
-                    MessageError(gpu.Error());
+                    MessageError("Ha ocurrido un error");
                     break;
             }
             return resultado > 0;
         }
-
-
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            usuarioActual = null;
+            this.Close();
+        }
     }
 }

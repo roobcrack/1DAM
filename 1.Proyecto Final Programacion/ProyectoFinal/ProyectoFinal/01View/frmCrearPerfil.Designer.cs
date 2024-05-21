@@ -88,7 +88,7 @@
             Controls.Add(txtNombre);
             Controls.Add(btnCrear);
             Name = "frmCrearPerfil";
-            Text = "frmCrearPerfil";
+            Text = "Crear Perfil";
             ResumeLayout(false);
             PerformLayout();
         }

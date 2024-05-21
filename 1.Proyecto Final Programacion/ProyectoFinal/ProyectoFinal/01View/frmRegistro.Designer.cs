@@ -119,7 +119,7 @@
             Controls.Add(txtContraseña);
             Controls.Add(txtNombre);
             Name = "frmRegistro";
-            Text = "frmRegistro";
+            Text = "Registro";
             ResumeLayout(false);
             PerformLayout();
         }

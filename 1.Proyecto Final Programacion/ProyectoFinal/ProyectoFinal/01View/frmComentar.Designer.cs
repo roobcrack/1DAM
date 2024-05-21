@@ -28,57 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
+            dgvComentarios = new DataGridView();
+            lblTitulo = new Label();
+            lblDescripcion = new Label();
+            txtComentario = new TextBox();
             btnComentar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvComentarios).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvComentarios
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(410, 25);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(562, 398);
-            dataGridView1.TabIndex = 0;
+            dgvComentarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvComentarios.Location = new Point(410, 25);
+            dgvComentarios.Name = "dgvComentarios";
+            dgvComentarios.Size = new Size(562, 398);
+            dgvComentarios.TabIndex = 0;
             // 
-            // pictureBox1
+            // lblTitulo
             // 
-            pictureBox1.Location = new Point(44, 43);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(317, 203);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 14F);
+            lblTitulo.Location = new Point(44, 61);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(81, 25);
+            lblTitulo.TabIndex = 2;
+            lblTitulo.Text = "lblTitulo";
             // 
-            // label1
+            // lblDescripcion
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(44, 274);
-            label1.Name = "label1";
-            label1.Size = new Size(63, 25);
-            label1.TabIndex = 2;
-            label1.Text = "label1";
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Location = new Point(44, 132);
+            lblDescripcion.MaximumSize = new Size(350, 0);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(38, 15);
+            lblDescripcion.TabIndex = 3;
+            lblDescripcion.Text = "label2";
             // 
-            // label2
+            // txtComentario
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(44, 314);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 3;
-            label2.Text = "label2";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(410, 455);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(446, 23);
-            textBox1.TabIndex = 4;
+            txtComentario.Location = new Point(410, 455);
+            txtComentario.Name = "txtComentario";
+            txtComentario.Size = new Size(446, 23);
+            txtComentario.TabIndex = 4;
             // 
             // btnComentar
             // 
@@ -88,6 +79,7 @@
             btnComentar.TabIndex = 5;
             btnComentar.Text = "Comentar";
             btnComentar.UseVisualStyleBackColor = true;
+            btnComentar.Click += btnComentar_Click;
             // 
             // frmComentar
             // 
@@ -95,26 +87,23 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(984, 518);
             Controls.Add(btnComentar);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(pictureBox1);
-            Controls.Add(dataGridView1);
+            Controls.Add(txtComentario);
+            Controls.Add(lblDescripcion);
+            Controls.Add(lblTitulo);
+            Controls.Add(dgvComentarios);
             Name = "frmComentar";
-            Text = "frmComentar";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Text = "Comentar";
+            ((System.ComponentModel.ISupportInitialize)dgvComentarios).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private PictureBox pictureBox1;
-        private Label label1;
-        private Label label2;
-        private TextBox textBox1;
+        private DataGridView dgvComentarios;
+        private Label lblTitulo;
+        private Label lblDescripcion;
+        private TextBox txtComentario;
         private Button btnComentar;
     }
 }

@@ -11,13 +11,13 @@ namespace ProyectoFinal._02Administration
         {
             Publicaciones = GetAll("");
         }
-        public Publicacion GetById(string sql)
+        public Publicacion GetById(string id)
         {
-            DataTable dt = BaseDatos.Consulta(sql);
+            DataTable dt = BaseDatos.Consulta($"SELECT * FROM publicacion WHERE idpublicacion = '{id}'");
             if (dt != null && dt.Rows.Count > 0)
             {
                 return new Publicacion(dt.Rows[0]["idpublicacion"].ToString(), dt.Rows[0]["titulo"].ToString(),
-                dt.Rows[0]["descripcion"].ToString(), dt.Rows[0]["imagenruta"].ToString(), dt.Rows[0]["idperfil"].ToString());
+                dt.Rows[0]["descripcion"].ToString(), dt.Rows[0]["idperfil"].ToString());
             }
             return null;
         }
@@ -27,9 +27,9 @@ namespace ProyectoFinal._02Administration
         }
         public int Insertar()
         {
-            return BaseDatos.Modificacion($"INSERT INTO publicacion (idpublicacion, titulo, descripcion, imagenruta, idperfil) VALUES " +
+            return BaseDatos.Modificacion($"INSERT INTO publicacion (idpublicacion, titulo, descripcion, idperfil) VALUES " +
                          $"('" + Publicacion.IdPublicacion + "', '" + Publicacion.Titulo + "', '" + Publicacion.Descripcion + "', " +
-                         $"'" + Publicacion.ImagenRuta + "', '" + Publicacion.IdPerfil + "')");
+                         $"'" + Publicacion.IdPerfil + "')");
         }
         public int Modificar()
         {
@@ -38,7 +38,7 @@ namespace ProyectoFinal._02Administration
             if (consulta != null && consulta.Rows.Count > 0)
             {
                 return BaseDatos.Modificacion($"UPDATE publicacion SET titulo = '{Publicacion.Titulo}', " +
-                    $"descripcion = '{Publicacion.Descripcion}', imagenruta = '{Publicacion.ImagenRuta}' WHERE idpublicacion = '{Publicacion.IdPublicacion}'");
+                    $"descripcion = '{Publicacion.Descripcion}' WHERE idpublicacion = '{Publicacion.IdPublicacion}'");
             }
             return -1;
         }
@@ -64,7 +64,7 @@ namespace ProyectoFinal._02Administration
             DataTable dt = BaseDatos.Consulta($"SELECT * FROM publicacion WHERE idperfil = '{idperfil}'");
             for (int i = 0; dt != null && i < dt.Rows.Count; i++)
                 publicaciones.Add(new Publicacion(dt.Rows[i]["idpublicacion"].ToString(), dt.Rows[i]["titulo"].ToString(),
-                dt.Rows[i]["descripcion"].ToString(), dt.Rows[i]["imagenruta"].ToString(), dt.Rows[i]["idperfil"].ToString()));
+                dt.Rows[i]["descripcion"].ToString(), dt.Rows[i]["idperfil"].ToString()));
             return publicaciones;
         }
         public List<Publicacion> GetAllFromUser(string id)
@@ -73,7 +73,7 @@ namespace ProyectoFinal._02Administration
             DataTable dt = BaseDatos.Consulta($"SELECT p.* FROM publicacion p INNER JOIN perfil pf ON p.idperfil = pf.idperfil WHERE pf.idusuario = '{id}';");
             for (int i = 0; dt != null && i < dt.Rows.Count; i++)
                 publicaciones.Add(new Publicacion(dt.Rows[i]["idpublicacion"].ToString(), dt.Rows[i]["titulo"].ToString(),
-                dt.Rows[i]["descripcion"].ToString(), dt.Rows[i]["imagenruta"].ToString(), dt.Rows[i]["idperfil"].ToString()));
+                dt.Rows[i]["descripcion"].ToString(), dt.Rows[i]["idperfil"].ToString()));
             return publicaciones;
         }
         public List<Publicacion> GetAllAll()
@@ -82,7 +82,7 @@ namespace ProyectoFinal._02Administration
             DataTable dt = BaseDatos.Consulta($"SELECT * FROM publicacion");
             for (int i = 0; dt != null && i < dt.Rows.Count; i++)
                 publicaciones.Add(new Publicacion(dt.Rows[i]["idpublicacion"].ToString(), dt.Rows[i]["titulo"].ToString(),
-                dt.Rows[i]["descripcion"].ToString(), dt.Rows[i]["imagenruta"].ToString(), dt.Rows[i]["idperfil"].ToString()));
+                dt.Rows[i]["descripcion"].ToString(), dt.Rows[i]["idperfil"].ToString()));
             return publicaciones;
         }
     }

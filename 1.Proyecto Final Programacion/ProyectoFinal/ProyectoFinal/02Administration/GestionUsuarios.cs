@@ -7,6 +7,7 @@ namespace ProyectoFinal._02Administration
     {
         public Usuario Usuario { get; set; }
         public List<Usuario> Usuarios { get; set; }
+        private GestionPublicaciones gp = new GestionPublicaciones();
 
         public GestionUsuarios()
         {
@@ -16,32 +17,40 @@ namespace ProyectoFinal._02Administration
         {
             return GetBySql("SELECT * FROM usuario WHERE nombre = '" + nombre + "'");
         }
-
         public int RegistrarUsuario()
         {
-            if (GetByName(Usuario.Nombre) is null)
                 return BaseDatos.Modificacion($"INSERT INTO usuario (idusuario, nombre, contraseña, rol) VALUES ('{Usuario.IdUsuario}'," +
                     $" '{Usuario.Nombre}', '{Usuario.Contraseña}', '{Usuario.Rol}')");
-            return -1;
         }
         public int ActualizarId()
         {
-            List<Usuario> usuarios = GetAll();
-            for(int i=0; i<usuarios.Count; i++)
+            List<Usuario> usr = GetAll();
+            int newId = 1;
+            foreach (Usuario u in usr)
             {
-                int newId = i + 1;
-                return BaseDatos.Modificacion($"UPDATE usuario SET idusuario = '{newId}' WHERE idusuario = '{usuarios[i].IdUsuario}'");
+                int consulta = BaseDatos.Modificacion($"UPDATE usuario SET idusuario = '{newId++}' WHERE idusuario = '{u.IdUsuario}'");
+                if (consulta <= 0)
+                    return consulta;
             }
-            return -1;
+            return 1;
         }
-        public void Filtrar(bool usuario, string nombre)
+        public int Eliminar()
         {
-            Usuarios = GetAll();
-            for(int i=0; i< Usuarios.Count; i++)
+            return BaseDatos.Modificacion($"DELETE FROM usuario WHERE idusuario = " + Usuario.IdUsuario);
+
+        }
+        public void Filtrar(bool usuario,bool admin, string nombre)
+        {
+            if(Usuario is not null)
             {
-                if ((usuario && Usuarios[i].Rol == "usuario") ||
-                    (!string.IsNullOrWhiteSpace(nombre) && !Usuarios[i].Nombre.StartsWith(nombre)))
-                    Usuarios.RemoveAt(i--);
+                Usuarios = GetAll();
+                for (int i = 0; i < Usuarios.Count; i++)
+                {
+                    if ((usuario && gp.GetAllFromUser(Usuarios[i].IdUsuario).Count <= 0) || 
+                        (!string.IsNullOrWhiteSpace(nombre) && !Usuarios[i].Nombre.StartsWith(nombre)) ||
+                        (admin && Usuarios[i].Rol == "administrador"))
+                        Usuarios.RemoveAt(i--);
+                }
             }
         }
         public Usuario GetBySql(string sql)

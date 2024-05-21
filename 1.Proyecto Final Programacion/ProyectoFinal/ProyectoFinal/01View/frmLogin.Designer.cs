@@ -69,6 +69,7 @@
             // 
             txtContraseña.Location = new Point(183, 120);
             txtContraseña.Name = "txtContraseña";
+            txtContraseña.PasswordChar = '*';
             txtContraseña.Size = new Size(100, 23);
             txtContraseña.TabIndex = 2;
             // 
@@ -113,7 +114,7 @@
             Controls.Add(label1);
             Controls.Add(btnEntrar);
             Name = "frmLogin";
-            Text = "frmLogin";
+            Text = "Login";
             ResumeLayout(false);
             PerformLayout();
         }

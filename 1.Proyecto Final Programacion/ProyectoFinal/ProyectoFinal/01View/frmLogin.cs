@@ -19,7 +19,10 @@ namespace ProyectoFinal._01View
                 Usuario.Contraseña == txtContraseña.Text)
                 this.Close();
             else
+            {
                 txtError.Text = "Nombre o contraseña erróneos";
+                Usuario = null;
+            }
         }
         private void lblCrearUsuario_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {

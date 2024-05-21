@@ -12,10 +12,10 @@ namespace ProyectoFinal
         public string Contenido {  get; set; }
         public string IdPublicacion { get; set; }
 
-        public Comentario(string idComentario, string conntenido, string idPublicacion)
+        public Comentario(string idComentario, string contenido, string idPublicacion)
         {
             IdComentario = idComentario;
-            Conntenido = conntenido;
+            Contenido = contenido;
             IdPublicacion = idPublicacion;
         }
     }

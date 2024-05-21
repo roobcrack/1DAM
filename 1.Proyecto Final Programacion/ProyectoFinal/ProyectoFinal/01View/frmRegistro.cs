@@ -25,8 +25,10 @@ namespace ProyectoFinal._01View
             {
                 Usuario = new Usuario(Convert.ToString(gu.GetAll().Count + 1), txtNombre.Text, txtContraseña.Text, "usuario");
                 gu.Usuario = Usuario;
-                if (VerificarOperacion(gu.RegistrarUsuario()))                  
+                if (VerificarOperacion(gu.RegistrarUsuario()))
                     this.Close();
+                else
+                    Usuario = new Usuario();
             }
         }
         private void MessageError(string text)

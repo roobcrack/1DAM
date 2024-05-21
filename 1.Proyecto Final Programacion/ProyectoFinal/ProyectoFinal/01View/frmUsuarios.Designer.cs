@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvUsuarios = new DataGridView();
             dgvPerfiles = new DataGridView();
             btnMiUsuario = new Button();
             chxOcultarUsuarios = new CheckBox();
@@ -47,38 +46,25 @@
             button7 = new Button();
             groupBox3 = new GroupBox();
             button8 = new Button();
-            txtBuscarTitulo = new TextBox();
-            label4 = new Label();
             lblRolUsuario = new Label();
             lblNombreUsuario = new Label();
             lblNombrePerfil = new Label();
             btnCrearPerfil = new Button();
             btnEliminarPerfil = new Button();
             btnComentar = new Button();
-            comboBox1 = new ComboBox();
-            label2 = new Label();
-            button3 = new Button();
             lblTitulo = new Label();
             menuStrip1 = new MenuStrip();
             opcionesToolStripMenuItem = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
+            dgvUsuarios = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgvPerfiles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPublicaciones).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
-            // 
-            // dgvUsuarios
-            // 
-            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Location = new Point(25, 86);
-            dgvUsuarios.Name = "dgvUsuarios";
-            dgvUsuarios.Size = new Size(227, 392);
-            dgvUsuarios.TabIndex = 0;
-            dgvUsuarios.CellContentClick += dgvUsuarios_CellContentClick;
             // 
             // dgvPerfiles
             // 
@@ -207,6 +193,7 @@
             checkBox1.TabIndex = 25;
             checkBox1.Text = "Ocultar admins";
             checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // button6
             // 
@@ -216,6 +203,7 @@
             button6.TabIndex = 13;
             button6.Text = "Eliminar";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // groupBox2
             // 
@@ -235,43 +223,27 @@
             button7.TabIndex = 13;
             button7.Text = "Eliminar";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(button8);
-            groupBox3.Controls.Add(txtBuscarTitulo);
-            groupBox3.Controls.Add(label4);
-            groupBox3.Location = new Point(648, 552);
+            groupBox3.Location = new Point(723, 552);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(285, 64);
+            groupBox3.Size = new Size(165, 64);
             groupBox3.TabIndex = 15;
             groupBox3.TabStop = false;
             groupBox3.Text = "Administrar publicaciones";
             // 
             // button8
             // 
-            button8.Location = new Point(170, 16);
+            button8.Location = new Point(37, 16);
             button8.Name = "button8";
             button8.Size = new Size(92, 42);
             button8.TabIndex = 13;
             button8.Text = "Eliminar";
             button8.UseVisualStyleBackColor = true;
-            // 
-            // txtBuscarTitulo
-            // 
-            txtBuscarTitulo.Location = new Point(32, 27);
-            txtBuscarTitulo.Name = "txtBuscarTitulo";
-            txtBuscarTitulo.Size = new Size(110, 23);
-            txtBuscarTitulo.TabIndex = 20;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(6, 30);
-            label4.Name = "label4";
-            label4.Size = new Size(20, 15);
-            label4.TabIndex = 19;
-            label4.Text = "Id:";
+            button8.Click += button8_Click;
             // 
             // lblRolUsuario
             // 
@@ -281,7 +253,7 @@
             lblRolUsuario.Size = new Size(66, 15);
             lblRolUsuario.TabIndex = 16;
             lblRolUsuario.Text = "Rol usuario";
-            lblRolUsuario.TextAlign = ContentAlignment.TopRight;
+            lblRolUsuario.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblNombreUsuario
             // 
@@ -291,17 +263,17 @@
             lblNombreUsuario.Size = new Size(93, 15);
             lblNombreUsuario.TabIndex = 17;
             lblNombreUsuario.Text = "Nombre usuario";
-            lblNombreUsuario.TextAlign = ContentAlignment.TopRight;
+            lblNombreUsuario.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblNombrePerfil
             // 
             lblNombrePerfil.AutoSize = true;
-            lblNombrePerfil.Location = new Point(945, 36);
+            lblNombrePerfil.Location = new Point(582, 57);
             lblNombrePerfil.Name = "lblNombrePerfil";
             lblNombrePerfil.Size = new Size(81, 15);
             lblNombrePerfil.TabIndex = 18;
             lblNombrePerfil.Text = "Nombre prefil";
-            lblNombrePerfil.TextAlign = ContentAlignment.TopRight;
+            lblNombrePerfil.TextAlign = ContentAlignment.MiddleRight;
             // 
             // btnCrearPerfil
             // 
@@ -331,34 +303,7 @@
             btnComentar.TabIndex = 25;
             btnComentar.Text = "Ver comentarios / Comentar";
             btnComentar.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "", "id", "titulo", "fecha de publicacion" });
-            comboBox1.Location = new Point(665, 47);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(157, 23);
-            comboBox1.TabIndex = 26;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(582, 52);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 15);
-            label2.TabIndex = 27;
-            label2.Text = "Ordenar por: ";
-            label2.TextAlign = ContentAlignment.TopRight;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(828, 45);
-            button3.Name = "button3";
-            button3.Size = new Size(58, 28);
-            button3.TabIndex = 28;
-            button3.Text = "Filtrar";
-            button3.UseVisualStyleBackColor = true;
+            btnComentar.Click += btnComentar_Click;
             // 
             // lblTitulo
             // 
@@ -368,6 +313,7 @@
             lblTitulo.Size = new Size(116, 15);
             lblTitulo.TabIndex = 29;
             lblTitulo.Text = "Nombre publicacion";
+            lblTitulo.TextAlign = ContentAlignment.MiddleRight;
             // 
             // menuStrip1
             // 
@@ -390,16 +336,24 @@
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
             logOutToolStripMenuItem.Size = new Size(117, 22);
             logOutToolStripMenuItem.Text = "Log Out";
+            logOutToolStripMenuItem.Click += logOutToolStripMenuItem_Click;
+            // 
+            // dgvUsuarios
+            // 
+            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUsuarios.Location = new Point(25, 86);
+            dgvUsuarios.Name = "dgvUsuarios";
+            dgvUsuarios.Size = new Size(227, 392);
+            dgvUsuarios.TabIndex = 31;
+            dgvUsuarios.CellContentClick += dgvUsuarios_CellContentClick_1;
             // 
             // frmUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1058, 637);
+            Controls.Add(dgvUsuarios);
             Controls.Add(lblTitulo);
-            Controls.Add(button3);
-            Controls.Add(label2);
-            Controls.Add(comboBox1);
             Controls.Add(btnComentar);
             Controls.Add(btnEliminarPerfil);
             Controls.Add(btnCrearPerfil);
@@ -420,29 +374,25 @@
             Controls.Add(chxOcultarUsuarios);
             Controls.Add(btnMiUsuario);
             Controls.Add(dgvPerfiles);
-            Controls.Add(dgvUsuarios);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "frmUsuarios";
-            Text = "frmUsuarios";
+            Text = "Usuarios";
             Load += frmUsuarios_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPerfiles).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPublicaciones).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dgvUsuarios;
         private DataGridView dgvPerfiles;
         private Button btnMiUsuario;
         private CheckBox chxOcultarUsuarios;
@@ -463,18 +413,14 @@
         private Label lblRolUsuario;
         private Label lblNombreUsuario;
         private Label lblNombrePerfil;
-        private TextBox txtBuscarTitulo;
-        private Label label4;
         private Button btnCrearPerfil;
         private Button btnEliminarPerfil;
         private CheckBox checkBox1;
         private Button btnComentar;
-        private ComboBox comboBox1;
-        private Label label2;
-        private Button button3;
         private Label lblTitulo;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem opcionesToolStripMenuItem;
         private ToolStripMenuItem logOutToolStripMenuItem;
+        private DataGridView dgvUsuarios;
     }
 }

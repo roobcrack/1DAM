@@ -30,10 +30,8 @@
         {
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
             txtTitulo = new TextBox();
             txtDescripcion = new TextBox();
-            txtImagen = new TextBox();
             btnCompletar = new Button();
             SuspendLayout();
             // 
@@ -55,15 +53,6 @@
             label2.TabIndex = 1;
             label2.Text = "Descripcion:";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(67, 118);
-            label3.Name = "label3";
-            label3.Size = new Size(50, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Imagen:";
-            // 
             // txtTitulo
             // 
             txtTitulo.Location = new Point(136, 41);
@@ -78,16 +67,9 @@
             txtDescripcion.Size = new Size(100, 23);
             txtDescripcion.TabIndex = 4;
             // 
-            // txtImagen
-            // 
-            txtImagen.Location = new Point(136, 118);
-            txtImagen.Name = "txtImagen";
-            txtImagen.Size = new Size(100, 23);
-            txtImagen.TabIndex = 5;
-            // 
             // btnCompletar
             // 
-            btnCompletar.Location = new Point(95, 165);
+            btnCompletar.Location = new Point(91, 134);
             btnCompletar.Name = "btnCompletar";
             btnCompletar.Size = new Size(106, 44);
             btnCompletar.TabIndex = 6;
@@ -101,14 +83,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(297, 257);
             Controls.Add(btnCompletar);
-            Controls.Add(txtImagen);
             Controls.Add(txtDescripcion);
             Controls.Add(txtTitulo);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "frmCrearPublicacion";
-            Text = "frmCrearPublicacion";
+            Text = "Crear publicacion";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -117,10 +97,8 @@
 
         private Label label1;
         private Label label2;
-        private Label label3;
         private TextBox txtTitulo;
         private TextBox txtDescripcion;
-        private TextBox txtImagen;
         private Button btnCompletar;
     }
 }

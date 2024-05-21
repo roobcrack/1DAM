@@ -20,7 +20,7 @@ namespace ProyectoFinal._01View
                 Publicacion.IdPublicacion = Convert.ToString(gpu.GetAllAll().Count + 1);
 
             Publicacion = new Publicacion(Publicacion.IdPublicacion, txtTitulo.Text,
-                txtDescripcion.Text, txtImagen.Text, idperfil);
+                txtDescripcion.Text, idperfil);
             this.Close();
         }
     }

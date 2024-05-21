@@ -1,0 +1,9 @@
+Hola Javi, he solucionado el problemita del login que era añadir una linea y ya está.
+Además en la presentación se me olvidó por completo enseñarte la funcionalidad de administrador,
+si inicias sesión con una cuenta administrador puedes ver los botones situados abajo.
+Esta cuanta es administrador por si quieres probar:
+
+usuario: 	juan
+contraseña: 	juan123
+
+Perdona y gracias.
