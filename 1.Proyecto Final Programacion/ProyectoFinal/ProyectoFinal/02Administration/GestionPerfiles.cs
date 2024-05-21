@@ -24,11 +24,6 @@ namespace ProyectoFinal._02Administration
             }
             
         }
-
-
-
-
-
         public Perfil GetBySql(string sql)
         {
             DataTable dt = BaseDatos.Consulta(sql);
