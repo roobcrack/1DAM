@@ -29,6 +29,8 @@ namespace ProyectoFinal._02Administration
                 }
             }
         }
+<<<<<<< HEAD
+=======
         public int Insertar()
         {
             return BaseDatos.Modificacion($"INSERT INTO perfil (idperfil, nombreperfil, resumen, idusuario) VALUES " +
@@ -51,6 +53,7 @@ namespace ProyectoFinal._02Administration
             }
             return 1;
         }
+>>>>>>> 6a438c72b589b2014346472eb204dfa363964284
         public Perfil GetBySql(string sql)
         {
             DataTable dt = BaseDatos.Consulta(sql);
