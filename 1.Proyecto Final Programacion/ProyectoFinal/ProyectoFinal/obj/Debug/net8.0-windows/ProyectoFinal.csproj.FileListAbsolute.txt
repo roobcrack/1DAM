@@ -98,3 +98,5 @@ C:\Users\Roob\Desktop\1DAM\1.Proyecto Final Programacion\ProyectoFinal\ProyectoF
 C:\Users\Roob\Desktop\1DAM\1.Proyecto Final Programacion\ProyectoFinal\ProyectoFinal\obj\Debug\net8.0-windows\ProyectoFinal.pdb
 C:\Users\Roob\Desktop\1DAM\1.Proyecto Final Programacion\ProyectoFinal\ProyectoFinal\obj\Debug\net8.0-windows\ProyectoFinal.genruntimeconfig.cache
 C:\Users\Roob\Desktop\1DAM\1.Proyecto Final Programacion\ProyectoFinal\ProyectoFinal\obj\Debug\net8.0-windows\ref\ProyectoFinal.dll
+C:\Users\Roob\Desktop\1DAM\1.Proyecto Final Programacion\ProyectoFinal\ProyectoFinal\obj\Debug\net8.0-windows\ProyectoFinal._01View.frmCrearPerfil.resources
+C:\Users\Roob\Desktop\1DAM\1.Proyecto Final Programacion\ProyectoFinal\ProyectoFinal\obj\Debug\net8.0-windows\ProyectoFinal._01View.frmCrearPublicacion.resources
